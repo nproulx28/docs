@@ -1,0 +1,173 @@
+---
+title: "Balance Sheet"
+description: "Building a Balance Sheet"
+---
+
+## Part 2:
+
+Building a Balance Sheet
+
+The **Balance Sheet** is one of the three core financial statements and a vital piece of any complete financial model. It shows your company’s financial position at a specific point in time by summarizing your **assets**, **liabilities**, and **equity**.
+
+In a fully linked 3-statement model, the balance sheet connects directly to your P\&L and Cash Flow Statement—providing structure, accuracy, and integrity to the entire model.
+
+### What Is the Balance Sheet Used For?
+
+The balance sheet answers questions like:
+
+* How much cash do we have right now?
+* What do we own, and what do we owe?
+* How much runway is left based on current assets and burn?
+
+It's also essential for:
+
+* Measuring working capital and liquidity
+* Evaluating debt/equity structure
+* Supporting financial ratios for lenders or investors
+
+### Why Does the Balance Sheet "Balance"?
+
+The balance sheet is based on the accounting identity:
+
+`Assets = Liabilities + Equity`
+
+This relationship must always hold true. If your sheet doesn't balance, there's likely a mistake in your model logic—making this a critical checkpoint for model accuracy and integrity.
+
+In Pluvo, this means ensuring that every change to assets (like revenue or AR) is offset by corresponding changes in liabilities or equity (like retained earnings).
+
+### Setting Up a Balance Sheet in Pluvo
+
+#### Step 1:
+
+Create a New Model
+
+1. Click **+ New Model** in the sidebar
+2. Name it `Balance Sheet`
+3. (Optional) Add it to a "Core Statements" folder
+
+#### Step 2:
+
+Add Core Variables
+
+Click **+ Add Variable** and include the following key sections:
+
+**Assets**
+
+* Cash
+* Accounts Receivable
+* Prepaid Expenses
+* Fixed Assets
+* Total Assets → `=sum(cash, ar, prepaid_expenses, fixed_assets)`
+
+**Liabilities**
+
+* Accounts Payable
+* Accrued Expenses
+* Deferred Revenue
+* Debt
+* Total Liabilities → `=sum(ap, accruals, deferred_rev, debt)`
+
+**Equity**
+
+* Retained Earnings → `=retained_earnings[last month] + net_income`
+* Paid-in Capital
+* Total Equity → `=sum(retained_earnings, paid_in_capital)`
+
+Finally:
+
+**Total Liabilities & Equity** → `=total_liabilities + total_equity`\
+Then compare against **Total Assets** to confirm balance.
+
+You should have something that looks like this: 
+
+\[📸 Screenshot: Folder structure + totals logic]
+
+#### Step 3:
+
+Add Detail (Optional)
+
+You can create sub-variables to track breakdowns:
+
+* Cash
+ 
+* Operating Account
+ 
+* Payroll Account
+* Debt
+ 
+* Short-term
+ 
+* Long-term
+* Fixed Assets
+ 
+* Equipment
+ 
+* Leasehold Improvements
+
+You can also assign **dimensions** for breakdowns like region or department if needed.
+
+You can even create separate rows for each bank account, credit card, or peice of real estate - just keep in mind that the more detail you add the more you will need to maintain when updating the forecast. It's recommended to start with the most lightweight balance sheet you can get value from and iterate into more detail as needed.
+
+\[📸 Screenshot: Example of detailed balance sheet structure]
+
+#### Step 4:
+
+Define Actuals
+
+Just like with the P\&L, define **actuals** by linking to your accounting system’s GL accounts.
+
+* Cash → `Bank Accounts`
+* AR → `Accounts Receivable`
+* Debt → `Loans Payable`
+* Retained Earnings → `Equity > Retained Earnings`
+
+Each variable can be mapped to one or many GL accounts.
+
+\[📸 Screenshot: Actuals mapping for balance sheet items]
+
+#### Step 5:
+
+Forecast the Balance Sheet
+
+Forecasts for the balance sheet are usually **driven by logic**, not manual values. For example:
+
+* **Debt** →
+
+Add a schedule for repayments or new borrowing
+* **Cash** → Will be driven by the cash flow statement in Part 3
+
+Be sure to reference variables from the P\&L where appropriate, especially for working capital items (AR, AP, etc.).
+
+#### Step 4:
+
+Forecast the Balance Sheet
+
+Unlike the P\&L, most balance sheet forecasts are **cumulative**—each month's value builds on the last. In Pluvo, this is typically modeled as:
+
+`value_this_month = value_last_month + change`
+
+For example, in the case of long term debt:
+
+![](/modelling/files/L31z5uuMqYWiFKW7HX0o)
+
+This formula is describing the balance of long term debt each month as the previous month's closing balance, plus incurred interest expenses that month, minus repayments made that month. 
+
+This structure mirrors accounting logic, ensuring your model behaves like a real business: when something goes up, something else goes down (and vice versa).
+
+#### Step 6:
+
+Check the Balance
+
+At the bottom of your balance sheet, add a row:
+
+```plaintext
+Balance Check = total_assets - (total_liabilities + total_equity)
+```
+
+If this row is not zero across time, your model isn’t balancing. This is a useful debug tool when building or updating models.
+
+<Note>
+Your balance sheet reflects how your operations (P\&L) impact your position over time. Always make sure it balances, and use it as your anchor when building a fully connected model.
+</Note>
+
+Next up: linking everything together with the Cash Flow Statement.

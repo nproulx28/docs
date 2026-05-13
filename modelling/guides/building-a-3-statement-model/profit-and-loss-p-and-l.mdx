@@ -1,0 +1,164 @@
+---
+title: "Profit and Loss (P&L)"
+description: "The **Profit & Loss statement (**&#x61;lso called the Income Statement) is the core of most financial models. It tracks revenue, expenses, and profitability ove"
+---
+
+The **Profit & Loss statement (**&#x61;lso called the Income Statement) is the core of most financial models. It tracks revenue, expenses, and profitability over time, forming the foundation for operational planning and forecasting.
+
+### What Is the P\&L Used For?
+
+The P\&L helps you answer questions like:
+
+* How much are we making and spending each month?
+* Are we profitable—or when will we be?
+* How do our margins change as we scale?
+
+It’s a forward-looking planning tool, but also a performance dashboard. When combined with real accounting data, the P\&L becomes a powerful report for **Budget vs. Actual (BvA)** analysis, board reporting, and decision-making.
+
+### Actuals vs.
+
+Forecasted P\&L
+
+In Pluvo, your P\&L model includes both **actuals** (historical data) and **forecasts** (forward-looking projections). Each variable has two sides: one for actuals, and one for forecasts—kept together in the same row so you can track performance over time in one place.
+
+### Setting Up a P\&L in Pluvo
+
+#### Step 1:
+
+Create a New Model
+
+1. In the sidebar, click **+ New Model**
+2. Name it something like `P&L` or `Income Statement`
+3. (Optional) Place it in a folder (e.g. “Core Statements”)
+
+You’ll now see a blank grid.
+
+![](/modelling/files/FTgfrPQX8EFxutfr6HFD)
+
+#### Step 2:
+
+Add Core Variables
+
+Click **+ Add Variable** and create key rows such as:
+
+* Revenue
+* Cost of Goods Sold (COGS)
+* Gross Profit 
+* Operating Expenses
+ 
+* Salaries
+ 
+* Marketing
+ 
+* Software
+* Other Expenses (Interest, Taxes, etc.)
+* Operating Income 
+* Net Income *(after interest, taxes, etc., depending on how detailed you need)*
+
+<Frame caption="<p>Simple P&#x26;L Layout in Pluvo</p>">
+  <img src="/files/CAjeEmAML3iUniDDsKz8" alt="" />
+</Frame>
+
+<Note>
+You can use [**folders**](/modelling/features/variables/folders) to group related variables and keep your model organized.
+</Note>
+
+#### Step 3:
+
+Add Detail
+
+You can break down any variable into **sub-variables** for more granularity. For example:
+
+* Revenue
+ 
+* Sales
+ 
+* Services
+* Salaries
+ 
+* Engineering
+ 
+* Sales
+ 
+* Customer Support
+
+![](/modelling/files/jUmh0xVlsrAXUKDNkT13)
+
+Simply drag variables into folders or nest them under a parent variable to build this structure. You can create as many levels as needed (even sub-sub-sub-sub-sub variables).
+
+Most detailed P\&Ls mirror the structure of your **chart of accounts**, but you might also want to analyze by:
+
+* **Department**
+* **Region**
+* **Vendor**
+* **Customer type**
+
+<Note>
+You can use [**dimensions** ](/modelling/features/dimensions)in Pluvo to categorize data across any variable, then filter, roll up, or compare performance by those categories.
+</Note>
+
+#### Step 4:
+
+Define Actuals
+
+Each variable in Pluvo supports its own **actuals definition**. This tells Pluvo where to pull real data from.
+
+For your P\&L, you’ll typically map actuals using your accounting software:
+
+1. Click into the actuals definition for a variable
+2. Select the GL accounts to pull in (e.g. all income accounts for Revenue)
+3. Repeat for each line item (e.g. map `Payroll Expenses` to Salaries)
+
+Note that not all variable actuals should be pulled from GLs. Some should be calcluated from other variables. These are generally what are considered the model "outputs". In this case the rows that need to be calculated are: 
+
+* Gross Profit `(revenue - COGS)`
+* Operating Income (`Gross Profit - Operating Expenses)`
+* Net Income `(Operating Expenses - Other Expenses)`
+
+Once this is set up, your P\&L will update with the latest accounting data each time you click **Sync** on your integration. No more manual exports or spreadsheet copy-pasting.
+
+<Frame caption="<p>In this example, Sales and Services are pulled directly from GL Accounts in QBO, and the COGS, Salary, and Expense amounts are pulled from another model in Pluvo.</p>">
+  <img src="/files/mrrWJOKpOb1IScANiObR" alt="" />
+</Frame>
+
+<Note>
+You can also define actuals using formulas or pasted data. This can be especially useful for metrics not tracked in your ERP (e.g. headcount, units sold, etc.)
+</Note>
+
+#### Step 5:
+
+Define Forecasts
+
+With actuals flowing in, you can now set up **forecasts** for each variable.
+
+* Click into the **forecast definition** column
+* Add a static value, manual entry per month, or a dynamic formula
+ 
+* e.g. `=headcount
+* average_salary`
+ 
+* or `=revenue
+* 0.35` for a gross margin assumption
+ 
+* In this example, we will be using using an average of the last 3 months, multiplied by a 5% growth rate every month for revenue and COGS accounts.
+* Read more about forecasting on the [formula](/modelling/concepts/formulas) and [variables](/modelling/features/variables) pages
+
+<Frame caption="<p>In this example we use 5% growth on revenue accounts, and then make some simple assumptions about our expenses. Note that every metric that is calculated in the actuals is also calculated the same in the forecast. This is because things like gross profit or net income are calculated the same regardless of if it is in the past or future. </p>">
+  <img src="/files/nCGukoo2s6eShY9hyT2Q" alt="" />
+</Frame>
+
+Forecasts can reference other variables, dimensions, models, and even entire folders. You’ll use these to model growth, spending, and strategy over time.
+
+#### Step 6:
+
+Review & Iterate
+
+* Use **sparklines** to quickly visualize each row’s trend
+* Toggle columns in the **toolbar** to focus on actuals, forecasts, or formulas
+* Add **scenarios** to test different versions of your P\&L (e.g. conservative, base, aggressive)
+
+<Note>
+Think of your P\&L model as the starting point for strategic planning. Keep it driver-based, link it to real data, and use it to align your team around the path forward.
+</Note>
+
+Next up: [the Balance Sheet](/modelling/guides/building-a-3-statement-model/balance-sheet).

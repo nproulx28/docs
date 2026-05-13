@@ -1,0 +1,160 @@
+---
+title: "Dimensions Basics"
+description: "Dimensions are a data type in Pluvo, just like other variables. You can use dimensions to categorize data and perform lookups."
+---
+
+Dimensions are a data type in Pluvo, just like other variables. You can use dimensions to categorize data and perform lookups.
+
+A **dimension** consists of a set of **dimension values**. For example:
+
+* A **Department** dimension might include dimension values: *Engineering, Sales, Product*.
+* A **Region** dimension might include dimension values: *US, EMEA, AUS*
+
+<Note>
+Before you continue, make note of the difference between *Dimensions* and *Dimensions Values*, it will be important throughout the user manual and app. 
+</Note>
+
+You can use dimensions to:
+
+* Categorize rows of data (e.g. expenses by department)
+* Create reusable drivers (e.g. headcount by region)
+* Build filtered rollups and dynamic metrics
+
+#### Example Use Case:
+
+![](/modelling/files/KZw6RWvvZKhXKfHaFFrM)
+
+### Using Dimensions
+
+To access the dimensions menu, click the <img src="/files/FGIXczx8UsWh87VUk1v4" alt="" data-size="line"> icon on any variable. 
+
+The number indicates how many dimensions are applied to that variable. 
+
+This number will be 0 on variables that do not have any dimensions applied. 
+
+![](/modelling/files/K27rC2pyooh1KbMqXbXT)
+
+### Creating Dimensions
+
+#### 🛠 Creating a Dimension
+
+Before you can segment your data, you’ll need to create a new **dimension**—a category like `Region`, `Product`, or `Department` that helps you organize values within a variable.
+
+**To create a new dimension:**
+
+1. Click the **dimension icon** on the variable you want to apply a dimension to.
+2. At the bottom of the dropdown, click **"+ Create dimension"**.
+3. Type the name of your new dimension (e.g. `Region`, `Product`, `Department`) and press **Enter**.
+4. Your new dimension will now appear in the list of available dimensions.
+5. Click on the dimension you just created to **apply it to the variable**.
+
+<Frame caption="<p>In this example, we are creating a dimension called 'Product' on the Sales variable</p>">
+  <img src="/files/W81g66yQcZThyudkEZZe" alt="" />
+</Frame>
+
+Now that you’ve created and applied your dimension, you’ll need to add dimension values to begin entering or modeling data.
+
+### Creating Dimension Values
+
+Once you've created a dimension, you’ll need to define its **dimension values**—these are the individual items that exist within that category.
+
+For example, if your dimension is `Region`, the dimension values might be:
+
+* US
+* EMEA
+* APAC
+* LATAM
+
+**To add a new dimension value:**
+
+1. Open the **Dimensions** dropdown.
+2. Click on the dimension you want to edit.
+3. Scroll to the bottom and click **"Create value"**.
+4. Type in the name of the new dimension value and press **Enter**.
+
+![](/modelling/files/t0NMLg7njkeDRu91Ufov)
+
+You can add as many values as you need, and they’ll instantly become available across your models.
+
+### Applying & Filtering Dimensions
+
+Once you've created your dimensions and their associated values, you're ready to start applying them to variables in your model.
+
+**To apply a dimension to a variable:**
+
+1. Click the **dimension icon** on the row of the variable you want to modify.
+2. In the **Dimensions** dropdown, click the **“+”** icon in the top right to open the list of available dimensions.
+3. Use the **search bar** to find an existing dimension by name.
+  
+* Or, create a new dimension if needed.
+4. Each dimension in the list shows how many dimension values are available.
+5. Select a dimension to add it to the **“Break down by”** list for that variable.
+
+![](/modelling/files/YEclIzWJ3HRL7JrmrbGA)
+
+**To choose which dimension values to include:**
+
+1. Click into the dimension you just added.
+2. Check the boxes next to the **dimension values** you want to display in the grid.
+3. **Important:** At least one dimension value must be selected for the dimension to be activated on that variable.
+4. Use **“Select all”** if you want to include every available value.
+5. Click **Save** to confirm your selections.
+
+You’ll now see the variable broken down by the selected dimension values in the grid.
+
+**Managing Dimensions and Values**
+
+You can rename or delete dimensions and individual dimension values by clicking the **three dots** next to their name in the Dimensions dropdown.
+
+This is helpful for cleaning up your structure as your business evolves.
+
+<Warning>
+Note that dimensions created through an integration CANNOT be renamed or deleted in Pluvo. 
+</Warning>
+
+### Dimension Hierarchies
+
+When you add **multiple dimensions** to a variable, Pluvo creates a **dimension hierarchy**—a way to organize and break down the data across multiple layers.
+
+The hierarchy determines **how the variable is grouped in the grid**, and follows a **top-down order** based on how dimensions are arranged in the Dimensions menu.
+
+**How it works**
+
+* Variables break down **top to bottom** according to the order of dimensions.
+* You can **reorder** the hierarchy by clicking and dragging the handles next to each dimension in the Dimensions dropdown.
+* Think of it as:\
+  `Show me {variable} grouped by {dimension}, then split by {sub-dimension}, and so on.`
+
+**Example**
+
+Let’s say you’ve added two dimensions to `Employee Salaries`:
+
+1. **Department**
+2. **Region**
+
+If you reverse the order—putting `Region` first and `Department` second—it will group salaries by region first, then department within each region:
+
+Use dimension hierarchies to create clear and structured models that mirror how your business operates across teams, geographies, or entities.
+
+### Integration Dimensions
+
+Some dimensions in Pluvo can be pulled directly from your connected systems—like your ERP or accounting software—so you can reference real-world data in your models.
+
+For example:
+
+* `GL Account` from QuickBooks or NetSuite
+* `Vendor` from your accounts payable system
+* `Department` from your chart of accounts
+
+These integration-powered dimensions are automatically maintained and kept up to date as your source systems sync.\
+For instance, if you add a new department in NetSuite, that department will show up in Pluvo without any manual setup.
+
+You can reuse these dimensions across your entire Pluvo workspace—making it easier to categorize, filter, and report consistently.
+
+Read more about how to [connect and use integrations](/modelling/features/integrations).
+
+### What's Next?
+
+In Pluvo, dimensions aren’t just for display. They can be referenced directly in formulas and forecasts to create dynamic, scalable logic. You can even link dimension values across models automatically using a powerful concept called **dimension inheritance**.
+
+Up next: Using Dimensions in Formulas and Forecasts →

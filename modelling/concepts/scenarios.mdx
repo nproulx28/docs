@@ -1,0 +1,73 @@
+---
+title: "Scenarios"
+description: "Scenarios in Pluvo let you explore “what if” versions of your financial model—so you can plan for growth, downturns, and everything in between without duplicati"
+---
+
+## Understanding Scenarios
+
+Scenarios in Pluvo let you explore “what if” versions of your financial model—so you can plan for growth, downturns, and everything in between without duplicating your work.
+
+Each scenario is a separate version of your model with its own forecast definitions. You can adjust assumptions, formulas, or values in one scenario without impacting others.
+
+Scenarios are great for:
+
+* Comparing best vs. worst case outcomes
+* Modeling different hiring or pricing plans
+* Building board-ready plans without touching your base numbers
+
+Pluvo’s scenario system is built around a **Base + Branch** model. Every organization has a single **Base Scenario** that acts as the source of truth. Other scenarios are branches that track differences from the base.
+
+Want to learn how this works? Continue to Base Scenario Behavior or Merging Scenarios.
+
+## What is a Scenario?
+
+A scenario is a “what if” version of your financial model. It lets you test different choices by changing some numbers or formulas while keeping the rest of your model the same. For example, you might want to see what happens if you hire 10 people this year versus 15.
+
+With scenarios, you can line up multiple options side-by-side in charts and dashboards, making it easy to compare outcomes. (Check out [*Comparing Scenarios in Dashboards*](/modelling/features/dashboards-and-charts/comparing-scenarios-in-dashboards) for more.)
+
+You can’t do calculations across different scenarios, like adding up a variable’s values from each one.
+
+#### Example:
+
+Growth Rate Scenarios
+
+1. Suppose in your default scenario you have a "Growth Rate" driver with a value of 10%.
+2. Duplicate the current scenario (see: duplicating a scenario)
+3. In the new scenario, 
+4. Open scenario S1 and change the Growth Rate to 20%. This adjustment makes Growth Rate unique to S1.
+5. Finally, if you return to the default scenario and set Growth Rate back to 10%, this update will only affect the default scenario—S1’s Growth Rate will remain at 20%.
+
+### What is applied between scenarios? 
+
+Some things in Pluvo are "global", meaning they are the same no matter which scenario you are viewing. An example of this would be actuals pulled from your accounting system, which do not change between scenarios. The following lists breaks down what does/doesn't change between scenarios
+
+#### Things that DO NOT change between scenarios 
+
+* Actuals 
+* Organisation Settings 
+* Chart of Accounts 
+* Dashboard Layouts
+* Report Layouts
+
+#### Things that CAN change between scenarios: 
+
+* Formulas
+* Forecasts 
+
+<Tip>
+When you create a metric or driver, it is created in ALL scenarios. 
+</Tip>
+
+## Create or Duplicate a Scenario
+
+To create a new scenario navigate to the scenario dropdown at the top of the screen and select `New Scenario`. When you create a new scenario, it will contain all of your reports, metrics, drivers, and accounts, but the forecasts will be blank.
+
+![](/modelling/files/cLiiPDEeIZIHGxo42vAb)
+
+Every new scenario is branched from an existing scenario. 
+
+When creating a new scenario, select the scenario you would like to duplicate. 
+
+![](/modelling/files/3XjJEoajiaTkZQxqJMjY)
+
+The new scenario will include all the forecasts present at the moment of duplication, and future changes will be limited to the scenario in which they are created.

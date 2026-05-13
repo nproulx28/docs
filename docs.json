@@ -16,7 +16,13 @@
     "eyebrows": "breadcrumbs"
   },
   "contextual": {
-    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
+    "options": [
+      "copy",
+      "view",
+      "assistant",
+      "mcp",
+      "add-mcp"
+    ]
   },
   "navigation": {
     "global": {
@@ -44,9 +50,179 @@
         "pages": [
           "overview-1",
           {
+            "group": "Guides",
+            "pages": [
+              {
+                "group": "Building a 3-statement model",
+                "pages": [
+                  "modelling/guides/building-a-3-statement-model",
+                  "modelling/guides/building-a-3-statement-model/profit-and-loss-p-and-l",
+                  "modelling/guides/building-a-3-statement-model/balance-sheet",
+                  "modelling/guides/building-a-3-statement-model/cash-flow-statement"
+                ]
+              }
+            ]
+          },
+          {
             "group": "Features",
             "pages": [
-              "modelling/features/grids"
+              "modelling/features/grids",
+              {
+                "group": "Models",
+                "pages": [
+                  "modelling/features/models",
+                  "modelling/features/models/toolbar"
+                ]
+              },
+              {
+                "group": "Variables",
+                "pages": [
+                  "modelling/features/variables",
+                  "modelling/features/variables/forecast-definitions",
+                  "modelling/features/variables/actuals-definitions",
+                  "modelling/features/variables/importing-variables",
+                  "modelling/features/variables/folders",
+                  {
+                    "group": "Metrics",
+                    "pages": [
+                      "modelling/features/variables/metrics",
+                      "modelling/features/variables/metrics/create-a-new-metric",
+                      "modelling/features/variables/metrics/build-a-custom-metric"
+                    ]
+                  },
+                  {
+                    "group": "Drivers",
+                    "pages": [
+                      "modelling/features/variables/drivers",
+                      {
+                        "group": "Create a New Driver",
+                        "pages": [
+                          "modelling/features/variables/drivers/create-a-new-driver",
+                          "modelling/features/variables/drivers/create-a-new-driver/driver-categories-and-sub-categories"
+                        ]
+                      },
+                      "modelling/features/variables/drivers/build-a-custom-driver"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Dimensions",
+                "pages": [
+                  "modelling/features/dimensions",
+                  "modelling/features/dimensions/dimensions-basics",
+                  "modelling/features/dimensions/dimensions-vs-properties",
+                  {
+                    "group": "Integration Dimensions",
+                    "pages": [
+                      "modelling/features/dimensions/integration-dimensions",
+                      "modelling/features/dimensions/integration-dimensions/dimension-mapping"
+                    ]
+                  },
+                  "modelling/features/dimensions/dimensions-in-formulas"
+                ]
+              },
+              {
+                "group": "Variance",
+                "pages": [
+                  "modelling/features/variance",
+                  "modelling/features/variance/variance-in-grids",
+                  "modelling/features/variance/variance-in-charts"
+                ]
+              },
+              {
+                "group": "Dashboards & Charts",
+                "pages": [
+                  "modelling/features/dashboards-and-charts",
+                  "modelling/features/dashboards-and-charts/populating-a-dashboard",
+                  "modelling/features/dashboards-and-charts/edit-dashboard-layouts",
+                  "modelling/features/dashboards-and-charts/charts",
+                  "modelling/features/dashboards-and-charts/comparing-scenarios-in-dashboards",
+                  "modelling/features/dashboards-and-charts/sparklines"
+                ]
+              },
+              {
+                "group": "Integrations",
+                "pages": [
+                  "modelling/features/integrations",
+                  {
+                    "group": "Accounting Integrations",
+                    "pages": [
+                      "modelling/features/integrations/accounting-integrations",
+                      "modelling/features/integrations/accounting-integrations/quickbooks-online",
+                      "modelling/features/integrations/accounting-integrations/xero",
+                      "modelling/features/integrations/accounting-integrations/netsuite",
+                      "modelling/features/integrations/accounting-integrations/sage"
+                    ]
+                  },
+                  "modelling/features/integrations/crm-integrations",
+                  "modelling/features/integrations/hris-integrations",
+                  "modelling/features/integrations/spreadsheets-and-data-integrations",
+                  "modelling/features/integrations/other-integrations",
+                  "modelling/features/integrations/refresh-integration-data"
+                ]
+              },
+              "modelling/features/multi-entity-and-consolidations"
+            ]
+          },
+          "modelling/exports",
+          "modelling/org-switcher",
+          {
+            "group": "Settings",
+            "pages": [
+              "modelling/settings",
+              {
+                "group": "Organization Settings",
+                "pages": [
+                  "modelling/settings/organization-settings",
+                  "modelling/settings/organization-settings/organization-management",
+                  "modelling/settings/organization-settings/user-management",
+                  "modelling/settings/organization-settings/forecast-configurations",
+                  "modelling/settings/organization-settings/integrations",
+                  "modelling/settings/organization-settings/audit-logs"
+                ]
+              },
+              "modelling/settings/account-settings",
+              "modelling/settings/day-night-mode"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              {
+                "group": "Time",
+                "pages": [
+                  "modelling/concepts/time",
+                  "modelling/concepts/time/time-in-formulas"
+                ]
+              },
+              {
+                "group": "Scenarios",
+                "pages": [
+                  "modelling/concepts/scenarios",
+                  "modelling/concepts/scenarios/switching-scenario",
+                  "modelling/concepts/scenarios/base-scenarios",
+                  "modelling/concepts/scenarios/merging-scenarios",
+                  "modelling/concepts/scenarios/create-duplicate-and-delete-scenarios"
+                ]
+              },
+              {
+                "group": "Formulas",
+                "pages": [
+                  "modelling/concepts/formulas",
+                  "modelling/concepts/formulas/dates-in-formulas",
+                  "modelling/concepts/formulas/useful-functions",
+                  "modelling/concepts/formulas/formula-errors-and-troubleshooting"
+                ]
+              },
+              "modelling/concepts/currencies"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "modelling/resources/pluvo-help-center",
+              "modelling/resources/privacy-policy"
             ]
           }
         ]

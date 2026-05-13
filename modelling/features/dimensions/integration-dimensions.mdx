@@ -1,0 +1,69 @@
+---
+title: "Integration Dimensions"
+description: "Integration Dimensions are dimensions pulled directly from your connected accounting software and applied to **variables**  in Pluvo."
+---
+
+Integration Dimensions are dimensions pulled directly from your connected accounting software and applied to **variables**  in Pluvo.
+
+This means you can categorize and filter your actuals in Pluvo in the same way you already do in your ERP or accounting system without recreating those structures manually.
+
+### Enabling Integration Dimensions
+
+You can enable or disable Integration Dimensions from the **Integrations** page.
+
+1. Go to **Settings → Integrations**.
+2. Select your connected accounting integration (e.g., QuickBooks, Xero, NetSuite).
+3. Toggle the dimensions you want to import.
+
+\[Insert screenshot of Integration Dimensions toggles here]
+
+### Using Integration Dimensions in Pluvo
+
+Once toggled on, Integration Dimensions will be available on any integration-powered variables (e.g., GL accounts synced from your ERP).\
+They can be:
+
+* Applied to variables directly in your models.
+* Used for filtering in formulas.
+* Referenced in reporting for deeper breakdowns.
+
+### How Actuals Are Calculated with Integration Dimensions
+
+In Pluvo, the **actual values** you see under each integration dimension value are pulled **directly from transactions** in your accounting software.
+
+Each transaction from your ERP is assigned to the correct dimension bucket based on its tags in your source system.
+
+* For example, if a transaction is tagged with **Department = Engineering**, it will be grouped with all other Engineering transactions.
+* The total you see in Pluvo for **Engineering** is the sum of all those grouped transactions.
+
+**Example:**
+
+* You have a GL account for "Software Subscriptions" in QuickBooks.
+* It has three transactions for the month:
+ 
+* $200 tagged to **Department = Engineering**
+ 
+* $150 tagged to **Department = Sales**
+ 
+* $50 with no department tag.
+* In Pluvo, under the **Department** dimension for this account, you’ll see:
+ 
+* Engineering = $200
+ 
+* Sales = $150
+ 
+* Blank = $50
+
+### The "Blank" Value
+
+Every Integration Dimension includes a special value called **Blank**.
+
+* This is where Pluvo places variables whose source data in your accounting system **does not have a value specified** for that dimension.
+* In the example above, the $50 with no department tag is placed under **Blank**.
+
+### Same Logic as Regular Pluvo Dimensions
+
+Aside from how the actuals are populated (directly from ERP transactions), **Integration Dimensions work exactly the same** as dimensions you create manually in Pluvo.
+
+* You can use them in formulas.
+* They respect inheritance rules.
+* You can combine them with other dimensions for multi-level breakdowns.

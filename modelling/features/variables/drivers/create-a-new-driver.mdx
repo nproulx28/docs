@@ -1,0 +1,60 @@
+---
+title: "Create a New Driver"
+description: "note: '**Value Rules' have been renamed to 'Forecasts'.** You may still see references to Value Rules in text or images while we change over our materials."
+---
+
+***
+
+<Warning>
+note: "**Value Rules" have been renamed to "Forecasts".** You may still see references to Value Rules in text or images while we change over our materials. 
+</Warning>
+
+**Step 1:** Navigate to the drivers tab. 
+
+\
+**Step 2:** Click ‘New Driver’.
+
+![](/modelling/files/qbccFNUrhgT9UuAdPdvf)
+
+**Step 3:** Give your new driver a name, and category if necessary. <br>
+
+**Step 4:** Select the unit of measure you would like this driver to calculate. 
+
+<Note>
+If you select "currency" as unit of measure, you will need to specify which currency. To add/remove currencies from this list, visit [forecast settings](/modelling/settings/organization-settings/forecast-configurations).
+</Note>
+
+Your new driver will appear within the drivers tab, but at this point it will not contain any values. Next, we need to add forecasts. 
+
+### Forecast on a Driver
+
+Click on your driver to begin adding forecasts. 
+
+![](/modelling/files/Zhg6ewnNcVI0BQJzjBmc)
+
+\
+Click ‘New Forecast’.
+
+![](/modelling/files/HKSQe3d9hPN59tljaxGV)
+
+Ensure that you select an accurate start date for this Forecast, so that it drives the forecast.
+
+<Note>
+The Forecast type can either be constant, growing, aggregation, or formula. These types all follow the same mathematical logic seen in the metric knowledge articles and beyond.
+</Note>
+
+Learn more about forecasting in [Metrics](/modelling/features/variables/metrics), [Variables](/modelling/features/variables), [Formulas](/modelling/concepts/formulas), and [Forecasting](/modelling/archive-keep-hidden/archived-pages/forecasting). 
+
+### Manual entry forecasts
+
+You can also create forecasts on drivers by entering values directly into the grid, much like you would in a spreadsheet. 
+
+![](/modelling/files/xut4Lfeu8CXPcsMeijrD)
+
+To create a manual entry forecast, simply double-click on a cell, type in the new value, and press enter. 
+
+<Note>
+Note that due to time-aggregation methods, manual entry forecasts are only available when the grid is set to monthly view. 
+</Note>
+
+If there was already a forecast affecting that cell, pluvo will split the forecast into two new forecasts to ensure that past / future months are preserved. You can view and edit these new forecasts by visiting the driver detail screen for the affected variable.

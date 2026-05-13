@@ -1,0 +1,108 @@
+---
+title: "Formulas"
+description: "To reference a variable in a formula, type `#` to bring up the variable search menu. You can then start typing to filter and select the variable you need. This "
+---
+
+### Variables in Formulas
+
+To reference a variable in a formula, type `#` to bring up the variable search menu. You can then start typing to filter and select the variable you need. This makes it easy to find exactly what you're looking for—without memorizing names or flipping between tabs. Once selected, the variable will be inserted into your formula with the correct formatting.
+
+Variables in pluvo always start with a #, 
+
+Functions are case-sensitive and always end with open and close brackets that may or may not include parameters. 
+
+For example, month() is a function with no paramaters, but the "()" are still requires. Single-word functions are always lowercase, unless otherwise noted here. Multiple word functions are camel-case, meaning they start lowercase anf then each subsequent word begind with an uppercase character
+
+e.g: sumIf(), countIf(), constantGrowth(), mondaysInMonth(), etc. 
+
+### Basic Arithmetic
+
+<table><thead><tr><th width="216">Operator</th><th width="214">Syntax</th><th>Example</th></tr></thead><tbody><tr><td>plus</td><td>+</td><td>1 + 1 = 2</td></tr><tr><td>minus</td><td>-</td><td>5 - 3 = 2</td></tr><tr><td>multiplication</td><td>*</td><td>2
+* 3 = 6</td></tr><tr><td>division</td><td>/</td><td>10 / 2 = 5</td></tr><tr><td>Brackets </td><td>( ) </td><td>( 1 + 2 )
+* 2 = 6</td></tr><tr><td>Exponent</td><td>^</td><td>3^2 = 9</td></tr><tr><td>Square Root</td><td>sqrt()</td><td>sqrt(25) = 5</td></tr></tbody></table>
+
+### Growth Functions
+
+#### Constant Growth
+
+`constantGrowth()` increases a variable by a constant amount every set period (every month/quarter/year, etc.). 
+
+**syntax:** \
+`constantGrowth(starting_value, growth_per_period, 'frequency')` 
+
+Accepted values for frequency include: `monthly, quarterly, yearly, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec.` 
+
+Note: *Frequency* MUST be inside 'single quotes'.
+
+**Example:**
+
+`constantGrowth(100, 10, 'monthly')`
+
+This will start a forecast that is 100 in the first month, 110 in the second month, 120 in the third month, and so on. 
+
+<table><thead><tr><th width="154.9765625">Function</th><th width="142.828125">Description</th><th width="243.34765625">Syntax</th><th>Example</th></tr></thead><tbody><tr><td>constantGrowth</td><td>Grow by a constant amount every month/quarter/year</td><td>constantGrowth(starting value, amount to grow by, 'frequency')</td><td>constantGrowth(100,10,'monthly)</td></tr><tr><td>percentGrowth</td><td>Grow by a percentage every month/quarter/year</td><td>percentGrowth(starting value, amount to grow by, 'frequency')</td><td>percentGrowth(100,0.2,'yearly')</td></tr></tbody></table>
+
+### ifError()
+
+Use `ifError()` to prevent broken outputs when a formula might return an error (like dividing by zero).
+
+**Syntax:**
+
+```
+ifError(expression, fallbackValue)
+```
+
+> Note: This, like all functions in Pluvo,  is **case-sensitive**.
+
+If the `expression` runs successfully, it returns the result. If it errors, it returns the `fallbackValue`.
+
+**Example:**
+
+```plaintext
+ifError(Revenue / Headcount, 100000)
+```
+
+This returns Revenue per Employee, or `100000` if `Headcount` is zero.
+
+You can also use a formula as the fallback:
+
+```plaintext
+ifError(Revenue / Headcount, Revenue
+* 0.2)
+```
+
+Simple, safe, and scalable.
+
+### Logical Functions
+
+<table><thead><tr><th width="124.734375">Function</th><th width="240">Syntax</th><th>Description</th><th data-hidden>Example</th><th data-hidden>Result</th></tr></thead><tbody><tr><td>If</td><td>if(condition, result_if_true, result_if_false)</td><td>Used to check a condition, return a specific value if the condition holds true, and return a different value if the condition holds false.</td><td></td><td></td></tr><tr><td>And</td><td>and(condition_1,condition_2,...)</td><td>Returns TRUE only if ALL conditions are TRUE</td><td></td><td></td></tr><tr><td>Add</td><td>add(num_1, num_2, ...)</td><td>Returns the sum of a set of numbers.</td><td></td><td></td></tr><tr><td>Sum</td><td>sum(num_1, num_2, ...)</td><td>Ree: Add.</td><td></td><td></td></tr><tr><td>Sum If</td><td>sumIf(folder, 'condition')</td><td>Sums variables in a folder IF the condition is true</td><td></td><td></td></tr><tr><td>Subtract</td><td>sub(num_1, num_2, ...)</td><td>Returns the difference of a set of numbers.</td><td></td><td></td></tr><tr><td>Multiply</td><td>mul(num_1, num_2, ...)</td><td>Multiplies two or more numbers.</td><td></td><td></td></tr><tr><td>Divide </td><td>div(num_1, num_2, ...)</td><td>Divides two or more numbers.</td><td></td><td></td></tr><tr><td>Average</td><td>avg(num_1, num_2, ...)</td><td>Returns the average from a range of numbers</td><td></td><td></td></tr><tr><td>Floor</td><td>floor(num)</td><td>Rounds down and returns the largest integer less than or equal to a given number.</td><td></td><td></td></tr><tr><td>Ceiling</td><td>ceil(num)</td><td>Rounds up and returns the smallest integer greater than or equal to a given number.</td><td></td><td></td></tr><tr><td>Count If</td><td>countIf( folder, 'condition')</td><td>Counts variables in a folder IF the condition is true</td><td></td><td></td></tr><tr><td>Count</td><td>count(num_1, num_2, ...)</td><td>Returns the number of elements in a range. </td><td></td><td></td></tr><tr><td>Min</td><td>min(num_1, num_2, ...)</td><td>Finds the smallest number in a range.</td><td></td><td></td></tr><tr><td>Max</td><td>max(num_1, num_2, ...)</td><td>Finds the largest number in a range. </td><td></td><td></td></tr><tr><td>Round</td><td>round(num_1)</td><td>Rounds the number to the nearest whole number</td><td></td><td></td></tr></tbody></table>
+
+<Warning>
+note: functions in formulas are CASE SENSITIVE. All formula functions must be typed in lower-case (Camel Case for multi-word functions)
+</Warning>
+
+### Comparison Functions and Operators
+
+<table><thead><tr><th width="214">Comparator</th><th width="101">Syntax</th><th>Description</th></tr></thead><tbody><tr><td>Equals</td><td>==</td><td>Returns TRUE if both conditions are equal</td></tr><tr><td>Greater Than </td><td>></td><td>Returns TRUE </td></tr><tr><td>Less Than </td><td>&#x3C;</td><td>Returns TRUE </td></tr><tr><td>Greater Than or Equal</td><td>>=</td><td>Returns TRUE </td></tr><tr><td>Less Than or Equal</td><td>&#x3C;=</td><td>Returns TRUE </td></tr></tbody></table>
+
+### Other Mathematical functions and symbols
+
+| Function / Symbol | Syntax | Description                          |
+
+| ----------------- | ------ | ------------------------------------ |
+
+| π                 | pi     | ≈ 3.14159                            |
+
+| Euler's number    | e      | ≈ 2.71828182                         |
+
+| sine function     | sin( ) | Returns the sine of a given angle    |
+
+| cosine function   | cos( ) | Returns the cosine of a given angle  |
+
+| tangent function  | tan( ) | Returns the tangent of a given angle |
+
+[Check out our other formula guides.](/modelling/features/variables/drivers/build-a-custom-driver)
+
+<Note>
+Don't see what you're looking for? [You can suggest a new feature here](https://raintechnologies.atlassian.net/servicedesk/customer/portal/2). We're adding support for new formulas and functions all the time!
+</Note>

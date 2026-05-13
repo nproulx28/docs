@@ -1,0 +1,84 @@
+---
+title: "Folders"
+description: "Folders help you organize variables within your model. They make complex models easier to read, group, and manage—especially when you’re working with lots of li"
+---
+
+## Folders
+
+Folders help you organize variables within your model. They make complex models easier to read, group, and manage—especially when you’re working with lots of line items across departments, entities, or use cases.
+
+***
+
+### Adding a Folder
+
+To create a folder:
+
+1. Scroll to the bottom of the grid
+2. Click the **“+ Add Variable”** button
+3. Select **“New Folder”**
+
+Folders will appear in the grid as expandable rows. You can add variables into them or drag-and-drop existing ones.
+
+### What Folders Do
+
+Folders are **organizational tools**—they don’t have formulas, definitions, or values of their own.\
+They exist purely to group and structure your model.
+
+You can:
+
+* Rename a folder by clicking the **pencil icon** at the end of its row
+* Drag and drop **variables into folders**
+* Drag and drop **folders into other folders**
+* **Expand or collapse** folders to control visibility
+
+***
+
+### Using Folders in Formulas
+
+Even though folders don’t have their own values, you **can reference folders in formulas**. Pluvo treats them as a list of the variables they contain.
+
+Examples:
+
+* `sum(folder_name)` → Returns the sum of all variables inside the folder
+* `count(folder_name)` → Returns the number of **variables** in that folder
+
+> **Note:**
+>
+>
+* Variables in **nested folders** are included
+>
+* The folders themselves do **not** count toward the result
+>
+* **Sub-variables** (i.e., dimensioned child rows) are **not** included in `count()` totals
+
+***
+
+### Using `sumif()` and `countif()`
+
+Folders can also be used with conditional formulas:
+
+* `sumif(folder_name, condition)`
+* `countif(folder_name, condition)`
+
+These functions return the sum or count of only those variables in the folder that meet the specified condition—for each time period.
+
+#### Common Use Case:
+
+You may have a folder called `employees` where each variable is a different employee’s salary.\
+To calculate department headcount dynamically—only counting employees who are currently forecasted to earn a salary—you’d use:
+
+`countif(#employees, >0)`
+
+\
+This ensures you:
+
+Don’t count employees before their start date
+
+Stop counting them if they leave or are forecasted to have zero salary
+
+### Best Practices
+
+* Use folders to group line items by department, function, or logic (e.g., “Sales Team,” “Operating Costs”)
+* Collapse rarely used folders to declutter your workspace
+* Use sum() or count() for simple roll-ups, and sumif() / countif() for logic-aware aggregations
+* Name folders clearly to make them easy to reference in formulas

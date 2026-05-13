@@ -1,0 +1,74 @@
+---
+title: "Variance in Grids"
+description: "There are three amount types available in Pluvo. If you've done financial planning before, these should be familiar with you."
+---
+
+There are three amount types available in Pluvo. If you've done financial planning before, these should be familiar with you. 
+
+1. Actual - The amount *actually* recorded by your accounting software. Since this is a, measure of what actually happened, it is only available for past time periods. 
+2. Forecast - The amount that was projected. This could be for future periods (what we think will happen) or for past periods (what we thought would happen)
+3. Variance - The difference between the forecast and the actuals. 
+
+You can toggle different amount types in the drop down above grids. 
+
+<Frame caption="<p>Amount type dropdown</p>">
+  <img src="/files/CWWBzlsF7tuvIQ6vTARd" alt="" />
+</Frame>
+
+By default, if no amount types are selected, the grid will display `actuals` for past periods and `forecasts` for future periods. 
+
+## Sparklines
+
+Sparklines throughout the app always display actuals in past months (solid line) and forecasts in future months (dotted line). 
+
+## View Past Actuals
+
+By Default, grids show actuals in all past periods. 
+
+<Note>
+past periods are shaded in grids to make it easier to distinguish where actuals end and forecasts begin. 
+</Note>
+
+Selecting `Actual` from the amount type dropdown will add a label to the top of the column, confirming that you are looking at actuals. Note that actuals are only as up-to-date as your accounting software, and they are refreshed on data sync. You can refresh your data at anytime if you'd like to see make sure your actuals are up tp date (see: [Refresh Integration Data](/modelling/features/integrations/refresh-integration-data)). 
+
+<Warning>
+Actuals in future months will ALWAYS be zero. 
+</Warning>
+
+![](/modelling/files/WkIltanFer7mII6Ca9vO)
+
+## View Past Forecasts 
+
+To view Forecasts in past months, ensure `forecast` is selected from the amount type dropdown. 
+
+![](/modelling/files/XtyhXhXWFkVY16v2q6bL)
+
+This will make only forecast values visible in the grid. This can be useful to see what you had projected in past months, regardless of what the actual outcomes were. 
+
+<Frame caption="<p>Past forecasts in the Assets grid. </p>">
+  <img src="/files/MoCHTDuQcmeVXAHCSkxs" alt="" />
+</Frame>
+
+## View Past Variance 
+
+Similarly, you can view variance for past months by selecting `variance` from the amount type drop down. This will display the difference between the forecasted amount and the actual amount. If the actual amount was LESS than the forecasted amount, the variance will be a negative number. Conversely, if the actual was LARGER than the forecasted amount, the variance will be positive. 
+
+## Combining Amount Types
+
+You can also select multiple amount types at once. This allows you to see actual, forecast, *and* variance data in the grid at once.  
+
+When multiple amount types are selected, each period column is split into multiple sections that display the different amount types. 
+
+![](/modelling/files/6eZ1P6Xu0Pz0FXEIFTWc)
+
+## Balance Account Forecasts 
+
+Note that by default, if a balance account has no forecast applied to it, it will auto-populate an forecasted opening balance of the previous month's closing balance. 
+
+This is because movements of balance accounts need to be tracked to ensure your financial model remains in good health.  
+
+If the default forecast was zero or some other value, then that would be a movement which would need to be tracked across related accounts to ensure consistency.  Any custom forecast you create will override this behaviour, and movements will be properly tracked across the app.
+
+<Tip>
+Sometimes this behaviour can seem un-intuitive at first when viewing past forecasts or variances on balance accounts, but it intentional to ensure balance sheets and financial models remain correct. 
+</Tip>

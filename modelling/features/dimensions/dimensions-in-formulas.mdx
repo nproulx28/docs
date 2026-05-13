@@ -1,0 +1,129 @@
+---
+title: "Dimensions in Formulas"
+description: "Once your dimensions are set up, you can start referencing them directly in formulas to make your calculations more precise. This is useful when you only want p"
+---
+
+### Filtering Dimensions
+
+Once your dimensions are set up, you can start referencing them directly in formulas to make your calculations more precise. This is useful when you only want part of a variable’s total—like sales from a specific region, expenses for one department, or revenue tied to a certain product line.
+
+#### Opening the Filter Menu
+
+1. Add your variables to a formula as you normally would.
+2. Click on the **variable name** inside the formula. This will open the filter menu.
+3. In the filter menu, you’ll see two sections: **Amount Type** and **Dimensions**. For this section, we’ll focus on **Dimensions**.
+
+#### Selecting Dimensions
+
+When you open the dimension filter menu, you’ll see a list of all dimensions available for that variable. These are the same dimensions you applied to the variable in the grid.
+
+**\[SCREENSHOT: List of available dimensions for a variable]**
+
+Click into a dimension to see its **dimension values**. For example, if the dimension is `Region`, you might see:
+
+* US
+* EMEA
+* APAC
+
+You can toggle dimension values **on or off** to control which ones are included in your formula. The formula will then aggregate only the values you’ve selected.
+
+#### Example:
+
+Filtering by Region
+
+Let’s say you have a `Sales` variable with a `Region` dimension containing `US`, `EMEA`, and `APAC`.
+
+* If all three are toggled on, `Sales` in your formula will include all regions.
+* If you toggle only `US` and `EMEA`, then `Sales` will reflect the combined total for just those two regions.
+
+This lets you create formulas like:
+
+Sales (US + EMEA) / Total Headcount
+
+without having to create separate variables for each region.
+
+#### Using Filtered
+
+Variables in Formulas
+
+Once filtered, variables work exactly like unfiltered ones—you can sum them, multiply them, divide them, or use them in more complex expressions. The only difference is that the calculation will now be based on the dimension values you’ve chosen.
+
+#### Inherit Dimension
+
+At the bottom of the filter menu, you’ll see the **Inherit Dimension** option. This is a powerful way to make formulas automatically adapt based on the dimensions of the row they’re in.<br>
+
+We’ll cover **Inherit Dimension** in detail in the next section.
+
+### Inherit Dimensions
+
+**Dimension Inheritance** lets you write **one generic formula** and apply it across many dimension combinations—without having to manually select or change dimension values for each row.
+
+When **Inherit Dimension** is turned on for a variable inside your formula, Pluvo will:
+
+* Look at the **dimension path** of the current row.
+* Go find the **same path** in the referenced variable.
+* Pull in the matching value automatically.
+
+This means you can copy and paste a formula across multiple rows, and it will always fetch the correct matching data—no manual filtering required.
+
+#### Example:
+
+Basic Inheritance
+
+Imagine you’re writing a formula in a row with these dimensions:
+
+* `Region = US`
+* `Department = R&D`
+
+If the variable in your formula is `Expenses` and it’s set to **Inherit Dimension**, Pluvo will automatically pull:
+
+```
+Expenses > US > R&D
+```
+
+No matter where you paste that formula, it will always match the destination row’s dimension path.
+
+**\[SCREENSHOT: Variable filter menu with Inherit Dimension toggled on]**
+
+#### Example:
+
+Nested Variables
+
+Inheritance works even when you have **nested variables** or complex breakdowns.
+
+In the example below:
+
+* **Variable 1:** `SaaS License Cost` (broken down by Vendor)
+* **Variable 2:** `Headcount` (broken down by Department)
+
+We want to calculate **total SaaS expenses by Department and Vendor**.
+
+Here’s how:
+
+1. Create an `Expenses` variable broken down by **both Vendor and Department**.
+2. In the forecast definition for `Expenses`, write:
+
+```
+pgsqlCopyEditLicense Cost (Inherit Dimensions)
+* Headcount (Inherit Dimensions)
+```
+
+3. Copy and paste this formula across all rows.
+
+For each row, Pluvo will check the **current dimension path** (e.g., `Vendor: Google | Department: Sales`) and go fetch the corresponding `License Cost` and `Headcount` values with matching dimensions.
+
+**\[GIF: Pasting inheritance formula across multiple rows and watching it auto-match dimensions]**
+
+#### Reordering Dimensions Still Works
+
+Another powerful feature: if you **reorder dimensions** in your grid (e.g., Vendor → Department instead of Department → Vendor), the inheritance formula **automatically updates** to follow the new dimension hierarchy.
+
+You don’t have to rewrite or adjust anything—it just works.
+
+#### Why
+
+This is Powerful
+
+* Saves huge amounts of time when applying formulas to large, multi-dimensional models.
+* Eliminates repetitive manual filtering.
+* Adapts dynamically to changes in dimension order or values.

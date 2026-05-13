@@ -1,0 +1,52 @@
+---
+title: "Build a Custom Driver"
+description: "Let’s say that we want to forecast the amount of revenue that each new full time employee (FTE) in Sales will bring us. This will give us a great example of how"
+---
+
+***
+
+Let’s say that we want to forecast the amount of revenue that each new full time employee (FTE) in Sales will bring us. This will give us a great example of how you can string together drivers, forecasts, and other variables to create useful forecasts. 
+
+Let’s get started! 
+
+**Step 1:** Navigate to the drivers tab. 
+
+Our first task will be to create a growing sales driver called sales headcount. This will allow us to set up growth parameters within the system to keep track of growth and eventually revenue goals. With this done, we will have the first part of the Revenue per FTE equation.
+
+\
+**Step 2:** Create a New Driver named Sales headcount, and ensure that the unit of measure is number.
+
+**Step 3:** Click on the driver you just created, and add a forecast by clicking the ‘New Forecast’ button.
+
+Note that we have assigned this forecast type to growing, meaning we will set the parameters for constant growth. In other words, we want to tell the system that we are hiring one sales full time employee per month. 
+
+**Step 4:** Set the rule type to growing, and define the parameters. 
+
+\
+**Step 5:** Click ‘Save Changes’.
+
+You will find your new forecast under the forecast section of the previous interface. To edit this rule click on the three dots next to the rule. This is helpful in the event that your date range is incorrect.
+
+<Tip>
+Now that we have created a driver for consistent sales headcount growth, let’s move on to the driver which will determine each of those FTEs revenue. 
+</Tip>
+
+**Step 6:** Create a new driver named ‘Sales per FTE’ and create a constant forecast. 
+
+* With this forecast, we will be defining how much revenue every sales FTE brings in per month.
+
+Following the same logic as seen above, we will assign a constant forecast of $50,000 per FTE.
+
+\
+**Step 7:** Assign a constant forecast of $50,000 per employee.
+
+<Tip>
+Now we have two parts of the equation: how much each employee makes for the company, and a growth trajectory for those particular employees. We’re now ready to forecast how much each sales FTE is expected to bring in.
+</Tip>
+
+**Step 8:** Create a third and final driver named “Sales forecast.” This one will be a currency type. 
+
+\
+**Step 9:** Assign a formula forecast which multiplies sales headcount by revenue per FTE.
+
+**Step 10:** Click ‘Save Changes’.<br>

@@ -1,0 +1,61 @@
+---
+title: "Variables"
+description: "In Pluvo, forecasting is built around variables. Variables are simply any piece of data that can be referenced in a formula. Think of them as cells in an spread"
+---
+
+In Pluvo, forecasting is built around variables. Variables are simply any piece of data that can be referenced in a formula. Think of them as cells in an spreadsheet. just like you could reference cell 'A1' in a spreadsheet formula, you can reference Pluvo Variables when building forecasts.  
+
+Every variable has a[ forecast definition](/modelling/features/variables/forecast-definitions) and an [actuals defition](/modelling/features/variables/actuals-definitions). 
+
+Forecast definition: the formula to be used for **future values.**\
+Actuals definition: the formula to be used for **past values**. 
+
+Variables come in several types, but all behave the same way. To insert a variable into a formula, simply type "#" in any cell to bring up the variable menu. 
+
+To search for a specific variable, begin typing. You can search variables either by name, or by category.  e.g: typing `#Balance` will bring up a list of all the balance sheet metrics. 
+
+To insert a variable, click on it in the dropdown, or highlight it and press `enter`. 
+
+## Variable Types
+
+Variables come in three types that determine how they behave in formulas and charts. 
+
+* Number
+* Currency
+* Percentage
+
+To change variable types, select the Type button on variable row (figure 1). <br>
+
+<Frame caption="<p>Variable Type Selector</p>">
+  <img src="/files/8kRZ9ZaerUQmlNy6egxx" alt="" />
+</Frame>
+
+### Number Variables
+
+Number variables are used for countable amounts besides currency. For example: headcount. Any amount that is not expressed as a dollar amount.  When a number variable is added to a chart. 
+
+### Currency Variables
+
+Currency Variables behave much like numbers, however they are limited to 2 decimal places and include a currency icon when displaying in grids and charts (e.g: $).
+
+When creating a new currency variable you must select which currency the variable should be (e.g: CAD, USD, AUD, GBP, etc.) 
+
+If only one currency is activated via the organization settings, then currency variables will  choose that currency by default. 
+
+### Percentage Variables
+
+Percentage variables include the % symbol in charts and grids and are automatically multiplied by 100 when calculated. 
+
+e.g: a percentage variable that is defined as `1÷10` will output 10%, not 0.1.
+
+Percentages are also automatically divided by 100 when being called in a formula.
+
+e.g: `$100
+* 10%` will output the same result as `$100
+* 0.1` .
+
+### Combining Variable Types
+
+When combining variables of multiple types in a formula, the output will be that of the parent variable. In other words, Pluvo will perform the operations directly on the value of each variable without converting between types. 
+
+Keep this in mind when calculating and combining percentages, as you may or may not wish to multiply the result by 100, depending on your purposes and application.

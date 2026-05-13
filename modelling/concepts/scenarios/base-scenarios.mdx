@@ -1,0 +1,104 @@
+---
+title: "Base Scenarios"
+description: "Every organization in Pluvo has one **Base Scenario**—your financial source of truth. Other scenarios are branches created from the base that inherit everything"
+---
+
+## Base Scenario Behavior
+
+Every organization in Pluvo has one **Base Scenario**—your financial source of truth. Other scenarios are branches created from the base that inherit everything by default, unless a change is made.
+
+This model gives you power and flexibility: change only what’s different, and let the rest stay in sync.
+
+### How Scenario Inheritance Works
+
+When you create a new scenario:
+
+* It clones the Base Scenario
+* All variable definitions are **linked** to the Base
+* **Changes in the Base will automatically propagate to all scenarios—unless a variable or cell has been overridden**
+
+### Linked vs.
+
+De-Linked Variables and Cells
+
+#### Editing a Variable
+
+If you edit a variable’s formula in a **non-base** scenario:
+
+* That variable becomes **fully de-linked** 
+* It no longer inherits any updates from the Base
+* If you delete the changes to a de-linked variable, the link to base will be restored. 
+
+#### Editing a Cell
+
+If you change a single cell (within a variable) in a scenario:
+
+* Only that **cell** becomes de-linked
+* The rest of the variable **remains linked** to the Base
+* Future changes in the Base will apply to all **non-de-linked cells**
+
+<Note>
+De-linked cells are visually indicated by a **blue highlight** in the grid. 
+</Note>
+
+This behavior applies to **both forecast and actuals definitions**—you can override either on a cell-by-cell basis.
+
+### Example Walkthrough
+
+You have a variable called `Engineer Salary` in both your Base and Optimistic scenarios.
+
+* In the **Base Scenario**, salary is $10,000/month
+* In the **Optimistic Scenario**, you increase the April salary to $12,000 by editing a single cell
+ 
+* That **April cell is now de-linked**
+ 
+* It appears **highlighted blue**
+ 
+* If you later change the base salary to $11,000:
+   
+* All months **except April** update in the Optimistic Scenario
+   
+* April stays at $12,000 (it’s de-linked)
+
+You can override as little or as much of a variable as needed, giving you surgical control without needing to fully de-link everything.
+
+### Quick Reference:
+
+What Happens When...
+
+| Action                             | Result                                                  |
+
+| ---------------------------------- | ------------------------------------------------------- |
+
+| Edit a variable in Base            | All linked variables in other scenarios update          |
+
+| Edit a full variable in a scenario | That variable becomes fully de-linked                   |
+
+| Edit a single cell in a scenario   | That cell becomes de-linked (blue highlight)            |
+
+| Edit a de-linked variable in Base  | No impact on scenarios where that variable is de-linked |
+
+| Edit a de-linked cell in Base      | No impact on that cell; others may still update         |
+
+### Global Behaviors
+
+Some actions affect all scenarios, regardless of link status:
+
+| Action                                | Applies to All Scenarios |
+
+| ------------------------------------- | ------------------------ |
+
+| Creating or deleting variables        | ✅ Yes                    |
+
+| Changing variable structure (folders) | ✅ Yes                    |
+
+| Editing actuals logic                 | ✅ Yes (unless de-linked) |
+
+###  Best Practices
+
+* Use **full variable edits** for structural or logic changes
+* Use **cell overrides** when modeling point-in-time differences (bonuses, late payments, etc.)
+* Watch for **blue-highlighted cells** to track where scenario logic diverges
+* Avoid de-linking unnecessarily—linked variables are easier to maintain
+
+For more on how to roll scenario changes back into the Base, see Merging Scenarios.

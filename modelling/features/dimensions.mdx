@@ -1,0 +1,101 @@
+---
+title: "Dimensions"
+description: "Please contact <support@pluvo.io>  to activate dimensions in your organization."
+---
+
+<Note>
+Please contact <support@pluvo.io>  to activate dimensions in your organization. 
+</Note>
+
+Dimensions let you add depth to your models by categorizing data across key business attributes—like department, region, vendor, customer, or product line.
+
+They’re a powerful way to track, organize, and analyze financial data beyond the chart of accounts.
+
+### Why Use Dimensions?
+
+While variables are the backbone of your financial model, dimensions help you **slice and segment those variables** in meaningful ways.
+
+For example:
+
+* Break down headcount by department
+* Track revenue by region
+* Allocate expenses across projects
+* Analyze COGS by SKU
+
+Dimensions allow you to ask better questions and get clearer answers, without duplicating models or hardcoding every line item.
+
+### When to Use Dimensions
+
+You’ll want to use dimensions any time you’re managing **repeating categories** that share the same structure. This is especially useful when:
+
+* You want to **compare multiple entities or segments** side by side
+* You want to **build formulas that adapt** to different dimension values
+* You want to **roll up or filter data** in reports without manual rework
+
+They’re a game-changer for scalable planning and reporting.
+
+### Example:
+
+Forecasting Salaries with Hierarchical Dimensions
+
+Let’s say you’re building a salary forecast for your company.
+
+Without dimensions, you’d need to create separate variables for every department or team—like `Salary_Engineering`, `Salary_Sales`, `Salary_CS`, etc. That gets messy fast, especially if your org grows or restructures.
+
+Instead, you create a single variable: `Employee Salaries`\
+Then, you assign a **Department** dimension to it, which might look like:
+
+* Engineering
+* Sales
+* Customer Success
+* Marketing
+
+Now, each row in your salary model can be tagged to a department, and you can input salaries by department directly in one place.
+
+#### Adding a Hierarchical Dimension
+
+Let’s say your company operates in multiple regions—US, EMEA, and APAC—and each department exists in each region. Rather than creating 15+ individual variables (Sales\_US, Sales\_EMEA, Sales\_APAC…), you add a **Region** dimension *nested* under Department.
+
+For example:
+
+`Department → Region`\
+`Engineering → US`\
+`Engineering → EMEA`\
+`Sales → US`\
+`Sales → APAC`
+
+Now you can plan and report salaries at **any level of granularity**:
+
+#### For Reporting
+
+* Roll up salaries across all departments in APAC
+* Compare Engineering salaries between US and EMEA
+* Show total Sales salaries across all regions
+* Filter a report down to just Customer Success in EMEA
+
+Because the hierarchy is built in, Pluvo understands how to group and aggregate automatically—no extra formulas or duplicated data.
+
+#### For Planning
+
+* Model hiring plans by department *and* region (e.g. 3 engineers in EMEA, 5 in US)
+* Apply different assumptions by region (e.g. higher salaries in the US)
+* Forecast regional expansions just by adding a new region to the dimension—no need to restructure your mode
+
+#### Why It Matters
+
+Dimensions make your models **scalable**. Hierarchical dimensions make them **powerful**.
+
+They allow you to:
+
+* Keep your models clean, even as your org becomes more complex
+* Plan and report across many views—without duplicating logic
+* Build once, then slice, filter, and explore however you need
+
+It’s the difference between a spreadsheet that works for now and a financial model that grows with your business.
+
+### Ready to get started with Dimensions?
+
+* [**Dimension Basics**](/modelling/features/dimensions/dimensions-basics)\
+  Learn how to create and manage dimensions, and see examples of common use cases.
+* [**Dimensions in Formulas**](/modelling/features/dimensions/dimensions-in-formulas)\
+  Learn how to reference dimensions in formulas, use functions like `sumif` and `countif`, and build dynamic logic across categories.

@@ -1,0 +1,58 @@
+---
+title: "Time"
+description: "Time scales are used with variables in [formulas](/modelling/concepts/formulas) to fetch the value at a certain moment in time. For example, #**New Revenue \[Th"
+---
+
+## Time Scales
+
+Time scales are used with variables in [formulas](/modelling/concepts/formulas) to fetch the value at a certain moment in time. For example, #**New Revenue \[This Month]** returns the value of New Revenue for that same calendar month. Similarly, #New Revenue \[Last Month] returns the previous month's value.
+
+Timescales are relative to the month being forecasted. 
+
+For example, if a formula references #**Revenue \[Last month]**, then April's entry would reference March's Revenue, May's entry would reference April's revenue, and so on. 
+
+There are a number of options for timescales that allow you to build complex and powerful models and forecasts. Keep reading for an explanation of each. 
+
+### Month
+
+![](/modelling/files/PgwNccNpkxTA5RxGbr3c)
+
+* This Month - Returns the value for the same month. 
+* Last Month - Returns the value for the previous month
+* Months Prior - Specify a number of months prior, e.g: 4 months ago. 
+* Specific Date - Specify a specific date, e.g: January 2023. 
+
+### Year To Date
+
+![](/modelling/files/zzRmNF31PZ8MGF9o94zS)
+
+* Year to Date - Returns the value for calendar year to the current date
+* Fiscal Year to Date - Returns the value for start of the organization's fiscal year to the current date
+
+### Comparison
+
+![](/modelling/files/2FRIGOa46AwrrvEYkNTq)
+
+* This Month vs Last Month - Returns the difference between this month and the previous month, as a number
+* This Month vs Last Month (%) - Returns the difference between this month and the previous month, as a percentage
+* This Month vs Months Prior - Returns the difference between this month and a month prior, as a number. e.g: this month vs 3 months ago. 
+* This Month vs Months Prior (%) - Returns the difference between this month and a month prior, as a percentage. e.g: this month vs 3 months ago. 
+* This Month vs Same Month Last Year - Returns the difference between this month and the same calendar month last year, as a number
+* This Month vs Same Month Last Year (%) - Returns the difference between this month and the same calendar month last year, as a percentage
+
+### Cumulative
+
+![](/modelling/files/NfDpy9Ab6pMcvRryqfmu)
+
+* Last 3 Months - Returns a sum of the previous 3 months
+* Last 6 Months - Returns a sum of the previous 6 months
+* Last 12 Months - Returns a sum of the previous 12 months
+* Last 3 Months Average - Returns an average of the previous 3 months
+* Last 6 Months Average - Returns an average of the previous 6 months
+* Last 12 Months Average - Returns an average of the previous 12 months
+
+## Dates in Formulas
+
+<Note>
+Dates in formulas is coming soon!
+</Note>

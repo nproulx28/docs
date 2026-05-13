@@ -1,0 +1,149 @@
+---
+title: "Cash Flow Statement"
+description: "Building a Cash Flow Statement"
+---
+
+## Part 3:
+
+Building a Cash Flow Statement
+
+The Cash Flow Statement (CFS) ties everything together.
+
+It connects your P\&L and Balance Sheet by translating profits, losses, and balance sheet movements into cash activity—giving you a full view of your company’s liquidity and runway.
+
+This is the final component of your 3-statement model, and it’s the best way to validate that your entire forecast is structurally sound. If your CFS links correctly and your balance sheet zeros out, your model is good to go.
+
+### What Is the Cash Flow Statement Used For?
+
+The CFS shows you how money moves through your business. It answers:
+
+* Are we burning or generating cash?
+* What’s driving changes in our cash position?
+* How long can we operate before needing to raise or reinvest?
+
+It’s one of the most scrutinized financial reports in forecasting and fundraising, and it proves whether your accounting logic checks out.
+
+### Linking the Statements
+
+A quick recap of how the three statements connect:
+
+* The P\&L produces **Net Income**
+* The Balance Sheet tracks your financial position over time
+* The Cash Flow Statement reconciles the two by translating profit and balance movements into actual cash movement
+
+If done right, cash is the final dependent variable in your model. Every assumption rolls up to it.
+
+### Setting Up a Cash Flow Statement in Pluvo
+
+#### Step 1:
+
+Create a New Model
+
+1. In the sidebar, click **+ New Model**
+2. Name it something like `Cash Flow Statement`
+3. (Optional) Place it in the same folder as your P\&L and Balance Sheet models
+
+<Note>
+Pay close attention to time scales, denoted below in square brackets e.g: \[last month], as they play an important role in biulding the CFS.
+</Note>
+
+#### Step 2:
+
+Structure the Statement
+
+Break your model into three main folders or sections:
+
+**Cash Flows from Operating Activities**
+
+Start with:
+
+* **Net Income** — reference directly from your P\&L\
+  In Pluvo, can easily reference variables from another model by 
+
+Then adjust for non-cash items:
+
+* `+ Depreciation`
+* `+ Amortization` *(if applicable)*
+
+Then calculate working capital movements:
+
+* `ChangeInAR = AR - AR[Last month]` *(cash out)*
+* `ChangeInAP = AP - AP[Last month]` *(cash in)*
+* `ChangeInInventory = Inventory - Inventory[Last month]` *(cash out)*
+
+\[📸 Screenshot: Sample operating activities section]
+
+**Cash Flows from Investing Activities**
+
+* Subtract **Capex** (Capital Expenditures):\
+  `Capex = FixedAssets - FixedAssets[Last month] + Depreciation`
+* Include any other long-term investments or asset disposals as needed
+
+**Cash Flows from Financing Activities**
+
+Include changes from your capital structure:
+
+* `+ NewDebt`
+* `- Repayments`
+* `+ CapitalRaised`
+* `- DividendsPaid`
+
+\[📸 Screenshot: Investing and Financing activities sections]
+
+#### Step 3:
+
+Calculate Net Cash Flow
+
+Add the totals from each section:
+
+`NetCashFlow = OperatingCash + InvestingCash + FinancingCash`
+
+This is your change in cash for the period.
+
+#### Step 4:
+
+Link to the Balance Sheet
+
+Head to your **Balance Sheet model** and set the Cash forecast as:
+
+`Cash = Cash[Last month] + NetCashFlow`
+
+This makes your Cash balance entirely driven by the rest of your model.
+
+\[📸 Screenshot: Linking cash flow to balance sheet]
+
+### Example:
+
+Double-Entry Logic
+
+Pluvo doesn't enforce accounting debits and credits—but the logic still applies.
+
+If you spend $50,000 on new servers:
+
+* `FixedAssets = FixedAssets[Last month] + 50,000`
+* `Cash = Cash[Last month] - 50,000`
+
+Total assets remain unchanged. Your model is balanced.
+
+Another example:
+
+* `NetIncome` increases → `RetainedEarnings` increases
+* Cash increases as a result of positive `NetCashFlow`
+
+Every movement affects at least two accounts. If you don’t model both sides, your Balance Sheet won’t balance.
+
+#### Final Check:
+
+Make Sure It Balances
+
+In your **Balance Sheet**, we can revisit the check row we set up in the previous article. 
+
+`BalanceCheck = TotalAssets - (TotalLiabilities + TotalEquity)`
+
+This should always equal **0**. If not, something is missing from your CFS.
+
+Add a warning flag or visual cue to alert if this ever shows a non-zero number. It’s the easiest way to catch logic gaps in your forecast.
+
+<Tip>
+Once your CFS is complete and linked, your model becomes a live, fully-connected system. All assumptions—from revenue drivers to headcount to debt repayments—flow into cash. This is the gold standard for strategic financial modeling.
+</Tip>

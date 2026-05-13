@@ -1,0 +1,95 @@
+---
+title: "Actuals Definitions"
+description: "In Pluvo, a variable’s **actuals definition** controls how historical or real-world values are populated. While many actuals come from accounting systems (like "
+---
+
+## Actuals Definitions
+
+In Pluvo, a variable’s **actuals definition** controls how historical or real-world values are populated. While many actuals come from accounting systems (like revenue or expenses), they can also represent manually entered data—anything from headcount to unit sales.
+
+Actuals give you the context you need to compare your forecast against what actually happened.
+
+![](/modelling/files/aJecNvlv2oTwTYWvW6gw)
+
+### What Can Be Used as Actuals?
+
+Actuals can come from two sources:
+
+####
+1. **Integrations**
+
+Pluvo connects to systems like:
+
+* QuickBooks Online
+* Xero
+* NetSuite
+
+Once connected, you can map a variable to one or more GL accounts. During each sync, Pluvo pulls in the real data and displays it in the grid alongside your forecast.
+
+Use this for variables like:
+
+* Revenue
+* Operating expenses
+* Cash balances
+* Payroll
+
+####
+2. **Manual Entry or Paste**
+
+You can also enter actuals **manually**, either by:
+
+* Typing directly into the actuals column of a variable
+* Pasting in data (e.g., from Excel or another source)
+
+This is perfect for tracking:
+
+* Headcount
+* Units sold
+* Site traffic
+* Operational metrics
+
+When Actuals are entered into a single month, they override any actuals formula on that variable. 
+
+<Note>
+To manually enter actuals, ensure "Actuals" are selected in the amount type dropdown and then click in the month you'd wish to enter actuals.  
+</Note>
+
+####
+3. **Any Pluvo formula**
+
+You can also define actuals with any formula:
+
+This is ideal for tracking metrics that may be calculated from other data.
+
+### How to Set Up Actuals
+
+For **integration  actuals**:
+
+1. Click the variable row
+2. Open the **Actuals tab**
+3. Select one or more GL accounts to map
+4. Run a sync to populate actuals
+
+For **manual actuals**:
+
+1. Click the actuals column of any cell
+2. Enter or paste in your values
+3. Pluvo will store and display these values just like synced data
+
+<Note>
+Manual actuals will **overwrite** any existing synced values in that variable. You can always revert by re-selecting a mapped account.
+</Note>
+
+### Syncing Behavior (for mapped accounts)
+
+* Click the **Sync** button in the top right to pull updated data from your accounting system
+* Auto-sync can be enabled for hands-off updates
+* If your chart of accounts changes (e.g., a new GL account is added), it will appear on the next sync—but you must manually add it to any relevant variable mappings
+
+### Tips
+
+* Use manual actuals for anything outside your GL (like headcount or SaaS metrics)
+* Use account-mapped actuals for consistency with finance data
+* Keep your actuals clean—avoid mixing manual and synced sources in the same variable unless necessary
+
+Need help setting up or updating actuals? [Contact support](mailto:support@pluvo.io).
