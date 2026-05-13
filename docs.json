@@ -42,7 +42,13 @@
       {
         "group": "Modelling",
         "pages": [
-          "overview-1"
+          "overview-1",
+          {
+            "group": "Features",
+            "pages": [
+              "modelling/features/grids"
+            ]
+          }
         ]
       },
       {
