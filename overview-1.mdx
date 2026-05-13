@@ -1,0 +1,117 @@
+---
+title: "Overview"
+---
+
+# Grids
+
+{% hint style="info" %}
+
+We just released all new grids! Keep reading to learn your way around.
+
+{% endhint %}
+
+The grid is the heart of model-building in Pluvo. It’s where your financial structure comes to life.
+
+## What Is a Grid?
+
+A **grid** is the working area inside a \[model\](/features/[models.md](http://models.md)), where each **row represents a** \[\*\*variable\*\*\](/features/[variables.md](http://variables.md)) and each **column represents time** (typically months).
+
+Variables are the building blocks of your financial plan. Each one contains:
+
+ _A_ \*forecast definition\*\*: your planned value or formula.
+
+ _An_ \*actuals definition\*\*: pulled from your accounting system.
+
+ _A series of_ \*time-based values\*\*, shown by month, quarter, or year.
+
+\<figure\>\<img src="/files/10JaKJKIfI95DRACE3Nj" alt=""\>\<figcaption\>\</figcaption\>\</figure\>
+
+### Key Elements
+
+#### Rows = Variables
+
+Each row in the grid is a **variable**. Variables can be:
+
+\* **Drivers** – inputs like headcount, unit cost, or conversion rate
+
+\* **Metrics** – outputs like revenue, gross margin, or runway
+
+\* **Accounts** – actuals pulled directly from your GL
+
+You can nest variables, group them, or apply dimensions (\*coming soon\*) to get more granular.
+
+You can reorder or regroup variables by simply clicking and dragging them.&#x20;
+
+{% hint style="info" %}
+
+Right-click in the grid header and select "expand all row groups" to open all folders and sub-variables at once.
+
+{% endhint %}
+
+#### Columns = Time
+
+Columns show **time-based values** for each variable—typically broken down by month. The data in these time columns are referred to as _amounts._
+
+&#x20;Using the `Amount Types` dropdown at the top of the grid, you can toggle between:
+
+\* Actuals
+
+\* Forecasts
+
+\* Variance (e.g., actual vs. forecast)
+
+\<figure\>\<img src="/files/ijW6xwoIQzwLXZPsjTlT" alt="" width="165"\>\<figcaption\>\</figcaption\>\</figure\>
+
+Use the `hide columns` drop down to hide/show specific columns.&#x20;
+
+Select `reset filter` to restore the default column layout.&#x20;
+
+#### ➕ Add Variables
+
+Use the **“Add variable”** button to create a new driver, metric, or account row.
+
+Each variable will have:
+
+\* A name and description
+
+\* A forecast definition
+
+\* An actuals definition
+
+Read more about variable definitions on the \[Variables\](/features/[variables.md](http://variables.md)) page.
+
+#### Recalculate & Refresh
+
+Pluvo recalculates models automatically when you update inputs or reload the page. You can click the refresh button in the top right to force the grid to reload.&#x20;
+
+### Best Practices
+
+\* Group related variables together (e.g., by department or cost center)
+
+ _Use dimensions to segment data without duplicating models_ (coming soon)\*
+
+\* Leverage sparklines for quick trend insights
+
+\* Keep forecast logic separate from actuals—Pluvo will compare them for you automatically
+
+Want help structuring your first model or troubleshooting a formula? \[Contact support\]([mailto:support@pluvo.io](mailto:support@pluvo.io)) or check out our Variables Guide.
+
+---
+
+# Agent Instructions: Querying This Documentation
+
+If you need additional information that is not directly available in this page, you can query the documentation dynamically by asking a question.
+
+Perform an HTTP GET request on the current page URL with the `ask` query parameter:
+
+\`\`\`
+
+GET [https://docs.pluvo.io/features/grids.md?ask=\<question\>](https://docs.pluvo.io/features/grids.md?ask=<question>)
+
+\`\`\`
+
+The question should be specific, self-contained, and written in natural language.
+
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+
+Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

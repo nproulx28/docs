@@ -1,0 +1,74 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "Documentation",
+  "description": "Guides and release notes for Pluvo, the AI Decision Engine for the modern enterprise.",
+  "colors": {
+    "primary": "#9B6DF2",
+    "light": "#9B6DF2",
+    "dark": "#9400BB"
+  },
+  "favicon": "/favicon.ico",
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
+  },
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Home",
+          "icon": "house",
+          "href": "/"
+        }
+      ]
+    },
+    "directory": "card",
+    "groups": [
+      {
+        "group": "Analysis",
+        "pages": [
+          "connect-your-stack",
+          "quickstart",
+          "key-concepts",
+          "reports"
+        ]
+      },
+      {
+        "group": "Modelling",
+        "pages": [
+          "overview-1"
+        ]
+      },
+      {
+        "group": "Product Updates",
+        "pages": [
+          "overview"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/images/Pluvo_wordmark-black_on_transparent.svg",
+    "dark": "/images/Pluvo_wordmark-white_on_transparent.svg"
+  },
+  "navbar": {
+    "links": [],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/yourcompany",
+      "linkedin": "https://linkedin.com/company/yourcompany"
+    }
+  }
+}
