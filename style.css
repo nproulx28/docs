@@ -148,6 +148,5 @@ img.nav-logo {
   max-height: 56px !important;
   width: auto !important;
   max-width: 220px;
-  margin-right: auto;
-  margin-left: 0;
+  margin-left: -16px !important;  /* pull left, past the header padding */
 }
