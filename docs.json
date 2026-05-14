@@ -240,12 +240,7 @@
     "dark": "/images/Pluvo_wordmark-white_on_transparent.svg"
   },
   "navbar": {
-    "links": [],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    "links": []
   },
   "footer": {
     "socials": {
