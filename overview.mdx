@@ -3,6 +3,52 @@ title: "Changelog"
 description: "What's new and improved in Pluvo. Newest entries at the top."
 ---
 
+<Update label="July 29, 2026">
+  ## v2026.07.24
+
+  ### New
+
+  - Organize Assistant chats into folders, and drag and drop them in the sidebar to rearrange.
+  - Give quick feedback on any Assistant answer.
+
+  ### Improvements
+
+  - Refreshed report blocks, with chart blocks now in their own card container and a control toolbar.
+  - Polish across the Assistant sidebar and conversation view.
+  - Freeform text sources no longer clutter the list of data sources the AI chooses from.
+</Update>
+
+<Update label="July 22, 2026">
+  ## v2026.07.20
+
+  ### New
+
+  - Skills are now available to your team. Draft a skill by describing it in a chat, admins publish it for the organization, and each skill tracks where it has been used.
+  - Review, edit, and approve the facts Pluvo extracts about your organization, so you control what it treats as context.
+  - Each Assistant conversation now has its own page and URL, so you can link to a chat or come back to it directly.
+
+  ### Improvements
+
+  - Choose how a table syncs instead of always forcing a full resync.
+  - "Force full resync" now asks for confirmation before it runs.
+  - More reliable syncing for Merge-based accounting connections.
+</Update>
+
+<Update label="July 10, 2026">
+  ## v2026.07.10
+
+  ### New
+
+  - Skills, a new top-level page where you can teach Pluvo how your team defines revenue, writes reports, and prepares data. Draft a skill in a chat, check when it will trigger, and see where it has been used. Available to organizations with Pluvo AI enabled.
+  - Connect HubSpot and use your CRM pipeline data as a source.
+  - Salesforce connections now support custom domains and sandbox access.
+
+  ### Improvements
+
+  - Salesforce custom objects and fields now show your configured labels instead of internal API names.
+  - Admins can review every Deep Analysis run in their organization.
+</Update>
+
 <Update label="July 7, 2026">
   ## v2026.07.6
 
@@ -10,12 +56,6 @@ description: "What's new and improved in Pluvo. Newest entries at the top."
 
   - Ask conversations are now saved, so you can return to previous chats later.
   - Connect Salesforce directly, with support for custom fields and objects.
-
-  ### Fixes
-
-  - Databricks syncs now handle URL expiry correctly during longer runs.
-  - Text extraction now works reliably.
-  - The database connector can now reach external Postgres and MySQL databases.
 </Update>
 
 <Update label="July 5, 2026">
@@ -32,11 +72,6 @@ description: "What's new and improved in Pluvo. Newest entries at the top."
   - Profile pictures no longer stretch when the image is not square, with refreshed comment count, resolved-state, and tooltip hover styling.
   - Comment mention suggestions now keep the name and email aligned.
   - Analysis results now refer to tables in plain, human-readable terms instead of opaque step labels like "S6".
-
-  ### Fixes
-
-  - Clicking a comment in the notifications panel now opens the thread right away and closes the panel.
-  - The button on the 500 error page now reads "Home" to match where it goes.
 </Update>
 
 <Update label="June 25, 2026">
@@ -51,12 +86,6 @@ description: "What's new and improved in Pluvo. Newest entries at the top."
   - Analysis reports now follow Pluvo's Report Style Guide, with cleaner headings, easier-to-read text, tidier tables, clickable source numbers, and color-coded severity badges that now include "info" and "resolved" levels. This affects reports only, not the AI chat.
   - Faster data syncing, previewing, and downloading, including quicker CSV exports and support for more file types and custom integrations.
   - New analysis sessions are now private by default.
-
-  ### Fixes
-
-  - Wide tables in analysis reports no longer get cut off. They now scroll sideways within their own box, with a subtle fade at the edges to show there is more to see.
-  - The comments and run-history panels no longer cover the top bar. They now slide out below it and gently push the page content aside.
-  - Healthy API and accounting connections (like QuickBooks and Xero) no longer show a confusing "Unmapped" label that was only ever meant for file uploads.
 </Update>
 
 <Update label="June 15, 2026">
@@ -68,12 +97,6 @@ description: "What's new and improved in Pluvo. Newest entries at the top."
   - Xero connections now show the authenticated organizations, so you can pick which one to configure.
   - Refreshed shadows and text styles across key pages for a cleaner look in light and dark mode.
   - Deep Analysis settings now use a three-dot menu with a simpler scheduling flow.
-
-  ### Fixes
-
-  - Table totals no longer offer an inconsistent click-through when the underlying data is row-level.
-  - Analysis reports now render separate tables correctly when findings include both bills and invoices.
-  - Removed an unexpected bar chart that could appear in the middle of analysis results.
 </Update>
 
 <Update label="June 1, 2026">
