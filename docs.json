@@ -41,8 +41,10 @@
         "pages": [
           "data",
           "ontology",
-          "ask",
-          "analyze",
+          "library",
+          "skills",
+          "assistant",
+          "reports",
           "commenting-and-notifications"
         ]
       },

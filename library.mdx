@@ -1,0 +1,76 @@
+---
+title: "Library"
+sidebarTitle: "Library"
+description: "Review and govern everything Pluvo has learned about your data, so answers are grounded in definitions you have approved."
+---
+
+## What it does
+
+The Library is where you review and govern everything Pluvo has learned about your data: column meanings, relationships, metrics, and saved queries, all in one place.
+
+As Pluvo works with your connected data, it proposes what things mean and how tables relate. The Library is where you confirm or reject those proposals. This matters because approval is what makes a definition live: only approved definitions are used to ground answers, so your Library is what keeps results consistent and auditable.
+
+## What you will find in it
+
+The Library holds five kinds of definitions:
+
+- **Metrics**, named measures with their computation and filters
+- **Column meanings**, what a specific column represents and how it should be treated
+- **Relationships**, how two tables join together, with match quality
+- **Value maps**, how values in one system correspond to values in another
+- **Saved queries**, approved queries for a specific business question
+
+## Reviewing what needs your attention
+
+<Steps>
+  <Step title="Start with the review inbox">
+    Open **Library**. The cards at the top show your totals, how many definitions are approved and live, and how many are waiting for review. Choose **Open review inbox** to jump straight to those.
+  </Step>
+  <Step title="Narrow the list">
+    Use the filters to focus by type, status, where a definition came from, or which connection it belongs to. Items needing attention are listed first.
+  </Step>
+  <Step title="Inspect a definition">
+    Click a title to see the full detail: what it means, how it is computed, where it came from, and its governance history. For metrics and saved queries you can choose **Run query** to browse the rows it returns.
+  </Step>
+  <Step title="Make a call">
+    **Approve** a definition to put it to work, **Reject** one that is wrong, or **Disable** one you want out of use for now. Any of these can be reversed later, which returns the item to suggested.
+  </Step>
+</Steps>
+
+## Understanding the statuses
+
+- **Suggested**, proposed and waiting for your review
+- **Approved**, in use and grounding answers
+- **Rejected**, marked as wrong
+- **Disabled**, taken out of use
+- **Broken by drift**, automatically flagged because your data changed, and excluded from answers until you review it
+
+Each definition also shows where it came from, whether that is Pluvo's own discovery, a shipped catalog, a query someone promoted from a chat, or a person saving it directly.
+
+## Reconciliation for metrics
+
+Metrics are held to a higher bar. A metric needs a reconciliation anchor before it can be approved, which is the expected value its computed query is checked against. Once anchored, Pluvo re-checks it on every sync and tells you whether it is within tolerance, along with the measured value, the expected value, and the difference.
+
+<Note>
+  If a metric cannot be approved yet, it is usually because it needs a reconciliation anchor first.
+</Note>
+
+## How definitions get here
+
+You do not create definitions by hand in the Library. They arrive as Pluvo learns from your connected data sources, from a catalog of common definitions, or when someone saves a query from the **Assistant**. Your job is to review them.
+
+When the Assistant produces a figure you trust, you can save that query to your Library so future answers reuse the same approved logic. Saved that way, it arrives already approved, since your decision to save it is the approval. Answers that draw on Library content are labelled so you can see they came from definitions you have governed.
+
+## Tips
+
+<Tip>
+  Work the review inbox in short regular passes rather than all at once. Every approval makes the next answer more consistent.
+</Tip>
+
+<Tip>
+  Use **Run query** before approving a metric or saved query. Seeing the actual rows and totals is the quickest way to catch a definition that looks right but is not.
+</Tip>
+
+<Note>
+  On a definition's detail page, the "Where it's used" and "History" tabs are not available yet.
+</Note>
