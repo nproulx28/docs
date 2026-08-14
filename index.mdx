@@ -4,7 +4,7 @@ description: Pluvo Product Guide.
 mode: frame
 ---
 
-<div className="flex w-full flex-col items-center justify-center gap-2 py-16 text-center">
+<div className="flex w-full flex-col items-center justify-center gap-2 py-12 text-center">
   <h1 className="text-[30px] font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-50">
     Pluvo Product Guide
   </h1>
@@ -13,9 +13,77 @@ mode: frame
   </p>
 </div>
 
+## Getting started
+
+Setting up Pluvo takes you from raw data to answers you can trust. The first three steps are about teaching Pluvo your business, and they are worth doing properly, because everything after them gets better as a result.
+
+You do not have to finish it all in one sitting. Connect your data, let it sync, and pick the rest up when you have time.
+
+<Steps>
+  <Step title="Connect your data" icon="database">
+    Start in **Data** and connect the systems your numbers already live in, whether that is your accounting platform, your warehouse, or your CRM. Pluvo pulls in the tables you choose and keeps them current.
+
+    Anything that is not in a connected system can be uploaded directly, either as a spreadsheet or as written context, such as a policy document or commentary on the period. Written material is read for the facts it contains, and you approve those facts before they are used.
+
+    Let the first sync finish before you move on. Everything else works from this data.
+
+    [Connecting your data](/data)
+  </Step>
+
+  <Step title="Approve your definitions in the Library" icon="book-open">
+    As Pluvo works with your data, it proposes what things mean: how a metric is calculated, how two tables relate, what a column represents. Your **Library** is where you confirm or reject those proposals.
+
+    This is the step people are tempted to skip, and it is the one that matters most. Only approved definitions are used to ground answers, so every approval makes your results more consistent and more defensible. Work the review inbox in short passes rather than trying to clear it in one go.
+
+    [Reviewing your Library](/library)
+  </Step>
+
+  <Step title="Teach Pluvo how you work with Skills" icon="graduation-cap">
+    Every finance team has its own conventions. Revenue might mean recognized revenue net of refunds. Intercompany accounts might be excluded from every rollup. **Skills** are where you write those rules down once, instead of restating them in every conversation.
+
+    Start with the two or three rules you find yourself repeating most. You can always add more as they come up.
+
+    [Writing skills](/skills)
+  </Step>
+
+  <Step title="Ask your first questions" icon="message-circle">
+    Now you can put it to work. Open the **Assistant** and ask something in plain language, like a budget versus actuals for last month, or which expense lines are trending over budget.
+
+    Click through on any figure in the answer to see how it was calculated and where it came from. Doing that once or twice is the fastest way to build confidence in what you are being told.
+
+    [Using the Assistant](/assistant)
+  </Step>
+
+  <Step title="Turn an answer into a report" icon="file-text">
+    When an answer is worth keeping, ask the Assistant to build a **Report**. You choose the audience and the sections, and it writes the document, with the same traceable figures behind every number.
+
+    Publish it when the numbers are settled. Publishing pins the version other people see, so you can keep editing without anyone reading a half-finished draft.
+
+    [Building reports](/reports)
+  </Step>
+
+  <Step title="Bring your team in" icon="users">
+    Work is more useful shared. An admin can invite colleagues in **Settings**, then any report can be shared with specific people, at view or edit level.
+
+    People need to be in your organization before anything can be shared with them, so invitations come first.
+
+    [Sharing and access](/sharing-and-access) · [Managing people](/settings)
+  </Step>
+</Steps>
+
+<Tip>
+  Steps two and three are what separate a good Pluvo setup from a mediocre one. An hour spent approving definitions and writing a few skills pays back every time someone asks a question.
+</Tip>
+
+<Note>
+  While you are in **Settings**, it is worth turning on two-factor authentication and setting your notification preferences so you hear about the things you care about and not the rest.
+</Note>
+
+## Explore the docs
+
 <CardGroup cols={3}>
   <Card title="Analysis" icon="chart-line" href="/data">
-    Connect your data, explore your ontology, ask questions, and run deep analysis.
+    Connect your data, explore your ontology, ask questions, and build reports.
   </Card>
   <Card title="Assistant" icon="message-circle" href="/assistant">
     Ask questions in plain language and get answers you can trace to the source.
