@@ -18,19 +18,29 @@ From **Data**, choose **Add new data source** and pick from the categories below
   ![The Add new data source screen showing data warehouses, direct connectors, merge connectors, custom integrations, and file upload](/images/data/add-data-source.png)
 </Frame>
 
-**Data warehouses.** Connect directly to your warehouse to bring in data at scale: PostgreSQL, Snowflake, and Databricks.
+**Data Warehouses.** Connect directly to your warehouse to bring in data at scale: PostgreSQL, Snowflake, and Databricks.
 
-**Direct connectors.** Connect straight to an app's own API for a real-time, native link: Xero, QuickBooks, and Stripe.
+**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, QuickBooks, Stripe, Salesforce, Acumatica, Ramp, Measure, and Float.
 
-**Merge connectors.** Connect through a unified integration layer that normalizes data from many systems into a consistent shape: NetSuite, Sage Intacct, QuickBooks, Salesforce, and Xero. Merge connectors are useful when you want the same fields and structure across different source systems.
+**Merge Connectors.** Connect through a unified integration layer that normalizes data from many systems into a consistent shape: NetSuite, Sage Intacct, QuickBooks, Salesforce, HubSpot, and Xero. These are useful when you want the same fields and structure across different source systems.
 
-**Custom integrations.** Bring in pre-mapped accounting data through Merge Accounting Upload.
+**Custom Integrations.** Bring in pre-mapped accounting data through Merge Accounting Upload.
 
-**File upload.** Upload your own spreadsheets and CSVs when the data is not in a connected system.
+**File Upload.** Upload your own spreadsheets and CSVs, or add a **Freeform Text** source when the context you want to share is written rather than tabular.
 
 <Note>
-  Some systems appear under more than one category (for example QuickBooks and Xero). A direct connector links to that app's native API, while a merge connector standardizes its data alongside your other systems. Pick whichever fits how you want the data structured.
+  Some systems appear under more than one category, for example QuickBooks, Xero, and Salesforce. A direct connector links to that app's native API, while a merge connector standardizes its data alongside your other systems. Pick whichever fits how you want the data structured.
 </Note>
+
+<Note>
+  Not every connector is switched on for every organization. If you expect to see one and it is not there, contact your account team.
+</Note>
+
+## Adding written context with Freeform Text
+
+Not everything useful lives in a table. **Freeform Text** lets you bring in written material, such as policies, organizational context, or commentary on a period.
+
+Pluvo reads the document and pulls out the individual facts it contains, then you review and approve those facts before they inform any answers. Only the facts you approve are used, so nothing goes into your results without a person confirming it first.
 
 ## How to connect a source
 

@@ -1,0 +1,86 @@
+---
+title: "Settings"
+sidebarTitle: "Settings"
+description: "Manage your profile, notification preferences, and account security, and if you are an admin, your organization and its people."
+---
+
+## What it does
+
+Settings is where you manage your own account and, if you are an admin, your organization. Open it from the user menu at the bottom of the left sidebar.
+
+Settings are grouped into **Account**, which everyone sees, and **Organization**, which only admins see.
+
+## Your profile
+
+Under **Profile** you can change the name shown to your teammates, upload a profile picture, and choose your **Interface theme**, either **Light** or **Dark**.
+
+This panel also lists every organization you belong to and the role you hold in each, with the option to switch between them.
+
+## Notification preferences
+
+Under **Notifications** you decide what reaches you and how. There is one master switch for in-app notifications, and separate switches for each kind of email, so you can keep the ones you want and turn off the rest:
+
+- an item is shared with you
+- someone commented on an item you have access to
+- someone replied to a comment thread you are on
+- someone mentioned you in a comment
+- an analysis you own completes or fails
+
+Changes save as you make them, so there is nothing to submit.
+
+<Tip>
+  Turning off the in-app master switch disables all in-app notifications, not just some. If you only want less email, leave it on and switch off the individual email types instead.
+</Tip>
+
+## Account security
+
+Under **Security** you can manage how you sign in.
+
+<Steps>
+  <Step title="Add an email address">
+    Choose **Add email address** and enter it. Pluvo sends a verification email, and the address is added once you confirm it.
+  </Step>
+  <Step title="Change your password">
+    Choose **Update password**, then enter your current password and your new one. New passwords must be at least 8 characters. You can also sign out of all other devices at the same time, which is recommended if you think your old password may have been used elsewhere.
+  </Step>
+  <Step title="Turn on two-factor authentication">
+    Choose **Enable**, then pick either an **Authenticator app** or **SMS**. For an authenticator app you scan a QR code, or copy the setup key, then enter the 6 digit code to confirm. For SMS you enter your phone number and confirm the code you are sent.
+  </Step>
+  <Step title="Save your backup codes">
+    However you set it up, Pluvo then shows you a set of backup codes. Copy them and store them somewhere safe, because they are how you get into your account if you lose your device.
+  </Step>
+</Steps>
+
+<Warning>
+  Your backup codes are shown once, when you first turn on two-factor authentication. Save them at that point, because there is no way to view them again later.
+</Warning>
+
+If you sign in through your company's single sign-on, you will not see the password option, since your identity provider handles it.
+
+## Organization settings
+
+These are available to admins.
+
+**General** is where you set your organization's name and logo.
+
+**People** is where you manage who has access. You can see everyone in your organization along with their role, status, and when they joined, plus any invitations that have not been accepted yet. A seat counter shows how many seats you have left.
+
+<Steps>
+  <Step title="Invite someone">
+    Choose **Invite user**, enter their email address, and pick a role. They get an invitation and appear as pending until they accept.
+  </Step>
+  <Step title="Set or change a role">
+    Change someone's role directly in the list. There are three roles: **Guest**, **Member**, and **Admin**.
+  </Step>
+  <Step title="Remove someone">
+    Use the menu at the end of their row to remove a member, or to revoke an invitation that has not been accepted.
+  </Step>
+</Steps>
+
+<Note>
+  Moving someone to **Guest** transfers ownership of what they own and makes their access view only. Pluvo asks you to confirm first, and the change cannot be undone.
+</Note>
+
+<Tip>
+  You need to be in the organization before anything can be shared with you, so if a colleague cannot be found when someone tries to share a report, invite them here first.
+</Tip>
