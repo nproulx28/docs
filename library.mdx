@@ -6,13 +6,13 @@ description: "Review and govern everything Pluvo has learned about your data, so
 
 ## What it does
 
-The Library is where you review and govern everything Pluvo has learned about your data: column meanings, relationships, metrics, and saved queries, all in one place.
+The Library is where you review and govern everything Pluvo has learned about your data: what your columns mean, how your tables relate, how your metrics are calculated, and which queries are trusted.
 
-As Pluvo works with your connected data, it proposes what things mean and how tables relate. The Library is where you confirm or reject those proposals. This matters because approval is what makes a definition live: only approved definitions are used to ground answers, so your Library is what keeps results consistent and auditable.
+Approval is what makes a definition count. Only approved definitions that compile successfully are ever used to answer questions, so anything still suggested, rejected, disabled, or broken is never treated as authoritative. That is what keeps results consistent and defensible.
 
-## What you will find in it
+## What it holds
 
-The Library holds five kinds of definitions:
+Five kinds of definition:
 
 - **Metrics**, named measures with their computation and filters
 - **Column meanings**, what a specific column represents and how it should be treated
@@ -20,55 +20,72 @@ The Library holds five kinds of definitions:
 - **Value maps**, how values in one system correspond to values in another
 - **Saved queries**, approved queries for a specific business question
 
-## Reviewing what needs your attention
+## Getting around
 
-<Steps>
-  <Step title="Start with the review inbox">
-    Open **Library**. The cards at the top show your totals, how many definitions are approved and live, and how many are waiting for review. Choose **Open review inbox** to jump straight to those.
-  </Step>
-  <Step title="Narrow the list">
-    Use the filters to focus by type, status, where a definition came from, or which connection it belongs to. Items needing attention are listed first.
-  </Step>
-  <Step title="Inspect a definition">
-    Click a title to see the full detail: what it means, how it is computed, where it came from, and its governance history. For metrics and saved queries you can choose **Run query** to browse the rows it returns.
-  </Step>
-  <Step title="Make a call">
-    **Approve** a definition to put it to work, **Reject** one that is wrong, or **Disable** one you want out of use for now. Any of these can be reversed later, which returns the item to suggested.
-  </Step>
-</Steps>
+The Library has its own navigation down the left.
 
-## Understanding the statuses
+**Overview** is where you land. It gives you the state of your library at a glance: how much of your data is covered, how many definitions are approved, how many are waiting on review, and how many have broken. Below that, **Needs attention** lists the things worth handling now, and **Recent activity** shows who approved, rejected, or suggested what, including the reason given for a rejection.
 
-- **Suggested**, proposed and waiting for your review
-- **Approved**, in use and grounding answers
-- **Rejected**, marked as wrong
-- **Disabled**, taken out of use
-- **Broken by drift**, automatically flagged because your data changed, and excluded from answers until you review it
+**Review** is your queue of decisions, with a count of what is waiting.
 
-Each definition also shows where it came from, whether that is Pluvo's own discovery, a shipped catalog, a query someone promoted from a chat, or a person saving it directly.
+**Browse** lets you work through everything, either all definitions at once or one kind at a time, with filters for status, source, and connection. Rejected and disabled definitions are tucked away by default, and **Show dismissed** brings them back into view.
 
-## Reconciliation for metrics
+The search box at the top searches your whole library and drops you into Browse with the results filtered.
 
-Metrics are held to a higher bar. A metric needs a reconciliation anchor before it can be approved, which is the expected value its computed query is checked against. Once anchored, Pluvo re-checks it on every sync and tells you whether it is within tolerance, along with the measured value, the expected value, and the difference.
+## The review inbox
+
+**Review** is split into three tabs.
+
+**Suggestions** are new definitions waiting for a person to decide. Work down the list and approve or reject each one. You can move with the arrow keys, press **A** to approve, and **R** to reject.
+
+**Drift breaks** are metrics that stopped matching your data. A metric lands here when its numbers no longer reconcile, or when another metric it depends on was un-approved. Either way it is excluded from answers until you look at it. This is the one to watch: it is how you find out something quietly stopped being trustworthy.
+
+**Conflicts** are questions people actually asked that Pluvo could not answer from your approved definitions. Each one shows the question, whether Pluvo declined to answer or answered without verified figures, and how many times it has come up. They are a useful reading of what your library is still missing.
 
 <Note>
-  If a metric cannot be approved yet, it is usually because it needs a reconciliation anchor first.
+  The review inbox covers metrics and saved queries. To review suggested column meanings, relationships, or value maps, go to **Browse** and filter the status to Suggested.
 </Note>
 
-## How definitions get here
+## Making a decision
 
-You do not create definitions by hand in the Library. They arrive as Pluvo learns from your connected data sources, from a catalog of common definitions, or when someone saves a query from the **Assistant**. Your job is to review them.
+**Approve** puts a definition to work. **Reject** marks it wrong, and Pluvo will not suggest it again. **Disable** takes something out of use without saying it was wrong.
 
-When the Assistant produces a figure you trust, you can save that query to your Library so future answers reuse the same approved logic. Saved that way, it arrives already approved, since your decision to save it is the approval. Answers that draw on Library content are labelled so you can see they came from definitions you have governed.
+Rejecting asks for an optional reason. It is worth writing one, because it appears alongside the decision later and saves the next person wondering why.
+
+All three decisions are reversible. Click an applied decision again to undo it, and the definition returns to suggested.
+
+## Reading a metric
+
+Open any metric and you get the full picture.
+
+**How it's computed** explains the calculation in plain language, step by step, such as summing a column on a table, converting currency at each row's rate, or filtering to particular values. The compiled expression sits underneath if you want the precise version.
+
+**What it means** is the description, along with any guidance that shapes how Pluvo uses it.
+
+**Source and lineage** shows which connection, tables, and joins it draws on, and what role each column plays.
+
+**Governance** records its status, where it came from, who approved it, who added it, and its version.
+
+**Reconciled to ground truth** is the trust check. Metrics are reconciled against an expected value, and this panel shows the measured value, the expected value, the difference, and when it was last checked, along with whether it sits within tolerance. A metric needs that reconciliation before it can be approved, which is why an unreconciled metric cannot be put to work yet.
+
+## Previewing the data
+
+Metrics and saved queries have a **Run query** button that returns the actual rows behind the definition. You can sort and filter across the full result and see per-column totals, which is the quickest way to catch a definition that looks right but is not.
+
+## Where definitions come from
+
+You do not write definitions by hand. They arrive as Pluvo learns from your connected data, from a catalog of common definitions, or when someone promotes a query out of an Assistant conversation.
+
+That last route is worth knowing about. When the Assistant produces a figure you trust, you can save its query to the Library so future answers reuse the same approved logic. Saved that way it arrives already approved, since choosing to save it is the approval. Answers that draw on Library content are labelled, so you can see they rest on definitions you govern.
 
 ## Tips
 
 <Tip>
-  Work the review inbox in short regular passes rather than all at once. Every approval makes the next answer more consistent.
+  Start on **Overview** and work the **Needs attention** list. It puts the highest-value decisions in front of you instead of leaving you to hunt through everything.
 </Tip>
 
 <Tip>
-  Use **Run query** before approving a metric or saved query. Seeing the actual rows and totals is the quickest way to catch a definition that looks right but is not.
+  Read the **Conflicts** tab now and then. It tells you what your team is trying to ask and cannot yet get a grounded answer to, which is the best guide to what to define next.
 </Tip>
 
 <Note>

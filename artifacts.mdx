@@ -1,0 +1,100 @@
+---
+title: "Artifacts"
+sidebarTitle: "Artifacts"
+description: "Ask the Assistant to build an interactive page you can click through, with every figure traceable to the query behind it."
+---
+
+## What it does
+
+An artifact is a self-contained interactive page that the Assistant builds for you. Where a report is a document you read, an artifact is something you click through: drill into a table, switch a selector, filter a view, hover for detail.
+
+It is one file, with everything it needs baked in, so you can download it and open it anywhere, even offline.
+
+## Artifacts or Reports?
+
+Both are things the Assistant produces, and they suit different jobs.
+
+| | Artifacts | Reports |
+| --- | --- | --- |
+| What you get | An interactive page | A written document |
+| Best for | Exploring, dashboards | Circulating, board packs |
+| Interactivity | Yes | No |
+| Publish and version history | No | Yes |
+| Export | Download as a web page | PDF |
+
+If you are not sure which you want, say so, and the Assistant will ask.
+
+## Creating an artifact
+
+Artifacts are built in the **Assistant**, and asking for one explicitly is what triggers it. A normal question gets you a normal answer, so be direct: ask for an interactive dashboard, or a page you can click through.
+
+<Steps>
+  <Step title="Ask for one in the Assistant">
+    Describe what you want, for example "Build an interactive dashboard of Q1 spend by department."
+  </Step>
+  <Step title="It gets built and saved">
+    The Assistant queries the data it needs, builds the page, and saves it. The artifact opens in a panel beside your chat, and you get a link to it in the conversation.
+  </Step>
+  <Step title="Open it full page">
+    Use **Full page** from the panel to see it on its own, or find it later under **Artifacts**.
+  </Step>
+</Steps>
+
+<Note>
+  An artifact is a snapshot. The figures in it are the figures from the moment it was built, and reopening it does not refresh them. Ask the Assistant to rebuild it when you need current numbers.
+</Note>
+
+## Checking the numbers
+
+Artifacts carry their provenance with them, so you can interrogate any figure without leaving the page.
+
+Figures that have been traced back to a query appear with a **dotted underline**. Click one and you see its value, what it measures, the source it came from, the period, how it was calculated, and when the data was last synced. You can expand **View query** to see the exact query that produced it.
+
+Tables and charts get their own button underneath, along the lines of **SQL query behind this table**, which opens the same detail with the query shown.
+
+<Tip>
+  Not every number carries a dotted underline. Pluvo marks what it can trace and leaves the rest plain, so an unmarked figure means it was not traced, rather than that it is wrong.
+</Tip>
+
+## Editing an artifact
+
+You edit an artifact by asking, and you can point at exactly the part you mean.
+
+<Steps>
+  <Step title="Choose Edit a section">
+    In the artifact panel beside your chat, choose **Edit a section**.
+  </Step>
+  <Step title="Click the part you want to change">
+    Hover the artifact and each section highlights as you go over it. Click the one you want.
+  </Step>
+  <Step title="Say what to change">
+    A small box appears on that section. Describe the change and send it. The Assistant rewrites that section and the panel refreshes.
+  </Step>
+</Steps>
+
+You can also just ask in the conversation, for example "change the Q3 column to show margin instead." The Assistant knows which artifact the chat is working on and edits it rather than building a second one.
+
+<Note>
+  Very large artifacts cannot be edited in place. If you hit that, the Assistant will tell you and rebuild it as a smaller one instead.
+</Note>
+
+## Finding and managing artifacts
+
+The **Artifacts** list shows each artifact with its owner and when it was created and last updated, sorted with the most recently updated first. The search box finds artifacts by title.
+
+From an artifact you can:
+
+- **Download HTML** to save it as a single file you can open outside Pluvo or send to someone
+- **Delete** it, from either the list or the artifact itself
+
+Deleting is permanent, so rebuild it from the Assistant if you need it back.
+
+## Tips
+
+<Tip>
+  Artifacts are the right choice when someone else will want to poke at the numbers themselves rather than read your conclusion. Build a report when you want to make a point, and an artifact when you want to hand over the exploration.
+</Tip>
+
+<Note>
+  Artifacts may not be switched on for every organization yet. If you do not see it in your sidebar, contact your account team.
+</Note>
