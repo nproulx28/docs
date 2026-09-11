@@ -20,13 +20,13 @@ From **Data**, choose **Add new data source** and pick from the categories below
 
 **Data Warehouses.** Connect directly to your warehouse to bring in data at scale: PostgreSQL, Snowflake, and Databricks.
 
-**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, QuickBooks, Stripe, Salesforce, Acumatica, Ramp, Measure, and Float.
+**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, QuickBooks, Stripe, Salesforce, Acumatica, Ramp, Brex, Measure, and Float.
 
 **Merge Connectors.** Connect through a unified integration layer that normalizes data from many systems into a consistent shape: NetSuite, Sage Intacct, QuickBooks, Salesforce, HubSpot, and Xero. These are useful when you want the same fields and structure across different source systems.
 
 **Custom Integrations.** Bring in pre-mapped accounting data through Merge Accounting Upload.
 
-**File Upload.** Upload your own spreadsheets and CSVs, or add a **Freeform Text** source when the context you want to share is written rather than tabular.
+**File Upload.** Upload a CSV or an Excel workbook, or add a **Freeform Text** source when the context you want to share is written rather than tabular.
 
 <Note>
   Some systems appear under more than one category, for example QuickBooks, Xero, and Salesforce. A direct connector links to that app's native API, while a merge connector standardizes its data alongside your other systems. Pick whichever fits how you want the data structured.
@@ -35,6 +35,16 @@ From **Data**, choose **Add new data source** and pick from the categories below
 <Note>
   Not every connector is switched on for every organization. If you expect to see one and it is not there, contact your account team.
 </Note>
+
+## Uploading spreadsheets
+
+**File Upload** takes CSV files and Excel workbooks, in `.csv`, `.xlsx`, and `.xls` formats, and you can bring in several at once.
+
+Each sheet in a workbook becomes its own table in Pluvo, and you name each one as you finish setting it up. Once connected, the source keeps a record of the workbook it came from and which sheet became which table, so you can always trace a table back to its origin.
+
+<Tip>
+  Structure the workbook the way you want it to appear before you upload. One clean sheet per table, with a single header row, saves cleanup later.
+</Tip>
 
 ## Adding written context with Freeform Text
 
@@ -49,7 +59,7 @@ Pluvo reads the document and pulls out the individual facts it contains, then yo
     Open **Data**, select **Add new data source**, and choose the system you want to connect. You can use the search box at the top to find it quickly.
   </Step>
   <Step title="Authenticate or enter credentials">
-    For apps like Xero, QuickBooks, and Stripe, you sign in through that service and authorize Pluvo. For warehouses, you enter your connection details (such as host, database, and credentials). For files, you select the spreadsheet or CSV to upload.
+    For apps like Xero, QuickBooks, and Stripe, you sign in through that service and authorize Pluvo. For warehouses, you enter your connection details (such as host, database, and credentials). For files, you select the CSV or workbook to upload.
   </Step>
   <Step title="Select the data to bring in">
     Choose which tables or datasets you want Pluvo to sync from the source.
@@ -58,24 +68,26 @@ Pluvo reads the document and pulls out the individual facts it contains, then yo
     Pluvo pulls in the selected data. You can watch progress as each table syncs.
   </Step>
   <Step title="Name and finish">
-    Give the connection a clear name (for example "NetSuite data") and finish. It then appears in your list of sources with its current status.
+    Pluvo suggests a name based on the entity the connection covers, so two connections of the same type are easy to tell apart. Keep it or rename it, then finish. It appears in your list of sources with its current status, and you can rename it later from the connection's settings.
   </Step>
 </Steps>
 
 ## Keeping data current
 
-After the first sync, Pluvo keeps your data up to date by pulling in new and changed records. A connection shows a status such as **READY** when it is healthy and available to use across the platform. You can re-sync a source at any time, and if something looks off you can re-run a full sync to reimport everything from scratch.
+After the first sync, Pluvo keeps your data up to date by pulling in new and changed records. A connection shows **Active** when it is healthy and available to use across the platform, and tells you when it is syncing or needs attention. Use **Sync now** to pull fresh data at any time, **Test connection** to check it is still healthy, and if something looks off you can re-run a full sync to reimport everything from scratch.
+
+If you stop a sync partway, the connection is marked as cancelled rather than failed. Sync it again when you are ready, since it needs a complete run before the data can be used.
 
 ## Tips
 
 <Tip>
-  Give each connection a name you will recognize later. You will see that name when you pick a source in the Ontology and elsewhere, so "NetSuite data" is clearer than the default.
+  If you connect the same system twice, for example two Xero entities, Pluvo names each connection after the entity it covers so you can tell them apart at a glance. Rename them if your own naming is clearer.
 </Tip>
 
 <Tip>
-  For spreadsheets, each tab in an Excel workbook comes in as its own table, so structure your file the way you want it to appear in Pluvo before uploading.
+  Open a connection to see everything about it in one place: its status, when it last synced, the tables it brought in, and its settings.
 </Tip>
 
 ## What's next
 
-Once your data is connected, head to the **Ontology** to see how Pluvo maps those raw tables into connected business entities you can analyze.
+Once your data is connected, head to the **Library** to review and approve what Pluvo has learned about it, so answers rest on definitions you have governed.

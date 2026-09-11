@@ -17,7 +17,7 @@ The point is trust. Rather than a figure you have to take on faith, every load-b
     Open **Assistant** and type your question, for example "Do a budget vs actuals for last month" or "Which expense lines are trending over budget?" Press Enter to send, or Shift and Enter to add a line break.
   </Step>
   <Step title="Or start from a suggestion">
-    Three suggested questions sit below the box, tailored to the data you have connected. Clicking one fills it into the box so you can adjust the wording before you send it.
+    The landing screen offers a set of starting points, including asking a question, running an analysis, generating a report, building a table or chart, and creating an artifact. Each one carries example prompts you can use as they are or edit before sending.
   </Step>
   <Step title="Answer any clarifying question">
     If a detail would change the answer materially, the Assistant asks you one question and offers a few options to choose from. Pick one, add a detail if you like, then continue.
@@ -30,6 +30,22 @@ The point is trust. Rather than a figure you have to take on faith, every load-b
   </Step>
 </Steps>
 
+If an answer is heading the wrong way, choose **Stop** to end it early, or press Escape. Then send a new message with better direction rather than waiting it out.
+
+## Choosing how much verification you want
+
+Not every question needs the same rigour. The **Verification level** control in the message box lets you choose how hard Pluvo works to check figures against source data:
+
+- **Standard** is best for quick questions, initial analysis, and exploring your data.
+- **Enhanced** is best for management reporting, planning, and financial decisions.
+- **Thorough** is best for board, investor, or audit-sensitive work. It takes longer.
+
+Standard is the default, and your choice applies to that conversation.
+
+<Tip>
+  Match the level to the stakes. Explore on Standard, then re-run the question on Thorough before anything goes to a board pack.
+</Tip>
+
 ## Digging into a question
 
 For a straightforward question you get a straight answer. When you ask something that needs real digging, such as why a number moved or what is driving a variance, the Assistant runs a fuller investigation, working through the question step by step and showing each step as it completes. If one is interrupted you can pick it back up where it left off.
@@ -40,7 +56,16 @@ This all happens in the same conversation, so there is nothing separate to open 
 
 Under each answer you can open **Thoughts** to see the research the Assistant did, step by step, in plain language, such as querying your warehouse or reading your data schema. Steps that returned rows can be expanded to preview them.
 
-Answers also show which of your data sources were actually used, and a short summary of how well grounded the answer is, including how many figures trace back to a real query and how many came from your Library. If any figures could not be verified, the Assistant flags them so you can treat them as narrative rather than fact.
+## What went into an answer
+
+Every answer carries a **Used in this answer** row showing exactly what it drew on. Each item opens for more detail:
+
+- **Verified figures**, the count of numbers that came directly from your source data or were calculated from it
+- **Each data source** it queried, with the tables involved and when that source last synced
+- **Metrics** from your Library that the answer used, with a link through to each definition
+- **Skills** that shaped the answer, with a link to the guidance it followed
+
+This is the fastest way to sanity check an answer before you act on it. If a number looks surprising, start here and work back to the source.
 
 ## Charts and tables
 
@@ -50,9 +75,15 @@ Ask for a chart and the Assistant draws it directly in the conversation, as a li
 
 **Browse the rows.** When you ask to see the detail behind an answer, a table panel opens beside the chat. You can sort it, page through the full result, and use **Export** to download the loaded rows as a spreadsheet.
 
-**Build on an existing report.** Attach a report to your message so the Assistant works from it rather than starting over.
+**Build on existing work.** Attach a report or an artifact to your message so the Assistant works from it rather than starting over.
 
 **Save what it learns.** If you ask, the Assistant can save context about your organization so it applies to future conversations, and it can save a query you trust to your **Library** so future answers reuse the exact approved logic. Nothing is saved silently, it only happens when you ask.
+
+## The side panel
+
+Rows, reports, and artifacts open in a panel beside your chat, and each one gets its own tab, so you can keep several open and move between them instead of losing your place. The panel remembers what you had open when you come back.
+
+An artifact tab carries its own actions, including **Edit a section**, **Download**, and **Full page**.
 
 ## Rating an answer
 
@@ -82,4 +113,4 @@ Your chats are listed alongside the Assistant, grouped by **Today**, **Yesterday
 
 ## What's next
 
-Ask the Assistant to build a **Report** when you want an answer written up as a document you can publish and keep.
+Ask the Assistant to build a **Report** when you want an answer written up as a document you can publish and keep, or an **Artifact** when you want an interactive page someone can click through.

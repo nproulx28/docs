@@ -19,7 +19,9 @@ Both are things the Assistant produces, and they suit different jobs.
 | What you get | An interactive page | A written document |
 | Best for | Exploring, dashboards | Circulating, board packs |
 | Interactivity | Yes | No |
-| Publish and version history | No | Yes |
+| Version history | Yes | Yes |
+| Sharing | Yes | Yes |
+| Publishing | No | Yes |
 | Export | Download as a web page | PDF |
 
 If you are not sure which you want, say so, and the Assistant will ask.
@@ -74,18 +76,52 @@ You edit an artifact by asking, and you can point at exactly the part you mean.
 
 You can also just ask in the conversation, for example "change the Q3 column to show margin instead." The Assistant knows which artifact the chat is working on and edits it rather than building a second one.
 
+If you are looking at an artifact and want to change it, **Edit** takes you back to the Assistant with the artifact already attached, so you can carry on from there.
+
 <Note>
   Very large artifacts cannot be edited in place. If you hit that, the Assistant will tell you and rebuild it as a smaller one instead.
 </Note>
 
+## Asking questions about an artifact
+
+You do not have to edit an artifact to interrogate it. **Ask Assistant** opens a conversation with the artifact attached, so you can ask about what it shows, how a figure was built, or what it implies. Anyone who can view the artifact can do this.
+
+## Version history
+
+Every build, edit, and restore is kept, so you can look back and roll back.
+
+<Steps>
+  <Step title="Open History">
+    Choose **History** on the artifact. A panel opens beside it listing each version with what changed, such as **Created**, **Edited**, **Section edited**, or **Restored**, along with the version number and when it happened.
+  </Step>
+  <Step title="Preview an earlier version">
+    Choose **Preview** on any version to load it read-only. A banner tells you which version you are viewing, and **Back to latest** returns you.
+  </Step>
+  <Step title="Restore it if you want it back">
+    Choose **Restore**, then confirm. Restoring does not erase anything, it adds a new version recording what you restored from.
+  </Step>
+</Steps>
+
+<Tip>
+  Downloading while previewing an older version gives you that version, not the latest. Handy when you need the file as it stood at a point in time.
+</Tip>
+
+## Sharing an artifact
+
+Artifacts are shared the same way as reports. Choose **Share**, add people from your organization, and pick whether each can view or edit. They get a notification and an email with a link.
+
+Anyone you share with at edit level can change the artifact and restore earlier versions. Viewers can read it and ask the Assistant about it.
+
 ## Finding and managing artifacts
 
-The **Artifacts** list shows each artifact with its owner and when it was created and last updated, sorted with the most recently updated first. The search box finds artifacts by title.
+The **Artifacts** list shows each artifact with its owner, who it is shared with, and when it was created and last updated, sorted with the most recently updated first. The search box finds artifacts by title.
 
-From an artifact you can:
+From the list or the artifact itself you can:
 
 - **Download HTML** to save it as a single file you can open outside Pluvo or send to someone
-- **Delete** it, from either the list or the artifact itself
+- **Rename** it, from the menu on its row in the list
+- **Share** it with colleagues
+- **Delete** it
 
 Deleting is permanent, so rebuild it from the Assistant if you need it back.
 
@@ -95,6 +131,6 @@ Deleting is permanent, so rebuild it from the Assistant if you need it back.
   Artifacts are the right choice when someone else will want to poke at the numbers themselves rather than read your conclusion. Build a report when you want to make a point, and an artifact when you want to hand over the exploration.
 </Tip>
 
-<Note>
-  Artifacts may not be switched on for every organization yet. If you do not see it in your sidebar, contact your account team.
-</Note>
+<Tip>
+  Before you share an artifact widely, open **History** and check you are handing over the version you mean. Restoring is quick if you are not.
+</Tip>

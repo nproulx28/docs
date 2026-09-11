@@ -1,20 +1,19 @@
 ---
 title: "Library"
 sidebarTitle: "Library"
-description: "Review and govern everything Pluvo has learned about your data, so answers are grounded in definitions you have approved."
+description: "Review and govern everything Pluvo knows about your data, and define the metrics and tables your answers are built on."
 ---
 
 ## What it does
 
-The Library is where you review and govern everything Pluvo has learned about your data: what your columns mean, how your tables relate, how your metrics are calculated, and which queries are trusted.
+The Library is where your organization's shared understanding of its data lives: what your columns mean, how your tables relate, how your metrics are calculated, and which queries are trusted.
 
-Approval is what makes a definition count. Only approved definitions that compile successfully are ever used to answer questions, so anything still suggested, rejected, disabled, or broken is never treated as authoritative. That is what keeps results consistent and defensible.
+Approval is what makes a definition count. Only approved definitions are used to answer questions, so anything still suggested, rejected, disabled, or broken is never treated as authoritative. That is what keeps results consistent and defensible.
 
 ## What it holds
 
-Five kinds of definition:
-
 - **Metrics**, named measures with their computation and filters
+- **Tables**, reusable sets of rows that metrics are built on
 - **Column meanings**, what a specific column represents and how it should be treated
 - **Relationships**, how two tables join together, with match quality
 - **Value maps**, how values in one system correspond to values in another
@@ -24,23 +23,23 @@ Five kinds of definition:
 
 The Library has its own navigation down the left.
 
-**Overview** is where you land. It gives you the state of your library at a glance: how much of your data is covered, how many definitions are approved, how many are waiting on review, and how many have broken. Below that, **Needs attention** lists the things worth handling now, and **Recent activity** shows who approved, rejected, or suggested what, including the reason given for a rejection.
+**Overview** is where you land. It shows the state of your library at a glance: how much of your data is covered, how many definitions are approved, how many are waiting on review, and how many have broken. Below that, **Needs attention** lists what is worth handling now, **Pick up where you left off** returns you to any unfinished drafts, and **Recent activity** shows who approved, rejected, or suggested what.
 
 **Review** is your queue of decisions, with a count of what is waiting.
 
-**Browse** lets you work through everything, either all definitions at once or one kind at a time, with filters for status, source, and connection. Rejected and disabled definitions are tucked away by default, and **Show dismissed** brings them back into view.
+**Browse** lets you work through everything, either all definitions at once or one kind at a time, with filters for status, source, and connection. Rejected and disabled definitions are tucked away by default, and **Show dismissed** brings them back.
 
-The search box at the top searches your whole library and drops you into Browse with the results filtered.
+The search box at the top searches your whole library.
 
 ## The review inbox
 
 **Review** is split into three tabs.
 
-**Suggestions** are new definitions waiting for a person to decide. Work down the list and approve or reject each one. You can move with the arrow keys, press **A** to approve, and **R** to reject.
+**Suggestions** are new definitions waiting for a decision. Work down the list and approve or reject each one, using the arrow keys to move between them.
 
-**Drift breaks** are metrics that stopped matching your data. A metric lands here when its numbers no longer reconcile, or when another metric it depends on was un-approved. Either way it is excluded from answers until you look at it. This is the one to watch: it is how you find out something quietly stopped being trustworthy.
+**Drift breaks** are metrics that stopped matching your data. A metric lands here when its numbers no longer reconcile, or when another metric it depends on was un-approved. Either way it is excluded from answers until you look at it. This is the one to watch, because it is how you find out something quietly stopped being trustworthy.
 
-**Conflicts** are questions people actually asked that Pluvo could not answer from your approved definitions. Each one shows the question, whether Pluvo declined to answer or answered without verified figures, and how many times it has come up. They are a useful reading of what your library is still missing.
+**Conflicts** are questions people actually asked that Pluvo could not answer from your approved definitions. Each shows the question, whether Pluvo declined to answer or answered without verified figures, and how often it has come up. They are the best available reading of what your library is still missing.
 
 <Note>
   The review inbox covers metrics and saved queries. To review suggested column meanings, relationships, or value maps, go to **Browse** and filter the status to Suggested.
@@ -54,19 +53,79 @@ Rejecting asks for an optional reason. It is worth writing one, because it appea
 
 All three decisions are reversible. Click an applied decision again to undo it, and the definition returns to suggested.
 
+## Creating a metric
+
+Definitions arrive on their own as Pluvo learns from your data, but you can also build a metric yourself.
+
+<Steps>
+  <Step title="Start a new definition">
+    Choose **Create definition**. You get a conversation on the left and a builder on the right, and you can work in either.
+  </Step>
+  <Step title="Describe it, or build it by hand">
+    Tell the assistant what you want to measure in plain words and it fills in the builder, or set it up yourself. Either way you can adjust anything it proposes.
+  </Step>
+  <Step title="Build the formula">
+    Choose what you are measuring, the column it comes from, how to add it up, and the date it is tracked by. Then narrow it down with filters, and choose how it can be broken out.
+  </Step>
+  <Step title="Check the preview">
+    A live preview shows the number your formula produces, so you can confirm it before saving.
+  </Step>
+  <Step title="Name it and save">
+    Give it a clear name and description, add any other names people use for it so the Assistant finds it, then save.
+  </Step>
+</Steps>
+
+<Tip>
+  Add the alternative names your team actually uses, such as net sales or top-line revenue. It is what lets someone get the right answer without knowing your naming conventions.
+</Tip>
+
+<Note>
+  If a metric you are creating duplicates one that already exists, Pluvo tells you and offers to open the existing one instead. Worth heeding, since two metrics measuring the same thing is how numbers start disagreeing.
+</Note>
+
+## Tables
+
+A **Table** is a reusable set of rows that your organization has agreed on, defined once and then used as the foundation for metrics. Rather than every metric working out which rows count from raw data, you define the shape once, check it, and build on it.
+
+Each Table carries a plain-language contract: what a single row represents, how dates are handled, which columns are safe to group or filter by, and what each column means.
+
+### Building one
+
+Tables are created through the same **Create definition** conversation. Describe the rows you need, for example a monthly revenue-by-customer table, and Pluvo drafts one for you. The draft appears in a panel where you can work through it.
+
+<Steps>
+  <Step title="Review the draft">
+    Look through the columns, what each row represents, and the query behind it. To change anything, ask the assistant rather than editing it directly.
+  </Step>
+  <Step title="Check it against live data">
+    Choose **Check and preview** to run it. You get real rows back, plus confirmation that the structure holds up and that every row is uniquely identified.
+  </Step>
+  <Step title="Save and publish">
+    Once the checks pass you can save it, then **Publish** to make it available to everyone. Saving again creates a new revision, so you can see how it has changed.
+  </Step>
+</Steps>
+
+### Using a Table for a metric
+
+Once a Table is published, it becomes a source you can build metrics on. In the builder, choose it from **Library Tables** rather than picking raw connected data, and Pluvo offers only the calculations and breakdowns its contract allows. That is the point: the Table has already settled which rows count, so the metric only has to say what to do with them.
+
+<Tip>
+  Define a Table when several metrics share the same underlying set of rows. It stops each one re-deriving the same logic, and it means a fix in one place fixes everything built on it.
+</Tip>
+
 ## Reading a metric
 
-Open any metric and you get the full picture.
+Open any metric and you get the full picture across three tabs.
 
-**How it's computed** explains the calculation in plain language, step by step, such as summing a column on a table, converting currency at each row's rate, or filtering to particular values. The compiled expression sits underneath if you want the precise version.
+**Overview** explains the metric. **How it's computed** walks through the calculation in plain language, step by step. **What it means** gives the description and any guidance that shapes how Pluvo uses it. **Source and lineage** shows which connection, tables, and joins it draws on. **What depends on this** lists the other metrics built on top of it, so you can see what you would affect by changing it. **Checked against your data** is the trust check, showing the total to date against the expected value, the difference, and when it was last checked.
 
-**What it means** is the description, along with any guidance that shapes how Pluvo uses it.
+**Where it's used** shows the questions where the metric actually got used, with the value it produced, who asked, and when. It is the quickest way to tell whether a definition is earning its keep.
 
-**Source and lineage** shows which connection, tables, and joins it draws on, and what role each column plays.
+**History** is a timeline of what happened to the metric: when it was created, when the formula or naming changed, when its status changed, and when it broke.
 
-**Governance** records its status, where it came from, who approved it, who added it, and its version.
-
-**Reconciled to ground truth** is the trust check. Metrics are reconciled against an expected value, and this panel shows the measured value, the expected value, the difference, and when it was last checked, along with whether it sits within tolerance. A metric needs that reconciliation before it can be approved, which is why an unreconciled metric cannot be put to work yet.
+<Note>
+  The usage and history tabs are available for metrics. Other kinds of definition show the Overview only.
+</Note>
 
 ## Previewing the data
 
@@ -74,20 +133,20 @@ Metrics and saved queries have a **Run query** button that returns the actual ro
 
 ## Where definitions come from
 
-You do not write definitions by hand. They arrive as Pluvo learns from your connected data, from a catalog of common definitions, or when someone promotes a query out of an Assistant conversation.
+Definitions reach your Library four ways: Pluvo discovers them from your connected data, they come from a catalog of common definitions, someone promotes a query out of an Assistant conversation, or someone writes one directly in the builder.
 
-That last route is worth knowing about. When the Assistant produces a figure you trust, you can save its query to the Library so future answers reuse the same approved logic. Saved that way it arrives already approved, since choosing to save it is the approval. Answers that draw on Library content are labelled, so you can see they rest on definitions you govern.
+When the Assistant produces a figure you trust, you can save its query to the Library so future answers reuse the same approved logic. Saved that way it arrives already approved, since choosing to save it is the approval. Answers that draw on Library content say so, and link back to the definitions they used.
 
 ## Tips
 
 <Tip>
-  Start on **Overview** and work the **Needs attention** list. It puts the highest-value decisions in front of you instead of leaving you to hunt through everything.
+  Start on **Overview** and work the **Needs attention** list. It puts the highest-value decisions in front of you instead of leaving you to hunt.
 </Tip>
 
 <Tip>
   Read the **Conflicts** tab now and then. It tells you what your team is trying to ask and cannot yet get a grounded answer to, which is the best guide to what to define next.
 </Tip>
 
-<Note>
-  On a definition's detail page, the "Where it's used" and "History" tabs are not available yet.
-</Note>
+<Tip>
+  Before changing a widely used metric, check **What depends on this**. It shows you what else moves when you do.
+</Tip>
