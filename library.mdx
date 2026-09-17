@@ -105,9 +105,19 @@ Tables are created through the same **Create definition** conversation. Describe
   </Step>
 </Steps>
 
+### Saving a result from the Assistant
+
+You do not have to start from scratch. When the Assistant shows you a set of rows you want to keep, choose **Save Table** in the data panel, give it a name and a short description of what it covers, and it lands in your Library. What gets saved is the complete result, not just the rows on screen.
+
 ### Using a Table for a metric
 
 Once a Table is published, it becomes a source you can build metrics on. In the builder, choose it from **Library Tables** rather than picking raw connected data, and Pluvo offers only the calculations and breakdowns its contract allows. That is the point: the Table has already settled which rows count, so the metric only has to say what to do with them.
+
+### Coming back to a Table
+
+Open any Table to browse its rows, sort and filter across the full result, and see per-column totals. If a Table takes inputs, you can supply values for the preview without changing the saved definition.
+
+**Edit** reopens the conversation the Table was created in, so you can pick up where you left off rather than starting a new one.
 
 <Tip>
   Define a Table when several metrics share the same underlying set of rows. It stops each one re-deriving the same logic, and it means a fix in one place fixes everything built on it.
@@ -129,7 +139,15 @@ Open any metric and you get the full picture across three tabs.
 
 ## Previewing the data
 
-Metrics and saved queries have a **Run query** button that returns the actual rows behind the definition. You can sort and filter across the full result and see per-column totals, which is the quickest way to catch a definition that looks right but is not.
+Metrics, Tables, and saved queries have a **Run query** button that returns the actual rows behind the definition. You can sort and filter across the full result and see per-column totals, which is the quickest way to catch a definition that looks right but is not.
+
+## Removing a definition
+
+Metrics and Tables can be deleted from their detail page or from the Library list. Deleting is permanent, so Pluvo asks you to confirm first.
+
+<Note>
+  A metric that other metrics are built on cannot be deleted until those are removed. Pluvo names the dependent metrics so you know what is in the way, and **What depends on this** shows you the same picture before you try.
+</Note>
 
 ## Where definitions come from
 
