@@ -1,170 +1,205 @@
 ---
 title: "Library"
 sidebarTitle: "Library"
-description: "Review and govern everything Pluvo knows about your data, and define the metrics and tables your answers are built on."
+description: "Everything that shapes how Pluvo answers: the metrics and tables your figures come from, and the skills and rules that guide how it works."
 ---
 
 ## What it does
 
-The Library is where your organization's shared understanding of its data lives: what your columns mean, how your tables relate, how your metrics are calculated, and which queries are trusted.
+The Library is your organization's context: the shared understanding Pluvo works from every time it answers. It holds the definitions your figures are calculated from, and the instructions that shape how Pluvo approaches a question.
 
-Approval is what makes a definition count. Only approved definitions are used to answer questions, so anything still suggested, rejected, disabled, or broken is never treated as authoritative. That is what keeps results consistent and defensible.
+Approval is what makes a definition count. Only approved definitions are used to answer questions, so anything suggested, rejected, disabled, or broken is never treated as authoritative. That is what keeps results consistent and defensible.
 
-## What it holds
+## What's in it
 
-- **Metrics**, named measures with their computation and filters
-- **Tables**, reusable sets of rows that metrics are built on
-- **Column meanings**, what a specific column represents and how it should be treated
-- **Relationships**, how two tables join together, with match quality
-- **Value maps**, how values in one system correspond to values in another
-- **Saved queries**, approved queries for a specific business question
+Open **Library** from the sidebar and you land on the **Context Library**, organized into tabs:
 
-## Getting around
+- **Needs review**, suggestions and broken items waiting on a decision
+- **Metrics**, the named measures that ground Pluvo's answers
+- **Tables**, governed sets of rows that the Assistant and your metrics can read from
+- **Skills**, standing instructions people switch on for themselves
+- **Rules**, organization-wide instructions applied to every answer, visible to admins
 
-The Library has its own navigation down the left.
+If something needs your attention the Library opens on **Needs review**. If you are all caught up, it opens on **Metrics**.
 
-**Overview** is where you land. It shows the state of your library at a glance: how much of your data is covered, how many definitions are approved, how many are waiting on review, and how many have broken. Below that, **Needs attention** lists what is worth handling now, **Pick up where you left off** returns you to any unfinished drafts, and **Recent activity** shows who approved, rejected, or suggested what.
+To add something new, choose **Add context** and pick **Metric**, **Skill**, or **Rule**. What you see depends on your role, so Rule appears only for admins.
 
-**Review** is your queue of decisions, with a count of what is waiting.
+## Reviewing what Pluvo has found
 
-**Browse** lets you work through everything, either all definitions at once or one kind at a time, with filters for status, source, and connection. Rejected and disabled definitions are tucked away by default, and **Show dismissed** brings them back.
+As Pluvo works with your data, it proposes metrics and queries it thinks are worth keeping, and it flags metrics that have stopped matching your data. All of it lands in **Needs review**, with a count so you can see how much is waiting.
 
-The search box at the top searches your whole library.
+Search the list, or filter by status, source, and data source to narrow it down. Then make a call on each item, right from its row:
 
-## The review inbox
+- **Approve** puts it to work
+- **Reject** marks it wrong, so Pluvo will not suggest it again
+- **Disable** takes it out of use without saying it was wrong
 
-**Review** is split into three tabs.
+Rejecting asks for an optional reason. It is worth writing one, since it saves the next person wondering why.
 
-**Suggestions** are new definitions waiting for a decision. Work down the list and approve or reject each one, using the arrow keys to move between them.
+<Tip>
+  Broken metrics are the ones to watch. A metric is flagged broken when its numbers stop reconciling with your data, or when another metric it depends on was taken out of use. Either way it is excluded from answers until someone looks at it, which is how you find out something quietly stopped being trustworthy.
+</Tip>
 
-**Drift breaks** are metrics that stopped matching your data. A metric lands here when its numbers no longer reconcile, or when another metric it depends on was un-approved. Either way it is excluded from answers until you look at it. This is the one to watch, because it is how you find out something quietly stopped being trustworthy.
+## Metrics
 
-**Conflicts** are questions people actually asked that Pluvo could not answer from your approved definitions. Each shows the question, whether Pluvo declined to answer or answered without verified figures, and how often it has come up. They are the best available reading of what your library is still missing.
+The **Metrics** tab lists every metric with its status, where it came from, how often it has been used, and when it last changed. You can search, filter by status and source, and sort by name, usage, or last updated.
 
-<Note>
-  The review inbox covers metrics and saved queries. To review suggested column meanings, relationships, or value maps, go to **Browse** and filter the status to Suggested.
-</Note>
+### Reading a metric
 
-## Making a decision
+Open a metric and everything about it is on one page. A strip across the top shows its status, source, how often it has been used, when it was updated, and its currency, followed by its description and any other names people use for it.
 
-**Approve** puts a definition to work. **Reject** marks it wrong, and Pluvo will not suggest it again. **Disable** takes something out of use without saying it was wrong.
+Below that, in order:
 
-Rejecting asks for an optional reason. It is worth writing one, because it appears alongside the decision later and saves the next person wondering why.
+- **Calculation**, the formula in plain language, with the exact query available under **Under the hood** if you want the precise version
+- **Source**, the connection and tables it draws on
+- **Preview**, the live numbers, which you can break down, along with how the metric checks out against the expected total for your data
+- **Dependencies**, the other metrics built on this one, so you know what else moves if you change it
+- **Usage**, where it has actually been used in answers
+- **History**, what has happened to it over time
 
-All three decisions are reversible. Click an applied decision again to undo it, and the definition returns to suggested.
-
-## Creating a metric
-
-Definitions arrive on their own as Pluvo learns from your data, but you can also build a metric yourself.
+### Creating a metric
 
 <Steps>
-  <Step title="Start a new definition">
-    Choose **Create definition**. You get a conversation on the left and a builder on the right, and you can work in either.
+  <Step title="Start a new metric">
+    Choose **Add context**, then **Metric**. You get a conversation on the left and a builder on the right, and you can work in either.
   </Step>
   <Step title="Describe it, or build it by hand">
-    Tell the assistant what you want to measure in plain words and it fills in the builder, or set it up yourself. Either way you can adjust anything it proposes.
+    Tell the assistant what you want to measure in plain words and it fills in the builder, or set it up yourself. If a draft is heading the wrong way, choose **Stop** and redirect it.
   </Step>
   <Step title="Build the formula">
-    Choose what you are measuring, the column it comes from, how to add it up, and the date it is tracked by. Then narrow it down with filters, and choose how it can be broken out.
+    Choose what you are measuring, the column it comes from, and how to add it up. Combine terms with add, subtract, multiply, and divide, then narrow it down with filters and choose how it can be broken out.
   </Step>
   <Step title="Check the preview">
     A live preview shows the number your formula produces, so you can confirm it before saving.
   </Step>
   <Step title="Name it and save">
-    Give it a clear name and description, add any other names people use for it so the Assistant finds it, then save.
+    Give it a clear name and description, add the other names people use for it so the Assistant finds it, then save.
   </Step>
 </Steps>
 
-<Tip>
-  Add the alternative names your team actually uses, such as net sales or top-line revenue. It is what lets someone get the right answer without knowing your naming conventions.
-</Tip>
+Formulas follow standard order of operations, so multiplication and division happen before addition and subtraction. To group terms differently, click the operator between two terms and add an opening or closing bracket.
+
+You can also build a metric out of other metrics. When you are working from a Table, **Saved metric** lets you reference other metrics built on that same Table.
 
 <Note>
-  If a metric you are creating duplicates one that already exists, Pluvo tells you and offers to open the existing one instead. Worth heeding, since two metrics measuring the same thing is how numbers start disagreeing.
+  A formula needs at least one measure or saved metric. Fixed numbers on their own cannot define a metric. And if what you are building duplicates an existing metric, Pluvo tells you and offers to open that one instead.
 </Note>
 
 ## Tables
 
-A **Table** is a reusable set of rows that your organization has agreed on, defined once and then used as the foundation for metrics. Rather than every metric working out which rows count from raw data, you define the shape once, check it, and build on it.
+A **Table** is a reusable set of rows your organization has agreed on, defined once and used as the foundation for metrics and answers. Rather than every metric working out which rows count, you define the shape once, check it, and build on it.
 
-Each Table carries a plain-language contract: what a single row represents, how dates are handled, which columns are safe to group or filter by, and what each column means.
+Each Table carries a plain-language contract: what a row represents, how dates are handled, which columns are safe to group or filter by, and what each column means.
 
-### Building one
+### Getting a Table into your Library
 
-Tables are created through the same **Create definition** conversation. Describe the rows you need, for example a monthly revenue-by-customer table, and Pluvo drafts one for you. The draft appears in a panel where you can work through it.
+The quickest way is from the Assistant. When it shows you a set of rows worth keeping, choose **Save Table** in the data panel, give it a name and a short description, and the complete result is saved, not just the rows on screen.
+
+You can also describe the rows you need in the metric conversation and Pluvo drafts a Table for you:
 
 <Steps>
   <Step title="Review the draft">
-    Look through the columns, what each row represents, and the query behind it. To change anything, ask the assistant rather than editing it directly.
+    Look through the columns, what each row represents, and the query behind it. To change anything, ask the assistant.
   </Step>
   <Step title="Check it against live data">
-    Choose **Check and preview** to run it. You get real rows back, plus confirmation that the structure holds up and that every row is uniquely identified.
+    Choose **Check and preview** to run it. You get real rows back, plus confirmation that the structure holds up and every row is uniquely identified.
   </Step>
   <Step title="Save and publish">
-    Once the checks pass you can save it, then **Publish** to make it available to everyone. Saving again creates a new revision, so you can see how it has changed.
+    Once the checks pass, save it, then **Publish** it to make it available to everyone. Each save after that is a new revision.
   </Step>
 </Steps>
 
-### Saving a result from the Assistant
+### Using a Table
 
-You do not have to start from scratch. When the Assistant shows you a set of rows you want to keep, choose **Save Table** in the data panel, give it a name and a short description of what it covers, and it lands in your Library. What gets saved is the complete result, not just the rows on screen.
+Open a Table to see its status, readiness, and description, the questions it is meant to answer, a live preview of its rows, and its current and published versions. **Edit** reopens the conversation it was created in.
 
-### Using a Table for a metric
-
-Once a Table is published, it becomes a source you can build metrics on. In the builder, choose it from **Library Tables** rather than picking raw connected data, and Pluvo offers only the calculations and breakdowns its contract allows. That is the point: the Table has already settled which rows count, so the metric only has to say what to do with them.
-
-### Coming back to a Table
-
-Open any Table to browse its rows, sort and filter across the full result, and see per-column totals. If a Table takes inputs, you can supply values for the preview without changing the saved definition.
-
-**Edit** reopens the conversation the Table was created in, so you can pick up where you left off rather than starting a new one.
+Once published, a Table becomes a source you can build metrics on, and the Assistant can query it directly when answering, filtering, totaling, grouping, and ranking its rows rather than working the logic out again.
 
 <Tip>
-  Define a Table when several metrics share the same underlying set of rows. It stops each one re-deriving the same logic, and it means a fix in one place fixes everything built on it.
+  Define a Table when several metrics share the same underlying rows. It stops each one re-deriving the same logic, and a fix in one place fixes everything built on it.
 </Tip>
 
-## Reading a metric
+## Skills
 
-Open any metric and you get the full picture across three tabs.
+A skill is a standing instruction for Pluvo: how a metric is calculated, what counts and what does not, a pitfall to steer around, or context about your organization worth keeping in mind. Instead of explaining the same thing in every conversation, you write it down once.
 
-**Overview** explains the metric. **How it's computed** walks through the calculation in plain language, step by step. **What it means** gives the description and any guidance that shapes how Pluvo uses it. **Source and lineage** shows which connection, tables, and joins it draws on. **What depends on this** lists the other metrics built on top of it, so you can see what you would affect by changing it. **Checked against your data** is the trust check, showing the total to date against the expected value, the difference, and when it was last checked.
+A skill applies to you only once you switch it on, and even then Pluvo brings it in when the question calls for it, rather than every time.
 
-**Where it's used** shows the questions where the metric actually got used, with the value it produced, who asked, and when. It is the quickest way to tell whether a definition is earning its keep.
+### Writing a skill
 
-**History** is a timeline of what happened to the metric: when it was created, when the formula or naming changed, when its status changed, and when it broke.
+<Steps>
+  <Step title="Start a new skill">
+    Choose **Add context**, then **Skill**. You get a conversation on the left and the skill on the right.
+  </Step>
+  <Step title="Describe what Pluvo should know">
+    Tell the assistant what you want to teach it. It asks a question or two and fills in a draft, which you can **Accept** or **Reject**. You can also type straight into the editor, and choose **Stop** if a draft goes the wrong way.
+  </Step>
+  <Step title="Name it and activate it">
+    Give it a clear name and instructions, up to 10,000 characters with Markdown supported, then choose **Activate**. Drafts save as you go but are not used until they are active.
+  </Step>
+</Steps>
+
+<Tip>
+  A good skill states the instruction, the pitfall, and the boundary. For example: revenue means recognized revenue net of refunds and never bookings, and intercompany accounts are excluded from all rollups.
+</Tip>
+
+### Switching skills on, and sharing them
+
+The **Skills** tab lists every skill you can see, with its status, whether it is **Organization** or **Personal**, and an **Applied to me** switch. A skill only affects your answers once you switch it on, so a skill someone else wrote waits until you choose to use it.
+
+A skill you write, or one the assistant saves for you when you ask it to remember something, is personal to begin with. Use **Share** to make it available to the whole organization, or to specific people.
+
+### Changing a skill
+
+Open a skill to read it in full. From **Edit** you can change it directly on the page, or choose **Edit with AI** to refine it in conversation. The actions menu lets you activate or deactivate it, share it, or delete it.
+
+## Rules
+
+A rule is a standing instruction the assistant applies to every response, for everyone in your organization, with nothing to switch on. Rules are for the things that must never be got wrong: what revenue means, which accounts are excluded, which currency figures are reported in.
+
+Rules are managed by organization admins, so the **Rules** tab appears only for admins. If you are not an admin, the rules your admins have set still apply to your answers.
+
+### Writing a rule
+
+<Steps>
+  <Step title="Start a new rule">
+    Choose **Add context**, then **Rule**.
+  </Step>
+  <Step title="Describe what Pluvo should always do">
+    Tell the assistant the instruction you want enforced. It drafts the wording for you to **Accept** or **Reject**, or you can type it yourself.
+  </Step>
+  <Step title="Activate it">
+    Give it a name and instructions, then choose **Activate**. From that moment it applies to every answer across your organization.
+  </Step>
+</Steps>
+
+Open a rule to read it, edit it directly or with AI, activate or deactivate it, or delete it. Deleting is permanent, and the assistant stops applying it immediately.
+
+<Warning>
+  Rules apply to everyone with no opt-out, so keep them few and deliberate. A long list of competing instructions dilutes the quality of every answer your team gets.
+</Warning>
+
+### Skills or rules?
+
+| | Rules | Skills |
+| --- | --- | --- |
+| Applies to | Everyone, always | Only people who switch it on |
+| When it is used | Every answer | When the question calls for it |
+| Who can create them | Admins | Anyone except guests |
+| Sharing | Always organization-wide | Personal until you share it |
+
+Use a rule for something that must hold every time, and a skill for guidance that helps in context or that only part of the team needs.
+
+## Removing a metric or table
+
+Metrics and Tables can be deleted from their page or from the list. Deleting is permanent, so Pluvo asks you to confirm first.
 
 <Note>
-  The usage and history tabs are available for metrics. Other kinds of definition show the Overview only.
+  A metric that other metrics are built on cannot be deleted until those are removed. Pluvo names the dependent metrics so you know what is in the way, and the **Dependencies** section shows you the same picture before you try.
 </Note>
 
-## Previewing the data
+## Where your context comes from
 
-Metrics, Tables, and saved queries have a **Run query** button that returns the actual rows behind the definition. You can sort and filter across the full result and see per-column totals, which is the quickest way to catch a definition that looks right but is not.
+Metrics reach your Library five ways: from Pluvo's catalog of common definitions, discovered in your data, promoted from a saved query, saved from a conversation, or authored by your team in the builder. Every metric shows its source, so you always know where a definition came from.
 
-## Removing a definition
-
-Metrics and Tables can be deleted from their detail page or from the Library list. Deleting is permanent, so Pluvo asks you to confirm first.
-
-<Note>
-  A metric that other metrics are built on cannot be deleted until those are removed. Pluvo names the dependent metrics so you know what is in the way, and **What depends on this** shows you the same picture before you try.
-</Note>
-
-## Where definitions come from
-
-Definitions reach your Library four ways: Pluvo discovers them from your connected data, they come from a catalog of common definitions, someone promotes a query out of an Assistant conversation, or someone writes one directly in the builder.
-
-When the Assistant produces a figure you trust, you can save its query to the Library so future answers reuse the same approved logic. Saved that way it arrives already approved, since choosing to save it is the approval. Answers that draw on Library content say so, and link back to the definitions they used.
-
-## Tips
-
-<Tip>
-  Start on **Overview** and work the **Needs attention** list. It puts the highest-value decisions in front of you instead of leaving you to hunt.
-</Tip>
-
-<Tip>
-  Read the **Conflicts** tab now and then. It tells you what your team is trying to ask and cannot yet get a grounded answer to, which is the best guide to what to define next.
-</Tip>
-
-<Tip>
-  Before changing a widely used metric, check **What depends on this**. It shows you what else moves when you do.
-</Tip>
+When the Assistant uses any of this context in an answer, it says so, and links back to the metrics, tables, skills, and rules it drew on.

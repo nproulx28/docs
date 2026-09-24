@@ -10,14 +10,16 @@ The Assistant is the front door for questions about your financial and operation
 
 The point is trust. Rather than a figure you have to take on faith, every load-bearing number in an answer is backed by a real query against your data, and Pluvo tells you when something in its answer could not be verified.
 
+The Assistant is your home screen in Pluvo. **Assistant** is the first item in the sidebar, and it is where you land when you sign in.
+
 ## How to use it
 
 <Steps>
   <Step title="Ask a question">
-    Open **Assistant** and type your question, for example "Do a budget vs actuals for last month" or "Which expense lines are trending over budget?" Press Enter to send, or Shift and Enter to add a line break.
+    Type your question into the box on the home screen, for example "Do a budget vs actuals for last month" or "Which expense lines are trending over budget?" Press Enter to send, or Shift and Enter to add a line break.
   </Step>
   <Step title="Or start from a suggestion">
-    The landing screen offers a set of starting points, including asking a question, running an analysis, building a table or chart, and creating an artifact. Each one carries example prompts you can use as they are or edit before sending.
+    Above the box, **Create a dashboard**, **Create a report**, **Create a presentation**, and **Run an analysis** fill in a starting prompt for you. Below it, **Recommended** offers suggested questions tailored to your data. Use either as it is, or edit it before sending.
   </Step>
   <Step title="Answer any clarifying question">
     If a detail would change the answer materially, the Assistant asks you one question and offers a few options to choose from. Pick one, add a detail if you like, then continue.
@@ -62,8 +64,9 @@ Every answer carries a **Used in this answer** row showing exactly what it drew 
 
 - **Verified figures**, the count of numbers that came directly from your source data or were calculated from it
 - **Each data source** it queried, with the tables involved and when that source last synced
-- **Saved Tables** from your Library that it drew on, with the values used if the Table takes inputs
+- **Tables** from your Library that it ran, with when each ran and the values used if a Table takes inputs
 - **Metrics** from your Library that the answer used, with a link through to each definition
+- **Rules** your organization has set that applied to the answer
 - **Skills** that shaped the answer, with a link to the guidance it followed
 
 This is the fastest way to sanity check an answer before you act on it. If a number looks surprising, start here and work back to the source.
@@ -78,9 +81,11 @@ Ask for a chart and the Assistant draws it directly in the conversation, as a li
 
 **Keep a result.** If the rows are worth reusing, choose **Save Table** to save them to your **Library** as a governed Table. The whole result is saved, not just what is on screen, and you can then build metrics on it.
 
-**Build on existing work.** Attach an artifact to your message so the Assistant works from it rather than starting over.
+**Work from your saved Tables.** When the answer to a question lives in a Table you have already saved, the Assistant queries it directly, filtering, totaling, grouping, and ranking its rows, rather than working the logic out again.
 
-**Save what it learns.** If you ask, the Assistant can save context about your organization so it applies to future conversations, and it can save a query you trust to your **Library** so future answers reuse the exact approved logic. Nothing is saved silently, it only happens when you ask.
+**Build on existing work.** Use the **+** in the message box to attach an artifact, so the Assistant works from it rather than starting over.
+
+**Save what it learns.** If you ask the Assistant to remember something, it saves it as a skill that applies to your future conversations. It is personal to you until you share it from the **Library**. Nothing is saved silently, it only happens when you ask.
 
 ## The side panel
 
@@ -92,9 +97,11 @@ An artifact tab carries its own actions, including **Edit a section**, **Downloa
 
 Each answer has thumbs up and thumbs down buttons, and a thumbs down opens a short form where you can say what was wrong. This feeds back into improving the Assistant, and it is the most useful thing you can do when an answer misses.
 
-## Organizing your chats
+## Finding and organizing your chats
 
-Your chats are listed alongside the Assistant, grouped by **Today**, **Yesterday**, **Last 7 days**, and **Older**, with a search box to find one again. You can start a **New chat**, create folders, and drag chats into them to keep related work together. Folders can be reordered, and a chat can be renamed or deleted from its menu.
+Your past conversations live in **Chat History**, which you can open from the home screen or from the clock icon at the top of any conversation. Chats are grouped by **Today**, **Yesterday**, **Last 7 days**, and **Older**, with a search box to find one again. From there you can start a **New chat**, create folders, and keep related work together.
+
+At the top of a conversation you will see its title, and its menu lets you **Rename** it or **Delete chat**.
 
 ## Tips
 
@@ -107,7 +114,7 @@ Your chats are listed alongside the Assistant, grouped by **Today**, **Yesterday
 </Tip>
 
 <Tip>
-  Approving definitions in your **Library** and writing **Skills** both make Assistant answers better, because it reuses your approved metrics and saved Tables rather than working the logic out again, and follows your house rules.
+  The more you put into your **Library**, the better the Assistant gets. It reuses your approved metrics and saved Tables rather than working the logic out again, and follows the skills and rules your team has written.
 </Tip>
 
 <Tip>
@@ -116,4 +123,4 @@ Your chats are listed alongside the Assistant, grouped by **Today**, **Yesterday
 
 ## What's next
 
-Ask the Assistant to build an **Artifact** when you want an interactive page you can keep, share, and let someone click through.
+Ask the Assistant to build an **Artifact**, a dashboard, report, presentation, or canvas, when you want something you can keep, share, and let someone click through.

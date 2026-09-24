@@ -12,7 +12,7 @@ You can connect three kinds of sources: cloud data warehouses, accounting and fi
 
 ## What you can connect
 
-From **Data**, choose **Add new data source** and pick from the categories below.
+From **Data**, choose to add a data source and pick from the categories below. Use the search box, or the category filters above the list, to find a connector quickly.
 
 <Frame caption="Adding a new data source in Pluvo">
   ![The Add new data source screen showing data warehouses, direct connectors, merge connectors, custom integrations, and file upload](/images/data/add-data-source.png)
@@ -20,7 +20,7 @@ From **Data**, choose **Add new data source** and pick from the categories below
 
 **Data Warehouses.** Connect directly to your warehouse to bring in data at scale: PostgreSQL, Snowflake, and Databricks.
 
-**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, Stripe, Salesforce, Acumatica, SyteLine, Harvest, Ramp, Brex, Measure, and Float.
+**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, Stripe, Salesforce, Acumatica, SyteLine, Harvest, Ramp, Brex, Measure, Float, and Rillet.
 
 **Merge Connectors.** Connect through a unified integration layer that normalizes data from many systems into a consistent shape: NetSuite, Sage Intacct, QuickBooks, Salesforce, HubSpot, and Xero. These are useful when you want the same fields and structure across different source systems.
 
@@ -40,14 +40,22 @@ From **Data**, choose **Add new data source** and pick from the categories below
   Not every connector is switched on for every organization. If you expect to see one and it is not there, contact your account team.
 </Note>
 
-## Uploading spreadsheets
+## Uploading files
 
 **File Upload** takes CSV files and Excel workbooks, in `.csv`, `.xlsx`, and `.xls` formats, and you can bring in several at once.
 
-Each sheet in a workbook becomes its own table in Pluvo, and you name each one as you finish setting it up. Once connected, the source keeps a record of the workbook it came from and which sheet became which table, so you can always trace a table back to its origin.
+Each sheet in a workbook becomes its own table in Pluvo, and you name each one as you finish setting it up. Once connected, the source keeps a record of the workbook it came from and which sheet became which table, so you can always trace a table back to its origin. Open the connection and choose **Download original file** to get back exactly what was uploaded.
+
+<Note>
+  A very large sheet can be too big to import from Excel. If that happens, Pluvo names the sheet and asks you to export it as a CSV and upload that instead.
+</Note>
 
 <Tip>
   Structure the workbook the way you want it to appear before you upload. One clean sheet per table, with a single header row, saves cleanup later.
+</Tip>
+
+<Tip>
+  Uploading a file here makes its data available to the Assistant and your Library. If you want to build a model by hand in a grid, use **Spreadsheets** instead.
 </Tip>
 
 ## Adding written context with Freeform Text
@@ -60,10 +68,10 @@ Pluvo reads the document and pulls out the individual facts it contains, then yo
 
 <Steps>
   <Step title="Choose a source">
-    Open **Data**, select **Add new data source**, and choose the system you want to connect. You can use the search box at the top to find it quickly.
+    Open **Data**, choose to add a data source, and pick the system you want to connect. Search or filter by category to find it quickly.
   </Step>
   <Step title="Authenticate or enter credentials">
-    For apps like Xero, QuickBooks, and Stripe, you sign in through that service and authorize Pluvo. For warehouses, you enter your connection details (such as host, database, and credentials). For files, you select the CSV or workbook to upload.
+    For apps like Xero and Stripe, you sign in through that service and authorize Pluvo. Some, like Rillet, ask for an API key instead. For warehouses, you enter your connection details, such as host, database, and credentials. For files, you select the CSV or workbook to upload. Pluvo only reads your data, and never writes back to the source without your explicit permission.
   </Step>
   <Step title="Select the data to bring in">
     Choose which tables or datasets you want Pluvo to sync from the source.
@@ -78,9 +86,17 @@ Pluvo reads the document and pulls out the individual facts it contains, then yo
 
 ## Keeping data current
 
-After the first sync, Pluvo keeps your data up to date by pulling in new and changed records. A connection shows **Active** when it is healthy and available to use across the platform, and tells you when it is syncing or needs attention. Use **Sync now** to pull fresh data at any time, **Test connection** to check it is still healthy, and if something looks off you can re-run a full sync to reimport everything from scratch.
+After the first sync, Pluvo keeps your data up to date by pulling in new and changed records. A connection shows **Active** when it is healthy and available to use across the platform. While it syncs, it shows how many tables are done out of the total, then **Finishing up** before returning to Active. Use **Sync now** to pull fresh data at any time, **Test connection** to check it is still healthy, and if something looks off you can re-run a full sync to reimport everything from scratch.
+
+Open a connection to see each table's own status: **Synced**, **Syncing**, or **Queued**. Uncheck a table to stop syncing it, as long as at least one stays selected.
 
 If you stop a sync partway, the connection is marked as cancelled rather than failed. Sync it again when you are ready, since it needs a complete run before the data can be used.
+
+### When a table is unavailable
+
+For warehouse connections, a table marked **Unavailable** is one Pluvo can no longer reach, usually because it was dropped from the warehouse or the connection's credentials lost access to it. Pluvo stops retrying it, and hovering the badge tells you which table is affected. Restore access to it, or deselect it, to clear the status.
+
+That is different from **Error**, which means a sync attempt failed and is worth retrying.
 
 ## Tips
 

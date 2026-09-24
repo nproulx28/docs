@@ -1,0 +1,62 @@
+---
+title: "Spreadsheets"
+sidebarTitle: "Spreadsheets"
+description: "A familiar grid for building models inside Pluvo. Start blank, or bring in an existing Excel workbook."
+---
+
+## What it does
+
+Spreadsheets gives you a familiar grid for building models without leaving Pluvo. It works the way you expect a spreadsheet to: cells, formulas, multiple sheets, and a ribbon toolbar for formatting, filtering, sorting, and the rest.
+
+Start from a blank sheet, or import a workbook you already have, such as an existing FP&A model, and keep it alongside the rest of your work.
+
+<Note>
+  Spreadsheets are built by hand. They are not connected to your Pluvo data or the Assistant, so figures in a spreadsheet do not carry provenance and do not refresh. For traceable, refreshable work built from your data, ask the Assistant for an **Artifact**.
+</Note>
+
+## Creating a spreadsheet
+
+Open **Spreadsheets** from the sidebar, then choose how to start.
+
+<Steps>
+  <Step title="Start blank">
+    Choose **New spreadsheet**. You get an empty workbook with one sheet, ready to build in.
+  </Step>
+  <Step title="Or import a workbook">
+    Choose **Import .xlsx** and pick an Excel file, in `.xlsx` or `.xls` format, up to 20 MB. The spreadsheet takes the file's name.
+  </Step>
+</Steps>
+
+### What comes across when you import
+
+Importing keeps the structure and logic of your workbook: values, formulas, number formats, merged cells, column widths, row heights, sheet names, and hidden sheets.
+
+Some things do not carry over, and Pluvo tells you which when the import finishes. Cell styling such as fonts, fills, and borders is not imported, and defined names, cell comments, and filters may be left behind too.
+
+<Tip>
+  If a workbook is over 20 MB, split it into smaller files first. Removing unused sheets and ranges is often enough.
+</Tip>
+
+## Working in a spreadsheet
+
+Edit cells and write formulas as you would in any spreadsheet, and add sheets as you need them. The toolbar covers formatting, filtering, sorting, find and replace, data validation, and conditional formatting.
+
+Your work saves automatically a couple of seconds after you stop typing, and whenever you switch away. You can also press Cmd+S or Ctrl+S, or choose **Save**. The status beside it tells you whether everything is **Saved** or you have **Unsaved changes**.
+
+<Warning>
+  Spreadsheets do not support editing by several people at once. If two people edit the same spreadsheet at the same time, the last save wins, so agree who is working in it before you start.
+</Warning>
+
+## Getting your work out
+
+Choose **Export .xlsx** while you are in a spreadsheet, or **Download .xlsx** from its menu in the list, to save it as an Excel file named after the spreadsheet.
+
+## Finding and managing spreadsheets
+
+The **Spreadsheets** list shows each spreadsheet's name, owner, and when it was created and last updated, with the most recently updated first. Search finds spreadsheets by name.
+
+From a spreadsheet's menu in the list you can **Rename** it, **Download .xlsx**, or **Delete** it. Deleting is permanent and cannot be undone. Only the person who created a spreadsheet, or an organization admin, can delete it.
+
+<Note>
+  Everyone in your organization can see and edit every spreadsheet, and there is no version history. Export a copy before making large changes to a model you rely on.
+</Note>
