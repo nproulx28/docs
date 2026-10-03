@@ -15,25 +15,19 @@ You can connect three kinds of sources: cloud data warehouses, accounting and fi
 From **Data**, choose to add a data source and pick from the categories below. Use the search box, or the category filters above the list, to find a connector quickly.
 
 <Frame caption="Adding a new data source in Pluvo">
-  ![The Add new data source screen showing data warehouses, direct connectors, merge connectors, custom integrations, and file upload](/images/data/add-data-source.png)
+  ![The screen for adding a data source, showing the connector categories](/images/data/add-data-source.png)
 </Frame>
 
 **Data Warehouses.** Connect directly to your warehouse to bring in data at scale: PostgreSQL, Snowflake, and Databricks.
 
-**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, Stripe, Salesforce, Acumatica, SyteLine, Harvest, Ramp, Brex, Measure, Float, and Rillet.
+**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, QuickBooks, NetSuite, Stripe, Salesforce, HubSpot, Acumatica, SyteLine, Harvest, Ramp, Brex, Measure, Float, Rillet, Tabs, and Gusto.
 
 **Merge Connectors.** Connect through a unified integration layer that normalizes data from many systems into a consistent shape: NetSuite, Sage Intacct, QuickBooks, Salesforce, HubSpot, and Xero. These are useful when you want the same fields and structure across different source systems.
-
-**Custom Integrations.** Bring in pre-mapped accounting data through Merge Accounting Upload.
 
 **File Upload.** Upload a CSV or an Excel workbook, or add a **Freeform Text** source when the context you want to share is written rather than tabular.
 
 <Note>
-  Some systems appear under more than one category, for example Xero and Salesforce. A direct connector links to that app's native API, while a merge connector standardizes its data alongside your other systems. Pick whichever fits how you want the data structured.
-</Note>
-
-<Note>
-  New QuickBooks connections are made through **Merge Connectors**. If you already have a direct QuickBooks connection it keeps working as it is, and you can still reconnect it.
+  Some systems appear under more than one category, for example NetSuite, QuickBooks, HubSpot, Xero, and Salesforce. A direct connector links to that app's native API, while a merge connector standardizes its data alongside your other systems. Pick whichever fits how you want the data structured.
 </Note>
 
 <Note>
@@ -71,7 +65,7 @@ Pluvo reads the document and pulls out the individual facts it contains, then yo
     Open **Data**, choose to add a data source, and pick the system you want to connect. Search or filter by category to find it quickly.
   </Step>
   <Step title="Authenticate or enter credentials">
-    For apps like Xero and Stripe, you sign in through that service and authorize Pluvo. Some, like Rillet, ask for an API key instead. For warehouses, you enter your connection details, such as host, database, and credentials. For files, you select the CSV or workbook to upload. Pluvo only reads your data, and never writes back to the source without your explicit permission.
+    For apps like Xero, QuickBooks, HubSpot, and Gusto, you sign in through that service and authorize Pluvo. Some, like Rillet and Tabs, ask for an API key instead, and a direct NetSuite connection uses your account ID and token-based credentials. For warehouses, you enter your connection details, such as host, database, and credentials. For files, you select the CSV or workbook to upload. Pluvo only reads your data, and never writes back to the source without your explicit permission.
   </Step>
   <Step title="Select the data to bring in">
     Choose which tables or datasets you want Pluvo to sync from the source.
@@ -80,15 +74,37 @@ Pluvo reads the document and pulls out the individual facts it contains, then yo
     Pluvo pulls in the selected data. You can watch progress as each table syncs.
   </Step>
   <Step title="Name and finish">
-    Pluvo suggests a name based on the entity the connection covers, so two connections of the same type are easy to tell apart. Keep it or rename it, then finish. It appears in your list of sources with its current status, and you can rename it later from the connection's settings.
+    Pluvo suggests a name based on the entity the connection covers, so two connections of the same type are easy to tell apart. Keep it or rename it, then finish. It appears in your list of sources with its current status.
+  </Step>
+  <Step title="Set a sync schedule">
+    New connections sync only when you ask. To keep the data current automatically, set a schedule, as described below.
   </Step>
 </Steps>
 
 ## Keeping data current
 
-After the first sync, Pluvo keeps your data up to date by pulling in new and changed records. A connection shows **Active** when it is healthy and available to use across the platform. While it syncs, it shows how many tables are done out of the total, then **Finishing up** before returning to Active. Use **Sync now** to pull fresh data at any time, **Test connection** to check it is still healthy, and if something looks off you can re-run a full sync to reimport everything from scratch.
+Open a connection and, on its **Overview** tab, find **Sync schedule**. Choose how often Pluvo should pull in new and changed records:
 
-Open a connection to see each table's own status: **Synced**, **Syncing**, or **Queued**. Uncheck a table to stop syncing it, as long as at least one stays selected.
+- **Manual only**, the default, syncs only when you choose **Sync now**
+- **Hourly** syncs at the top of every hour
+- **Daily** syncs once a day at the time you choose
+- **Weekly** syncs once a week on the day and time you choose
+
+Choose **Save schedule** to apply it. Times are in your own timezone. Schedules apply to app and warehouse connections; uploaded files update when you upload a new version.
+
+<Tip>
+  Match the schedule to how you use the data. Hourly suits data you check through the day, like cash or pipeline. Daily is plenty for most accounting data, and saves syncing records that have not changed.
+</Tip>
+
+**Sync now** pulls fresh data at any time, regardless of the schedule. A connection shows **Active** when it is healthy and available to use across the platform. While it syncs, it shows how many tables are done out of the total, then **Finishing up** before returning to Active.
+
+## Inside a connection
+
+Open a connection from the **Data** list to see everything about it on one page.
+
+**Overview** shows its status, type, when it last synced, and how many records it holds, along with its sync schedule and its credentials, which you can update with **Edit credentials**. If access has expired, a banner asks you to **Reconnect**. For uploaded workbooks, it shows the original file and which sheet became which table. **Disconnect** removes the connection.
+
+**Tables** lists every table the connection brings in, with each table's status: **Synced**, **Syncing**, **Queued**, **Error**, or **Unavailable**. You can search tables and columns, sync a single table, download a table's data, and use **Manage tables** to choose which tables to sync, as long as at least one stays selected.
 
 If you stop a sync partway, the connection is marked as cancelled rather than failed. Sync it again when you are ready, since it needs a complete run before the data can be used.
 
@@ -97,6 +113,16 @@ If you stop a sync partway, the connection is marked as cancelled rather than fa
 For warehouse connections, a table marked **Unavailable** is one Pluvo can no longer reach, usually because it was dropped from the warehouse or the connection's credentials lost access to it. Pluvo stops retrying it, and hovering the badge tells you which table is affected. Restore access to it, or deselect it, to clear the status.
 
 That is different from **Error**, which means a sync attempt failed and is worth retrying.
+
+## Who can see a connection
+
+Each connection has its own access, like an artifact. The person who creates a connection owns it, and the **Data** list shows only the connections you have access to. The Assistant follows the same rules, so it only answers from connections you can see.
+
+To give colleagues access, find the connection in the **Data** list and choose **Share connection**. People with edit access can sync it, change its schedule, and update its credentials.
+
+<Warning>
+  New connections are not shared with your organization automatically. When you connect a source that others need, share it straight away, otherwise colleagues will not see its data in the Assistant or the Library.
+</Warning>
 
 ## Tips
 

@@ -8,9 +8,9 @@ description: "Ask about your financial data in plain language and get answers wh
 
 The Assistant is the front door for questions about your financial and operational data. You ask in plain language, and Pluvo answers from your connected data, with each important number shown as a link you can click to see exactly where it came from.
 
-The point is trust. Rather than a figure you have to take on faith, every load-bearing number in an answer is backed by a real query against your data, and Pluvo tells you when something in its answer could not be verified.
+The point is trust. Rather than a figure you have to take on faith, every load-bearing number in an answer is backed by a real query against your data, and you can open any of them and check the working yourself.
 
-The Assistant is your home screen in Pluvo. **Assistant** is the first item in the sidebar, and it is where you land when you sign in.
+The Assistant is your home screen in Pluvo. **New chat** at the top of the sidebar takes you there, and it is where you land when you sign in.
 
 ## How to use it
 
@@ -18,14 +18,14 @@ The Assistant is your home screen in Pluvo. **Assistant** is the first item in t
   <Step title="Ask a question">
     Type your question into the box on the home screen, for example "Do a budget vs actuals for last month" or "Which expense lines are trending over budget?" Press Enter to send, or Shift and Enter to add a line break.
   </Step>
-  <Step title="Or start from a suggestion">
-    Above the box, **Create a dashboard**, **Create a report**, **Create a presentation**, and **Run an analysis** fill in a starting prompt for you. Below it, **Recommended** offers suggested questions tailored to your data. Use either as it is, or edit it before sending.
+  <Step title="Or start from a shortcut">
+    **Create a dashboard**, **Create a report**, **Create a presentation**, and **Run an analysis** start a new chat straight away, and the Assistant begins by asking what you want. **Recommended** suggestions below the box fill in a question tailored to your data, which you can edit before sending.
   </Step>
   <Step title="Answer any clarifying question">
-    If a detail would change the answer materially, the Assistant asks you one question and offers a few options to choose from. Pick one, add a detail if you like, then continue.
+    If a detail would change the answer materially, the Assistant asks you one question and offers a few options to choose from. Pick one, add a detail if you like, then continue. When the options are long, they appear as numbered rows, and you can press a number key to choose.
   </Step>
-  <Step title="Read the answer and check the numbers">
-    Click any highlighted figure to see how it was derived, the source it came from, and the inputs behind it. From there you can also open the underlying rows.
+  <Step title="Check the numbers">
+    Click any highlighted figure to see where it came from, and open the full working behind it. More on that below.
   </Step>
   <Step title="Keep going">
     Ask a follow-up in the same chat to go deeper. Your conversation keeps its context, and each chat has its own link you can come back to.
@@ -33,6 +33,10 @@ The Assistant is your home screen in Pluvo. **Assistant** is the first item in t
 </Steps>
 
 If an answer is heading the wrong way, choose **Stop** to end it early, or press Escape. Then send a new message with better direction rather than waiting it out.
+
+<Tip>
+  You do not lose a half-written message if you navigate away. Pluvo keeps it as a draft, marked with a pencil next to **New chat** or next to the chat in your list, and puts it back when you return. Drafts are kept in your browser, so they do not follow you to another device.
+</Tip>
 
 ## Choosing how much verification you want
 
@@ -50,13 +54,27 @@ Standard is the default, and your choice applies to that conversation.
 
 ## Digging into a question
 
-For a straightforward question you get a straight answer. When you ask something that needs real digging, such as why a number moved or what is driving a variance, the Assistant runs a fuller investigation, working through the question step by step and showing each step as it completes. If one is interrupted you can pick it back up where it left off.
+For a straightforward question you get a straight answer. When you ask something that needs real digging, such as why a number moved or what is driving a variance, the Assistant runs a fuller investigation, working through the question step by step and showing each step as it completes.
 
-This all happens in the same conversation, so there is nothing separate to open or set up.
+Under each answer you can open **Thoughts** to see the research the Assistant did, in plain language, such as querying your warehouse or reading a saved Table. Steps that returned rows can be expanded to preview them.
 
-## Seeing the work
+## Checking a figure
 
-Under each answer you can open **Thoughts** to see the research the Assistant did, step by step, in plain language, such as querying your warehouse or reading your data schema. Steps that returned rows can be expanded to preview them.
+Every highlighted figure can be opened, and what you see depends on where the number came from. A figure with only one way to explain it opens straight into that view.
+
+**A metric from your Library** opens the metric explorer. You see the verified figure along with its period, filters, source, and when the data last synced, and its governance: who approved it, which version, and whether it matched your data on the latest sync. From there you can change the period, filter it, or break it out by month, quarter, or dimension to see what the number is made of. **Reset** takes you back to the original figure, and **Rows behind this number** opens the records underneath.
+
+**A calculated figure**, one the Assistant worked out from other numbers, opens the calculation. You see the formula, each input and its value, and a lineage graph of where it comes from. Click any input to open it in turn, so you can follow the chain all the way back to source.
+
+**A figure read from your data** opens the rows behind it. Pluvo adds the rows up and checks the total against the figure in the answer, so you can see that the number ties out. If it does not, it says so, showing what the rows add up to against what the figure said.
+
+From the rows you can switch between the query result and the underlying records, view the SQL, **Export** to CSV, or **Save Table** to keep the result in your Library.
+
+<Tip>
+  Open the rows behind a number before you circulate it. Seeing them tie out to the figure is the fastest way to be confident in a surprising result.
+</Tip>
+
+The same views open from figures inside an artifact, for anyone who can read that artifact.
 
 ## What went into an answer
 
@@ -66,51 +84,61 @@ Every answer carries a **Used in this answer** row showing exactly what it drew 
 - **Each data source** it queried, with the tables involved and when that source last synced
 - **Tables** from your Library that it ran, with when each ran and the values used if a Table takes inputs
 - **Metrics** from your Library that the answer used, with a link through to each definition
+- **Artifacts** it read for reference while writing the answer, which you can open beside the chat
 - **Rules** your organization has set that applied to the answer
 - **Skills** that shaped the answer, with a link to the guidance it followed
-
-This is the fastest way to sanity check an answer before you act on it. If a number looks surprising, start here and work back to the source.
 
 ## Charts and tables
 
 Ask for a chart and the Assistant draws it directly in the conversation, as a line, bar, area, or waterfall chart, and you can switch on the detail showing the query behind it.
 
-## Working with your data
+## Building things in a chat
 
-**Browse the rows.** When you ask to see the detail behind an answer, a table panel opens beside the chat. You can sort it, page through the full result, and use **Export** to download the loaded rows as a spreadsheet.
+The Assistant does more than answer. In a conversation you can ask it to:
 
-**Keep a result.** If the rows are worth reusing, choose **Save Table** to save them to your **Library** as a governed Table. The whole result is saved, not just what is on screen, and you can then build metrics on it.
+- **Build an artifact**, a dashboard, report, presentation, or canvas. See **Artifacts**.
+- **Create or edit a metric or a Table.** It drafts it with you in the chat, and the draft appears in a workbench beside the conversation for you to review. Nothing is saved until you choose to save it, and when you do, it goes to your **Library**.
+- **Create or edit a spreadsheet.** See **Spreadsheets**.
+- **Remember something.** Ask it to remember a convention and it saves it as a skill that applies to your future conversations, personal to you until you share it from the **Library**.
 
-**Work from your saved Tables.** When the answer to a question lives in a Table you have already saved, the Assistant queries it directly, filtering, totaling, grouping, and ranking its rows, rather than working the logic out again.
+Nothing is created or saved silently. It only happens when you ask.
 
-**Build on existing work.** Use the **+** in the message box to attach an artifact, so the Assistant works from it rather than starting over.
+## Bringing in existing work
 
-**Save what it learns.** If you ask the Assistant to remember something, it saves it as a skill that applies to your future conversations. It is personal to you until you share it from the **Library**. Nothing is saved silently, it only happens when you ask.
+Use **Add context**, the **+** in the message box, to attach up to three artifacts to a message, so the Assistant works from them rather than starting over. Attached artifacts appear as chips above the box, and you can click one to open it or remove it before sending.
+
+When the answer to a question lives in a Table you have already saved, the Assistant queries it directly, filtering, totaling, grouping, and ranking its rows, rather than working the logic out again.
 
 ## The side panel
 
-Rows and artifacts open in a panel beside your chat, and each one gets its own tab, so you can keep several open and move between them instead of losing your place. The panel remembers what you had open when you come back.
-
-An artifact tab carries its own actions, including **Edit a section**, **Download**, and **Full page**.
-
-## Rating an answer
-
-Each answer has thumbs up and thumbs down buttons, and a thumbs down opens a short form where you can say what was wrong. This feeds back into improving the Assistant, and it is the most useful thing you can do when an answer misses.
+Rows, calculations, metrics, and artifacts open in a panel beside your chat, each in its own tab, so you can keep several open and move between them. An artifact tab carries its own actions, including **Edit a section**, **Download**, and **Full page**.
 
 ## Finding and organizing your chats
 
-Your past conversations live in **Chat History**, which you can open from the home screen or from the clock icon at the top of any conversation. Chats are grouped by **Today**, **Yesterday**, **Last 7 days**, and **Older**, with a search box to find one again. From there you can start a **New chat**, create folders, and keep related work together.
+Your conversations are listed under **Chats** in the sidebar, most recently active first, grouped by **Today**, **Yesterday**, **Previous 7 Days**, **Previous 30 Days**, and then by month.
 
-At the top of a conversation you will see its title, and its menu lets you **Rename** it or **Delete chat**.
+- **Folders.** Use the **+** beside **Folders** to create one, then drag chats into it. Drag a chat out to remove it from the folder.
+- **Rename, move, or delete.** Each chat's menu lets you **Rename** it, **Move to folder**, or **Delete** it.
+- **Search.** The search icon beside **Chats** searches chat titles and the full text of your messages.
+
+<Warning>
+  Deleting a folder deletes the chats inside it too. Move any you want to keep out of the folder first.
+</Warning>
+
+## Getting around Pluvo
+
+**Search.** Press Cmd+K, or use the search button at the top of the sidebar, to search across your chats, artifacts, and spreadsheets in one place.
+
+**Tidy the sidebar.** If there are items you never use, choose **More** at the bottom of the sidebar, then **Edit sidebar…**, and uncheck them. They move under **More**, still one click away, and you can bring them back the same way.
+
+## Rating an answer
+
+Each answer has thumbs up and thumbs down buttons, and a thumbs down opens a short form where you can say what was wrong. It is the most useful thing you can do when an answer misses.
 
 ## Tips
 
 <Tip>
   Be specific about the period and the part of the business you mean. "Compare Q4 actuals to budget for marketing" gets you further than "how are we doing."
-</Tip>
-
-<Tip>
-  Click through on a number before you circulate it. The provenance card shows the formula, the inputs, and when the data was last synced, which is the fastest way to sanity check a surprising result.
 </Tip>
 
 <Tip>
@@ -120,7 +148,3 @@ At the top of a conversation you will see its title, and its menu lets you **Ren
 <Tip>
   If an investigation is taking a while, let it run. It is working through the question step by step, and you can follow along as each step completes.
 </Tip>
-
-## What's next
-
-Ask the Assistant to build an **Artifact**, a dashboard, report, presentation, or canvas, when you want something you can keep, share, and let someone click through.

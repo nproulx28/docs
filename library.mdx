@@ -22,7 +22,7 @@ Open **Library** from the sidebar and you land on the **Context Library**, organ
 
 If something needs your attention the Library opens on **Needs review**. If you are all caught up, it opens on **Metrics**.
 
-To add something new, choose **Add context** and pick **Metric**, **Skill**, or **Rule**. What you see depends on your role, so Rule appears only for admins.
+To add something new, choose **Add context** and pick **Table**, **Metric**, **Skill**, or **Rule**. What you see depends on your role, so Rule appears only for admins.
 
 ## Reviewing what Pluvo has found
 
@@ -59,23 +59,24 @@ Below that, in order:
 
 ### Creating a metric
 
+Metrics are built in conversation with the Assistant.
+
 <Steps>
   <Step title="Start a new metric">
-    Choose **Add context**, then **Metric**. You get a conversation on the left and a builder on the right, and you can work in either.
+    Choose **Add context**, then **Metric**. A new Assistant chat opens, and the Assistant explains how metrics work and asks what you want to measure, one question at a time. You can also just ask for a metric in any chat.
   </Step>
-  <Step title="Describe it, or build it by hand">
-    Tell the assistant what you want to measure in plain words and it fills in the builder, or set it up yourself. If a draft is heading the wrong way, choose **Stop** and redirect it.
-  </Step>
-  <Step title="Build the formula">
-    Choose what you are measuring, the column it comes from, and how to add it up. Combine terms with add, subtract, multiply, and divide, then narrow it down with filters and choose how it can be broken out.
+  <Step title="Shape the draft">
+    As you answer, the draft appears in a metric workbench beside the conversation. Adjust it there directly, or keep refining it in the chat. Choose what you are measuring, the column it comes from, and how to add it up, combine terms with add, subtract, multiply, and divide, then narrow it down with filters and choose how it can be broken out.
   </Step>
   <Step title="Check the preview">
     A live preview shows the number your formula produces, so you can confirm it before saving.
   </Step>
   <Step title="Name it and save">
-    Give it a clear name and description, add the other names people use for it so the Assistant finds it, then save.
+    Give it a clear name and description, add the other names people use for it so the Assistant finds it, then choose **Save metric**. **Open in Library** takes you to it.
   </Step>
 </Steps>
+
+If the Assistant suggests a change after you have edited the draft yourself, you choose: **Use assistant version** or **Keep my edits**. To change a saved metric, open it and choose **Edit**.
 
 Formulas follow standard order of operations, so multiplication and division happen before addition and subtraction. To group terms differently, click the operator between two terms and add an opening or closing bracket.
 
@@ -93,9 +94,13 @@ Each Table carries a plain-language contract: what a row represents, how dates a
 
 ### Getting a Table into your Library
 
-The quickest way is from the Assistant. When it shows you a set of rows worth keeping, choose **Save Table** in the data panel, give it a name and a short description, and the complete result is saved, not just the rows on screen.
+Tables are built in conversation with the Assistant too, and there are two ways in.
 
-You can also describe the rows you need in the metric conversation and Pluvo drafts a Table for you:
+**Start from a result.** When the Assistant shows you a set of rows worth keeping, choose **Save Table** in the data panel, give it a name and a short description, and choose **Review Table**. The complete result is captured, not just the rows on screen.
+
+**Start from a description.** Choose **Add context**, then **Table**, or ask for one in any chat. The Assistant asks what rows you need, one question at a time.
+
+Either way, the draft appears in a Table workbench beside the conversation:
 
 <Steps>
   <Step title="Review the draft">
@@ -112,6 +117,8 @@ You can also describe the rows you need in the metric conversation and Pluvo dra
 ### Using a Table
 
 Open a Table to see its status, readiness, and description, the questions it is meant to answer, a live preview of its rows, and its current and published versions. **Edit** reopens the conversation it was created in.
+
+If a Table takes inputs, such as a date range, you can try different values in the preview. Choose **Save defaults** to make your values the new defaults for everyone. Metrics already built on the Table keep the version they were built against.
 
 Once published, a Table becomes a source you can build metrics on, and the Assistant can query it directly when answering, filtering, totaling, grouping, and ranking its rows rather than working the logic out again.
 
@@ -202,4 +209,4 @@ Metrics and Tables can be deleted from their page or from the list. Deleting is 
 
 Metrics reach your Library five ways: from Pluvo's catalog of common definitions, discovered in your data, promoted from a saved query, saved from a conversation, or authored by your team in the builder. Every metric shows its source, so you always know where a definition came from.
 
-When the Assistant uses any of this context in an answer, it says so, and links back to the metrics, tables, skills, and rules it drew on.
+When the Assistant uses any of this context in an answer, it says so, and links back to the metrics, tables, skills, and rules it drew on. Clicking a metric figure in an answer opens the metric explorer, where you can see its governance and break the number down.

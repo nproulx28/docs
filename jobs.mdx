@@ -1,0 +1,79 @@
+---
+title: "Jobs"
+sidebarTitle: "Jobs"
+description: "Turn recurring work into a reusable job that the Assistant carries out on demand or on a schedule."
+---
+
+## What it does
+
+A job is a piece of recurring work written down once and handed to the Assistant to carry out. You describe the goal, the data to use, and the output you need, and from then on the Assistant runs it for you, either when you ask or on a schedule.
+
+Think of the month-end variance pack, the weekly cash summary, or the board metrics refresh. Instead of asking for the same thing in a new chat each time, you set it up as a job and it runs the same way every time.
+
+Each run produces something you can keep. A job always ends by creating or updating an **artifact**, so the result is a dashboard, report, presentation, or canvas you can open, share, and look back on.
+
+## Creating a job
+
+<Steps>
+  <Step title="Start a new job">
+    Open **Jobs** from the sidebar and choose **New job**. You get a conversation on the left and the job's instructions on the right.
+  </Step>
+  <Step title="Describe the work">
+    Tell the assistant what the job should do: the goal, the data it should use, any constraints, and the output you want. It asks questions where it needs to, and proposes a name and instructions for you to **Accept** or **Reject**. You can also write the instructions yourself.
+  </Step>
+  <Step title="Name it">
+    Give the job a clear **Name**, such as "Monthly variance pack". Instructions support Markdown, up to 10,000 characters.
+  </Step>
+  <Step title="Publish it">
+    Choose **Publish**. A job only runs from its published instructions, so drafts never run, and you can keep editing without affecting what runs until you publish again.
+  </Step>
+</Steps>
+
+<Tip>
+  Write instructions the way you would brief a new analyst: what you want, where the data comes from, how to treat edge cases, and what the finished output should look like. The clearer the brief, the more consistent the runs.
+</Tip>
+
+<Note>
+  The assistant helps you write the instructions, but it never publishes, schedules, or runs a job on its own. Those are always your call.
+</Note>
+
+## Running a job
+
+Open a job and choose **Run now** to run it straight away. While it runs, **View run** shows its progress step by step, including the data it queried, then a summary and the **Outputs** it produced. A run can take a few minutes for simple work and longer for heavy analysis, and only one run of a job happens at a time.
+
+If a run cannot get something it needs to do the work properly, it stops and explains why rather than guessing.
+
+## Scheduling a job
+
+Once a job is published, you can have it run automatically. On the job's page, find **Schedule** and choose **Edit schedule**.
+
+- **Manual only** runs it only when you choose **Run now**. This is the default.
+- **Daily** runs it every day at the time you choose.
+- **Weekly** runs it on the day and time you choose.
+- **Monthly** runs it on the day of the month and time you choose.
+
+Times are on the hour and in your own timezone. Scheduled runs always use the latest published instructions.
+
+<Note>
+  If you pick a day late in the month, such as the 31st, months without that day are skipped. Choose the 28th or earlier if you want the job to run every month.
+</Note>
+
+To stop a job running on a schedule, set it back to **Manual only**.
+
+## Checking past runs
+
+Each job's page lists its runs, newest first, showing when each ran, whether it was scheduled or manual, how long it took, its status, and the artifacts it produced. Open a run to see exactly what it did.
+
+<Tip>
+  Pluvo does not send a notification when a job finishes, so check the job's page, or open the artifact it updates, to see the latest result.
+</Tip>
+
+## Editing and archiving jobs
+
+Edit a job's instructions at any time, then **Publish** to make the changes live. **Version history** shows every published version, and **Discard draft** throws away unpublished edits.
+
+When you no longer need a job, **Archive** it. Its history stays available under **Archived** on the Jobs page, and you can restore it later. An archived job does not run.
+
+<Note>
+  Jobs are private to the person who creates them. Other people in your organization do not see your jobs, though you can share the artifacts they produce.
+</Note>
