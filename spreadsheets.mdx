@@ -23,7 +23,7 @@ Open **Spreadsheets** from the sidebar, then choose how to start.
     Choose **New spreadsheet**. You get an empty workbook with one sheet, ready to build in.
   </Step>
   <Step title="Or import a workbook">
-    Choose **Import .xlsx** and pick an Excel file, in `.xlsx` or `.xls` format, up to 25 MB. The spreadsheet takes the file's name.
+    Choose **Import .xlsx** and pick an Excel file in `.xlsx` format, up to 25 MB. Older `.xls` files need saving as `.xlsx` first. The spreadsheet takes the file's name.
   </Step>
 </Steps>
 
@@ -31,9 +31,9 @@ You can also ask the Assistant in any chat to create a spreadsheet for you. It a
 
 ### What comes across when you import
 
-Importing keeps the structure and logic of your workbook: values, formulas, number formats, merged cells, column widths, row heights, sheet names, and hidden sheets.
+Importing keeps the structure, logic, and look of your workbook: values, formulas, number formats, merged cells, column widths, row heights, sheet names, and hidden sheets, along with cell styling such as fonts, fills, borders, and alignment. Exporting writes the same styling back out, so a model keeps its formatting on the way in and the way out.
 
-Some things do not carry over, and Pluvo tells you which when the import finishes. Cell styling such as fonts, fills, and borders is not imported, and defined names, cell comments, and filters may be left behind too.
+A few things do not carry over, and Pluvo tells you which when the import finishes. Defined names, cell comments, and filters may be left behind.
 
 <Tip>
   If a workbook is over 25 MB, split it into smaller files first. Removing unused sheets and ranges is often enough.

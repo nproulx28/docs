@@ -1,0 +1,119 @@
+---
+title: "Data access"
+sidebarTitle: "Data access"
+description: "How Pluvo decides who can see what, from organization roles and sharing down to the tables, columns, and rows each person can query."
+---
+
+## What it does
+
+Finance data is sensitive, and not everyone in your organization should see all of it. Pluvo controls access in three layers, each one narrower than the last:
+
+1. **Organization roles** decide what someone can do in Pluvo overall.
+2. **Sharing** decides which items, such as data sources and artifacts, someone can open.
+3. **Data access limits** decide exactly which tables, columns, and rows within a data source someone can query.
+
+The Assistant follows all three. If a person cannot see a piece of data, the Assistant cannot use it to answer them, so an answer never reveals more than the person asking is allowed to see.
+
+## Organization roles
+
+Everyone in your organization has one of three roles, set by an admin in **Settings**, under People.
+
+| Role | What they can do |
+| --- | --- |
+| **Admin** | Everything, including managing people, roles, and data access. Admins can always query all synced data. |
+| **Member** | Work fully in Pluvo: ask questions, build artifacts and spreadsheets, write skills, and share their own work. |
+| **Guest** | View and comment on what is shared with them, without editing. Suited to department heads or board members who need visibility. |
+
+<Note>
+  Moving someone to **Guest** transfers ownership of what they own and makes their access view only. Pluvo asks you to confirm first, and the change cannot be undone.
+</Note>
+
+## Sharing
+
+Data sources, artifacts, and skills are each shared with specific people, at one of two levels:
+
+- **Viewer** can see the item and use it, but not change it.
+- **Editor** can change the item and share it with others.
+
+The person who created an item always has full control of it, and admins have access to everything.
+
+Sharing a data source gives someone access to every table in it. To give them less than that, add data access limits.
+
+See **Sharing & Access** for how to share an item.
+
+## Data access limits
+
+Data access limits let an admin decide, person by person, exactly what someone can query within a data source. Use them when someone needs some of a source but not all of it, such as a department head who should see their own department's spend but not everyone's payroll.
+
+There are three kinds of limit:
+
+- **Tables.** Choose which tables in a source a person can query, or give them all of them, including tables synced later.
+- **Columns.** Hide individual columns, such as salaries or bank details, while leaving the rest of the table visible.
+- **Rows.** Add a rule so a person only sees rows that match a condition, such as their own department, entity, or region.
+
+Limits apply everywhere the person works with data: table previews, queries, and Assistant answers.
+
+<Warning>
+  New members cannot query any synced data until an admin gives them access. When you invite someone, give them access to the sources they need, or they will find the Assistant has nothing to answer from.
+</Warning>
+
+## Giving someone access
+
+Data access is managed in **Settings**, under **Data access**, which lists everyone in your organization and what they can query. Filter the list to find people with **No access** or **Custom** limits.
+
+<Steps>
+  <Step title="Choose the person">
+    Find them in the list and choose **Give access**, or **Manage** if they already have some.
+  </Step>
+  <Step title="Pick a source">
+    Choose the data source they need.
+  </Step>
+  <Step title="Choose the tables">
+    Choose **All tables**, which includes any tables synced later, or **Specific tables**, which covers only the ones you pick.
+  </Step>
+  <Step title="Limit what they see, if needed">
+    Optionally, choose **Hide columns** or **Limit rows** and add a rule. You can skip this step to give full access to the tables you picked.
+  </Step>
+  <Step title="Review and save">
+    Check the summary, then choose **Give access**. The source is shared with them as a Viewer, and the limits take effect straight away.
+  </Step>
+</Steps>
+
+## Adjusting limits
+
+Open a person from **Data access** to see what they can query right now, one source at a time. From there you can edit their tables, or open a table to change its limits:
+
+- **Hide table** blocks it entirely. The table still appears in the app, but any query that uses it fails with an access error.
+- **Columns** lets you hide or show each column.
+- **Rows** lets you build a rule from a column, a condition, and a value, such as "Department is Marketing". Combine several conditions and choose whether a row must match all of them or any of them.
+
+<Note>
+  Limits only apply to Viewers. Anyone who can edit a source always sees all of it, so to limit an editor, Pluvo first asks to make them a Viewer.
+</Note>
+
+## Checking who can see a source
+
+Open a data source and choose its **Access** tab to see everyone who can query it, whether they are a Viewer or an Editor, and whether any limits apply to them. Admins can add or edit limits from here, or remove someone's access. If you are not an admin, you can see your own access.
+
+When you share a source with someone, Pluvo reminds you that they will see every table in full, and offers to add limits for them straight away.
+
+## Setting access in bulk
+
+For larger organizations, admins can use the **SQL console** in **Data access** to set rules for many people at once, or to copy one person's access to another. Each statement is saved as a rule, just as if you had made the change on a person's page, and recent changes are listed so you can see what was done.
+
+## What a person with limits experiences
+
+- Hidden columns and filtered rows simply do not appear in their previews, queries, or answers.
+- A hidden table still shows in the app, but queries that use it fail with an access error.
+- They cannot download a table or file that has limits on it, since a download would include data they are not allowed to see.
+- They cannot refresh an artifact that draws on data they have limits on, because the refreshed numbers would change what everyone else sees. They can ask the person who owns it to refresh it instead.
+
+## Tips
+
+<Tip>
+  Start narrow and widen access as people need it. It is easier to add a table someone asks for than to discover later they could see one they should not have.
+</Tip>
+
+<Tip>
+  When someone says they cannot see data a colleague can, check three things in order: whether the source is shared with them, whether their data access includes that table, and whether a row rule is filtering it out.
+</Tip>

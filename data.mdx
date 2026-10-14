@@ -22,12 +22,10 @@ From **Data**, choose to add a data source and pick from the categories below. U
 
 **Direct Connectors.** Connect straight to an app's own API for a native link: Xero, QuickBooks, NetSuite, Stripe, Salesforce, HubSpot, Acumatica, SyteLine, Harvest, Ramp, Brex, Measure, Float, Rillet, Tabs, and Gusto.
 
-**Merge Connectors.** Connect through a unified integration layer that normalizes data from many systems into a consistent shape: NetSuite, Sage Intacct, QuickBooks, Salesforce, HubSpot, and Xero. These are useful when you want the same fields and structure across different source systems.
-
 **File Upload.** Upload a CSV or an Excel workbook, or add a **Freeform Text** source when the context you want to share is written rather than tabular.
 
 <Note>
-  Some systems appear under more than one category, for example NetSuite, QuickBooks, HubSpot, Xero, and Salesforce. A direct connector links to that app's native API, while a merge connector standardizes its data alongside your other systems. Pick whichever fits how you want the data structured.
+  Merge connectors have been retired, and apps now connect directly. If you have an older Merge connection, its data stays available to read in the Assistant and the Library, but it no longer syncs. To get fresh data, connect the same system again from **Direct Connectors**. Sage Intacct was only available through Merge, so it cannot be newly connected for now. Contact your account team if you rely on it.
 </Note>
 
 <Note>
@@ -118,11 +116,13 @@ That is different from **Error**, which means a sync attempt failed and is worth
 
 Each connection has its own access, like an artifact. The person who creates a connection owns it, and the **Data** list shows only the connections you have access to. The Assistant follows the same rules, so it only answers from connections you can see.
 
-To give colleagues access, find the connection in the **Data** list and choose **Share connection**. People with edit access can sync it, change its schedule, and update its credentials.
+To give colleagues access, find the connection in the **Data** list, open its menu, and choose **Share**. People with edit access can sync it, change its schedule, and update its credentials.
 
 <Warning>
   New connections are not shared with your organization automatically. When you connect a source that others need, share it straight away, otherwise colleagues will not see its data in the Assistant or the Library.
 </Warning>
+
+Sharing a connection gives someone every table in it. Admins can narrow that to specific tables, columns, or rows from the connection's **Access** tab. See **Data access**.
 
 ## Tips
 

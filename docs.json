@@ -43,10 +43,11 @@
           "ontology",
           "library",
           "assistant",
-          "jobs",
+          "agents",
           "artifacts",
           "spreadsheets",
           "sharing-and-access",
+          "data-access",
           "commenting-and-notifications",
           "settings"
         ]
