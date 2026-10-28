@@ -40,7 +40,6 @@
         "group": "Analysis",
         "pages": [
           "data",
-          "ontology",
           "library",
           "assistant",
           "agents",
