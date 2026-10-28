@@ -11,7 +11,7 @@ Spreadsheets gives you a familiar grid for building models without leaving Pluvo
 Start from a blank sheet, import a workbook you already have, such as an existing FP&A model, or ask the Assistant to build one for you.
 
 <Note>
-  Cells in a spreadsheet are static values. The Assistant can pull figures from your data into a sheet, but they do not stay linked to the source, carry provenance, or refresh. For traceable, refreshable work built from your data, ask the Assistant for an **Artifact**.
+  Cells you type or paste are ordinary values. To keep a sheet linked to your data, add a **live sheet**, which fills itself from a saved Table in your Library and refreshes on demand.
 </Note>
 
 ## Creating a spreadsheet
@@ -61,16 +61,56 @@ Chats with the spreadsheet Assistant are saved like any other, and **Past conver
   Spreadsheets do not support editing by several people at once. If two people edit the same spreadsheet at the same time, the last save wins, so agree who is working in it before you start.
 </Warning>
 
+## Live sheets
+
+A live sheet is a sheet filled straight from one of your approved Tables in the **Library**, so the numbers stay tied to your data instead of being pasted in. Build your model on the other sheets and point formulas at the live one.
+
+<Steps>
+  <Step title="Open Live data">
+    Choose **Live data** in the top bar of the spreadsheet.
+  </Step>
+  <Step title="Pick a Table">
+    Choose **Add live sheet** and search your approved saved Tables. If the Table has inputs, such as a period or entity, choose the values this sheet should be filled with.
+  </Step>
+  <Step title="Use it in your model">
+    Pluvo adds a new sheet with the Table's data. Its tab is blue, and its cells cannot be typed over, so the data always matches the source.
+  </Step>
+</Steps>
+
+From **Live data** you can manage each live sheet:
+
+- **Refresh** pulls the latest data into the sheet.
+- **Change inputs** lets you pick different values, then **Apply and refresh**.
+- **Freeze** keeps the current values and stops refreshing, for example to close a month. A frozen sheet's tab turns grey, and **Unfreeze** brings it back to life.
+- **Convert to a normal sheet** stops syncing and keeps the current data as ordinary, editable cells.
+- **Delete this sheet** removes it from the spreadsheet.
+
+<Note>
+  A live sheet refreshes with the data access of the spreadsheet's owner, so everyone who opens it sees the same figures.
+</Note>
+
+### Tracing a number
+
+Right-click any cell and choose **Trace this number** to see where it comes from. Pluvo follows the formulas back through the workbook to the live sheets and saved Tables behind them, and tells you if it also uses numbers typed in by hand. From there, **Show rows behind** opens the rows of the Table that produced the figure.
+
+When the Assistant uses a figure from a spreadsheet in an answer, it cites the spreadsheet, the cell, and the formula, with a link to open it.
+
+## Sharing a spreadsheet
+
+A new spreadsheet is private to you. To give colleagues access, choose **Share** in the top bar, or from the spreadsheet's **⋯** menu in the list, and add people as **Viewer** or **Editor**. The list's **Shared with** column shows who has access.
+
+Viewers see the spreadsheet marked **View only** and cannot change it. See **Sharing & Access** for how sharing works across Pluvo.
+
 ## Getting your work out
 
 Choose **Export .xlsx** while you are in a spreadsheet, or **Download .xlsx** from its menu in the list, to save it as an Excel file named after the spreadsheet.
 
 ## Finding and managing spreadsheets
 
-The **Spreadsheets** list shows each spreadsheet's name, owner, and when it was created and last updated, with the most recently updated first. Search finds spreadsheets by name.
+The **Spreadsheets** list shows the spreadsheets you have access to, with each one's name, owner, who it is shared with, and when it was created and last updated, with the most recently updated first. Search finds spreadsheets by name.
 
-From a spreadsheet's menu in the list you can **Rename** it, **Download .xlsx**, or **Delete** it. Deleting is permanent and cannot be undone. Only the person who created a spreadsheet, or an organization admin, can delete it.
+From a spreadsheet's **⋯** menu in the list you can **Share** it, **Rename** it, **Download .xlsx**, or **Delete** it. Deleting is permanent and cannot be undone. Only the person who created a spreadsheet, or an organization admin, can delete it.
 
 <Note>
-  Everyone in your organization can see and edit every spreadsheet, and there is no version history. Export a copy before making large changes to a model you rely on.
+  Spreadsheets have no version history. Export a copy before making large changes to a model you rely on.
 </Note>

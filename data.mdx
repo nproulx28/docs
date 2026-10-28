@@ -8,7 +8,7 @@ description: "Connect your accounting systems, warehouses, and files so Pluvo ha
 
 Data is where you connect the systems your numbers already live in. Once a source is connected, Pluvo syncs the underlying tables, keeps them up to date, and makes them available to everything else in the platform, from your Library to the Assistant.
 
-You can connect three kinds of sources: cloud data warehouses, accounting and finance apps, and flat files you upload yourself. Mix and match as many as you need, all in one place.
+You can connect cloud data warehouses, accounting and finance apps, files in Google Drive, and files you upload yourself. Mix and match as many as you need, all in one place.
 
 ## What you can connect
 
@@ -20,23 +20,52 @@ From **Data**, choose to add a data source and pick from the categories below. U
 
 **Data Warehouses.** Connect directly to your warehouse to bring in data at scale: PostgreSQL, Snowflake, and Databricks.
 
-**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, QuickBooks, NetSuite, Stripe, Salesforce, HubSpot, Acumatica, SyteLine, Harvest, Ramp, Brex, Measure, Float, Rillet, Tabs, and Gusto.
+**Direct Connectors.** Connect straight to an app's own API for a native link: Xero, QuickBooks, NetSuite, Sage Intacct, Stripe, Salesforce, HubSpot, Acumatica, SyteLine, Harvest, Ramp, Brex, Measure, Float, Rillet, Tabs, and Gusto.
+
+**Google Drive.** Connect a spreadsheet or a whole folder from your Drive, and Pluvo keeps it in sync.
 
 **File Upload.** Upload a CSV or an Excel workbook, or add a **Freeform Text** source when the context you want to share is written rather than tabular.
 
 <Note>
-  Merge connectors have been retired, and apps now connect directly. If you have an older Merge connection, its data stays available to read in the Assistant and the Library, but it no longer syncs. To get fresh data, connect the same system again from **Direct Connectors**. Sage Intacct was only available through Merge, so it cannot be newly connected for now. Contact your account team if you rely on it.
+  Merge connectors have been retired, and apps now connect directly. If you have an older Merge connection, its data stays available to read in the Assistant and the Library, but it no longer syncs. To get fresh data, connect the same system again from **Direct Connectors**.
 </Note>
 
 <Note>
   Not every connector is switched on for every organization. If you expect to see one and it is not there, contact your account team.
 </Note>
 
+## Connecting Google Drive
+
+Google Drive keeps a spreadsheet you already maintain in Drive flowing into Pluvo, without uploading a new copy each time.
+
+<Steps>
+  <Step title="Choose Google Drive">
+    Add a data source and choose **Google Drive**. Sign in with your Google account, or pick one you have already connected. Pluvo only reads the files you pick.
+  </Step>
+  <Step title="Pick a file or a folder">
+    **Pick a single file** connects one Google Sheet, `.xlsx`, `.xlsm`, `.xls`, or `.csv` file. **Pick a folder** connects every supported file in the folder and its subfolders, and files added later are read on the next sync.
+  </Step>
+  <Step title="Choose the tables">
+    For a workbook, choose which sheets to import and name each table. Table names use letters, numbers, and underscores.
+  </Step>
+  <Step title="Name it and finish">
+    Give the data source a name, then set a sync schedule as you would for any other connection.
+  </Step>
+</Steps>
+
+Open a Google Drive connection to see the files behind it. For a folder, **What changed** lists the tables that were added, refreshed, or removed on the last check, and each file shows when it last changed and when it was last checked. If a file cannot be read, Pluvo says why, for example that it was moved out of the folder, deleted, no longer shared with the connected account, too large to export, or over your organization's table limit, and what to do about it.
+
+A Google Drive connection reads files through the account of the person who connected it. Others who open it see who that is. If the account's access lapses, the connection shows **Reconnect needed**.
+
+The **Accounts** tab on the **Data** page lists the Google accounts you have connected and the files and folders each one is used for. You can reconnect or disconnect an account from there. Your connections themselves are on the **Sources** tab.
+
 ## Uploading files
 
 **File Upload** takes CSV files and Excel workbooks, in `.csv`, `.xlsx`, and `.xls` formats, and you can bring in several at once.
 
 Each sheet in a workbook becomes its own table in Pluvo, and you name each one as you finish setting it up. Once connected, the source keeps a record of the workbook it came from and which sheet became which table, so you can always trace a table back to its origin. Open the connection and choose **Download original file** to get back exactly what was uploaded.
+
+To update an uploaded file, open the connection and choose **Replace file**, then upload the new version. It syncs again on the same connection, so anything built on its tables keeps working. For a workbook, sheets missing from the new file stop syncing, but their data stays.
 
 <Note>
   A very large sheet can be too big to import from Excel. If that happens, Pluvo names the sheet and asks you to export it as a CSV and upload that instead.
@@ -88,7 +117,7 @@ Open a connection and, on its **Overview** tab, find **Sync schedule**. Choose h
 - **Daily** syncs once a day at the time you choose
 - **Weekly** syncs once a week on the day and time you choose
 
-Choose **Save schedule** to apply it. Times are in your own timezone. Schedules apply to app and warehouse connections; uploaded files update when you upload a new version.
+Choose **Save schedule** to apply it. Times are in your own timezone. Schedules apply to app, warehouse, and Google Drive connections. To update an uploaded file, use **Replace file**.
 
 <Tip>
   Match the schedule to how you use the data. Hourly suits data you check through the day, like cash or pipeline. Daily is plenty for most accounting data, and saves syncing records that have not changed.
@@ -102,7 +131,7 @@ Open a connection from the **Data** list to see everything about it on one page.
 
 **Overview** shows its status, type, when it last synced, and how many records it holds, along with its sync schedule and its credentials, which you can update with **Edit credentials**. If access has expired, a banner asks you to **Reconnect**. For uploaded workbooks, it shows the original file and which sheet became which table. **Disconnect** removes the connection.
 
-**Tables** lists every table the connection brings in, with each table's status: **Synced**, **Syncing**, **Queued**, **Error**, or **Unavailable**. You can search tables and columns, sync a single table, download a table's data, and use **Manage tables** to choose which tables to sync, as long as at least one stays selected.
+**Tables** lists every table the connection brings in, with each table's status: **Synced**, **Syncing**, **Queued**, **Error**, or **Unavailable**. You can search tables and columns, sync a single table, download a table's data, and use **Manage tables** to choose which tables to sync, as long as at least one stays selected. If you change the selection and sync before saving, Pluvo asks **Save your table changes?** so you can include them in the sync or discard them.
 
 If you stop a sync partway, the connection is marked as cancelled rather than failed. Sync it again when you are ready, since it needs a complete run before the data can be used.
 

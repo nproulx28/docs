@@ -122,6 +122,10 @@ If a Table takes inputs, such as a date range, you can try different values in t
 
 Once published, a Table becomes a source you can build metrics on, and the Assistant can query it directly when answering, filtering, totaling, grouping, and ranking its rows rather than working the logic out again.
 
+### When the source data changes
+
+Pluvo re-checks a Table each time its data source syncs. When new data has arrived, the Table shows **New source data is available.** and updates itself. If an update fails, choose **Try again**. If a change you make cannot be saved because the Table no longer fits its data, **Fix in Assistant** opens the Assistant to repair it with you.
+
 <Tip>
   Define a Table when several metrics share the same underlying rows. It stops each one re-deriving the same logic, and a fix in one place fixes everything built on it.
 </Tip>
@@ -197,9 +201,17 @@ Open a rule to read it, edit it directly or with AI, activate or deactivate it, 
 
 Use a rule for something that must hold every time, and a skill for guidance that helps in context or that only part of the team needs.
 
+<Tip>
+  Your organization's brand kit, the colours, fonts, and logo for artifacts, can live here as a skill or a rule. The Assistant applies it to new artifacts automatically. See **Artifacts**.
+</Tip>
+
 ## Removing a metric or table
 
 Metrics and Tables can be deleted from their page or from the list. Deleting is permanent, so Pluvo asks you to confirm first.
+
+Deleting a Table that live sheets use lists those spreadsheets first. Their live sheets keep their current values but can no longer refresh.
+
+If a data source is disconnected, the confirmation lists the saved Tables and Metrics built on it. Those Tables and Metrics are marked **Source deleted** and cannot be restored.
 
 <Note>
   A metric that other metrics are built on cannot be deleted until those are removed. Pluvo names the dependent metrics so you know what is in the way, and the **Dependencies** section shows you the same picture before you try.

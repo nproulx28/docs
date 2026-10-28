@@ -35,6 +35,9 @@ Artifacts are built by the Assistant, and asking for one directly is what trigge
   <Step title="Ask for what you want">
     Describe it plainly, for example "Build an interactive dashboard of Q1 spend by department" or "Create a board presentation of our Q3 results."
   </Step>
+  <Step title="Answer a few questions">
+    If your request leaves room for interpretation, the Assistant asks a question or two first, with options to click, such as the period, the audience, or the look. A specific request skips straight to building.
+  </Step>
   <Step title="It gets built and saved">
     The Assistant queries the data it needs, builds the artifact, and saves it. It opens in a panel beside your conversation, and it is filed on the right page in the sidebar.
   </Step>
@@ -47,7 +50,9 @@ Artifacts are built by the Assistant, and asking for one directly is what trigge
 
 Artifacts carry their provenance with them, so you can interrogate any figure without leaving the page.
 
-Figures traced back to a query appear with a **dotted underline**. Click one to see its value, what it measures, the source it came from, the period, how it was calculated, and when the data was last synced. Expand **View query** to see the exact query that produced it. Tables and charts get their own button underneath, such as **SQL query behind this table**.
+Figures traced back to a query appear with a **dotted underline**. Click one to see its value, what it measures, the source it came from, the period, how it was calculated, and when the data was last synced. Expand **View query** to see the exact query that produced it. Hover any table or chart for **Source**, which opens the data behind it, and **CSV**, which downloads it.
+
+Figures can also come from a spreadsheet. Those show the spreadsheet, the cell, and the formula they came from, with a link to open it.
 
 <Tip>
   Not every number carries a dotted underline. Pluvo marks what it can trace and leaves the rest plain, so an unmarked figure means it was not traced, rather than that it is wrong.
@@ -57,9 +62,13 @@ Figures traced back to a query appear with a **dotted underline**. Click one to 
 
 An artifact holds the figures from when it was built or last refreshed, and it does not change on its own. When you need current numbers, choose **Refresh data**.
 
-Refreshing re-runs the queries behind the artifact and updates the figures, along with the wording around them so the two still agree. It takes a few minutes, and the previous version stays on screen until it succeeds, so a failed refresh never leaves you with a half-updated page. Anything you supplied yourself, or that was stated as an assumption, carries over untouched.
+How a refresh works depends on the kind of artifact.
 
-Each refresh creates a new version, so you can always see what changed.
+**Dashboards** refresh quickly. Every figure, table, and chart is drawn straight from the query behind it, so a refresh simply re-runs those queries and redraws the page. Because the page itself does not change, a dashboard refresh does not add a version to History.
+
+**Reports, presentations, and canvases** take a few minutes. A refresh re-runs the queries and updates the figures along with the wording around them, so the two still agree, and it adds a new version to History. Anything you supplied yourself, or that was stated as an assumption, carries over untouched.
+
+Either way, the previous version stays on screen until the refresh succeeds, so a failed refresh never leaves you with a half-updated page.
 
 <Note>
   Refreshing needs connected data to draw from. If your organization has no data connected, Pluvo tells you why the refresh could not run.
@@ -67,13 +76,38 @@ Each refresh creates a new version, so you can always see what changed.
 
 ## Editing an artifact
 
-You edit an artifact by asking the Assistant, and you can point at exactly the part you mean.
+Choose **Edit** on the artifact, then pick how you want to work.
 
-**Edit** on the artifact takes you to the Assistant with the artifact attached, so you can describe the change there. In the artifact panel beside your conversation, **Edit a section** lets you click the specific part you want changed and say what to change, and the Assistant rewrites just that section.
+**Edit with AI** opens the Assistant beside the artifact, picking up that artifact's own conversation. Describe the change, for example "change the Q3 column to show margin instead," and the Assistant edits it in place. **Edit a section** lets you click the exact part you mean first.
 
-You can also ask in the conversation, for example "change the Q3 column to show margin instead." The Assistant knows which artifact you are working on and edits it rather than building another.
+**Edit text** lets you change the wording yourself, directly on the page. Click any outlined passage or list to edit it, format with bold, italic, bullets, or numbers, and add or delete blocks. Undo works as you would expect. When you are done, choose **Save**.
 
-To ask about an artifact rather than change it, choose **Ask Assistant**. It opens a conversation with the artifact attached, and anyone who can view the artifact can use it.
+<Note>
+  Figures that come from your data cannot be typed over, which keeps every number traceable. You can delete one, or type @ to insert a figure from the artifact. Amounts you type yourself are underlined, as a reminder that they are not linked to your data.
+</Note>
+
+### Refreshing text you wrote yourself
+
+If you have edited wording by hand, **Refresh data** asks what to do with it:
+
+- **Rewrite them with the new data** updates your edited text along with the rest. Your version stays in History.
+- **Keep my words** updates only the numbers inside your text, then flags those passages so you can check the words still fit.
+
+The Assistant also leaves wording you wrote alone unless you specifically ask it to change it.
+
+To ask about an artifact rather than change it, choose **Ask Assistant**. Anyone who can view the artifact can use it.
+
+## Changing the look
+
+Every new artifact is styled to look polished in both light and dark mode. To change how it looks, ask the Assistant in plain words: a colour, a font, the title size, rounded or square corners, the chart colours, or the cover. Ask it to reset the look to undo your changes.
+
+Dashboards, presentations, and canvases can also take a fully custom theme, so you can describe the style you want.
+
+### Brand kits
+
+A brand kit is your organization's house style, saved in the **Library** as a skill or rule. When one applies to you, the Assistant uses it for every new artifact automatically. If several apply, it asks which one to use, and you can always ask for the standard Pluvo look instead.
+
+An artifact keeps the kit it was built with, so updating a brand kit later does not restyle artifacts you have already made.
 
 ## Version history
 
@@ -81,7 +115,7 @@ Every build, edit, refresh, and restore is kept.
 
 <Steps>
   <Step title="Open History">
-    Choose **History** on the artifact. Each version shows what changed, such as **Created**, **Edited**, **Section edited**, **Refreshed**, or **Restored**, along with when it happened.
+    Choose **History** from the artifact's **⋯** menu. Each version shows what changed, such as **Created**, **Edited**, **Section edited**, **Refreshed**, **Look changed**, or **Restored**, along with when it happened.
   </Step>
   <Step title="Preview an earlier version">
     Choose **Preview** to load it read-only. A banner tells you which version you are viewing, and **Back to latest** returns you.
@@ -93,13 +127,23 @@ Every build, edit, refresh, and restore is kept.
 
 ## Templates
 
-When you have built something worth reusing, such as a monthly dashboard layout or a board deck structure, save it as a template so anyone in your organization can start from it.
+When you have built something worth repeating, such as a monthly dashboard or a board deck, turn it into a template. A template keeps the structure, headings, and styling, but none of the numbers, so every time someone uses it, Pluvo builds a fresh version from current data.
 
-Choose **Save as template** from an artifact's menu. A copy becomes a template, including the numbers it shows today, and it appears on the **Templates** tab of that kind's page. To start from one, open it and choose **Use template**, which makes a fresh copy for you to work on.
+Dashboards, reports, and presentations can become templates. Canvases cannot.
 
-<Tip>
-  Refresh an artifact made from a template straight away, so its figures reflect today rather than the day the template was saved.
-</Tip>
+<Steps>
+  <Step title="Save it as a template">
+    Choose **Save as template** from the artifact's **⋯** menu. The Assistant opens beside it and asks a few questions, one at a time: whether the template should always use the same data or ask each time, how the period should be chosen, anything else that changes between uses such as entity or department, and what to call it.
+  </Step>
+  <Step title="Confirm">
+    The Assistant summarizes what it will save. Choose **Yes, save it**, or **No, I have changes** to adjust.
+  </Step>
+  <Step title="Share it">
+    A new template is private to you. To let others use it, choose **Share** and turn on **Everyone in your organization can use it**, or add specific people.
+  </Step>
+</Steps>
+
+To use a template, open it from the **Templates** tab and choose **Use template**. The Assistant builds a new version from your current data. A dashboard is rebuilt as an exact copy with its queries updated, while a report or presentation shows you a preview first and asks before building.
 
 ## Sharing an artifact
 
@@ -113,14 +157,13 @@ Each of the four pages has a tab for your own work, such as **Your dashboards**,
 
 Status tells you where an artifact stands: **Ready**, **Refreshing** while a refresh is running, or **Failed**. You can search by name, filter by status or by who created it, and sort by name or last updated.
 
-From an artifact, or its menu in the list, you can:
+Across the top of an artifact you will find **Ask Assistant**, **Edit**, **Refresh data**, and **Share**. Everything else lives in its **⋯** menu:
 
-- **Share** it with colleagues
-- **Edit** it with the Assistant
-- **Rename** it
-- **Save as template**, or start something new with **Use template**
-- **Download HTML** to save it as a single file you can open outside Pluvo
-- **Delete** it
+- **History**, to see and restore earlier versions
+- **Download HTML**, to save it as a single file you can open outside Pluvo
+- **Rename**
+- **Save as template**
+- **Delete**
 
 Deleting is permanent, so ask the Assistant to rebuild it if you need it back.
 
@@ -131,5 +174,5 @@ Deleting is permanent, so ask the Assistant to rebuild it if you need it back.
 </Tip>
 
 <Tip>
-  Before you share an artifact widely, open **History** and check you are handing over the version you mean.
+  Before you share an artifact widely, open **History** from the **⋯** menu and check you are handing over the version you mean.
 </Tip>
